@@ -284,13 +284,17 @@ function transpileTS(source, dest) {
     var tsResult = getChangedFiles(source, dest, '.js')
         .pipe($.sourcemaps.init())
         .pipe($.typescript({
-            removeComments: true,
+            removeComments: false,
             typescript: typescript,
             noImplicitAny: true,
             target: "es5"
         }));
 
     return tsResult.js
+        // write comments to tell istanbul to ignore the code inside the iife parameters
+        .pipe($.replace(/(}\)\()(.*\|\|.*;)/g, '$1/* istanbul ignore next */$2'))
+        // write comments to tell istanbul to ignore the extends code that typescript generates
+        .pipe($.replace(/(var __extends = \(this && this.__extends\))/g, '$1/* istanbul ignore next */'))    
         .pipe($.sourcemaps.write('.'))
         .pipe(gulp.dest(dest))
         .pipe(browserSync.stream());
