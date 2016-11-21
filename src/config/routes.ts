@@ -1,6 +1,6 @@
 /// <reference path="../../typings/index.d.ts" />
 
-module UIS.CMS.Editor {
+module MyHappyNails {
     'use strict';
 
     angular
