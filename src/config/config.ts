@@ -1,6 +1,6 @@
 /// <reference path="../../typings/index.d.ts" />
 
-namespace MyHappyNails {
+module MyHappyNails {
     'use strict';
 
     angular

@@ -1,6 +1,6 @@
 /// <reference path="../../typings/index.d.ts" />
 
-namespace MyHappyNails.Tests {
+module MyHappyNails.Tests {
     describe('SidenavController', (): void => {
         let $controller: ng.IControllerService;
         let $rootScope: ng.IRootScopeService;

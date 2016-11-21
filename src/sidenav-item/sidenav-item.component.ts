@@ -1,6 +1,6 @@
 /// <reference path="../../typings/index.d.ts" />
 
-namespace MyHappyNails.Sidenav.Item {
+module MyHappyNails.Sidenav.Item {
     'use strict';
 
     const component: ng.IComponentOptions = {
