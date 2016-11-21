@@ -1,10 +1,11 @@
-/// <reference path="../typings/index.d.ts" />
+/// <reference path="../../typings/index.d.ts" />
 
 module MyHappyNails.Tests {
     describe('module: CONFIG', (): void => {
         let $locationProvider: ng.ILocationProvider;
 
         beforeEach((): void => {
+            var MyHappyNails: any = null;
             angular.module('locationProviderConfig', [])
                 .config((_$locationProvider_: ng.ILocationProvider): void => {
                     $locationProvider = _$locationProvider_;
