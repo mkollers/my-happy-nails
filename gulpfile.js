@@ -25,7 +25,6 @@ gulp.task('build', ['build:dev'], function () {
 
     return gulp.src(config.temp + 'index.html')
         .pipe($.useref({ searchPath: '.' }))
-        .pipe($.if('*.js', $.ngAnnotate({ add: true })))
         .pipe($.if('*.js', $.uglify()))
         .pipe($.if('*.js', getHeader()))
         .pipe($.if('*.css', $.csso()))
@@ -295,6 +294,7 @@ function transpileTS(source, dest) {
         .pipe($.replace(/(}\)\()(.*\|\|.*;)/g, '$1/* istanbul ignore next */$2'))
         // write comments to tell istanbul to ignore the extends code that typescript generates
         .pipe($.replace(/(var __extends = \(this && this.__extends\))/g, '$1/* istanbul ignore next */'))    
+        .pipe($.ngAnnotate({ add: true }))
         .pipe($.sourcemaps.write('.'))
         .pipe(gulp.dest(dest))
         .pipe(browserSync.stream());
@@ -328,6 +328,7 @@ function startBrowserSync(isDev, specRunner) {
         gulp.watch([config.scss], ['styles']).on('change', changeEvent);
         gulp.watch([config.ts], ['scripts']).on('change', changeEvent);
         gulp.watch([config.templates], ['templatecache']).on('change', changeEvent);
+        gulp.watch(config.index, ['browserSyncReload']).on('change', changeEvent);
     } else {
         gulp.watch([config.scss, config.ts, config.templates], ['browserSyncReload']).on('change', changeEvent);
     }
