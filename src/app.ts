@@ -11,8 +11,9 @@ module MyHappyNails {
         // 3rd Party Modules
         'angulartics',
         'angulartics.google.analytics',
-        'ui.router'
+        'ui.router',
 
-        // Custom modules	
+        // Custom modules
+        'my-happy-nails.sidenav'
     ]);
 }

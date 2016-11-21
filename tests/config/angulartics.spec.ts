@@ -1,6 +1,6 @@
 /// <reference path="../../typings/index.d.ts" />
 
-module MyHappyNails.Tests {
+namespace MyHappyNails.Tests {
     describe('module: CONFIG', (): void => {
         let $analyticsProvider: angulartics.IAnalyticsServiceProvider;
 

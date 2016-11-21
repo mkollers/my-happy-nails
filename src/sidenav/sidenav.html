@@ -1,0 +1,9 @@
+<md-sidenav md-whiteframe="4" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+    <img id="logo" alt="Logo von My Happy Nails" src="logo.svg">
+    <md-divider></md-divider>
+    <md-list>
+        <md-list-item ng-repeat="item in ::sidenav.items">
+            <mhn-sidenav-item view="::item.view" title="::item.title" icon="::item.icon" name="::item.name" />
+        </md-list-item>
+    </md-list>
+</md-sidenav>

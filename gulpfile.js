@@ -20,7 +20,7 @@ gulp.task('browserSyncReload', ['build'], browserSync.reload);
 /**
  * Build everything
  */
-gulp.task('build', ['build:dev'], function () {
+gulp.task('build', ['build:dev', 'shared:dist'], function () {
     log('Building everything...');
 
     return gulp.src(config.temp + 'index.html')
@@ -32,10 +32,20 @@ gulp.task('build', ['build:dev'], function () {
         .pipe(gulp.dest(config.build));
 });
 
+gulp.task('shared', function () {
+    return gulp.src(config.src + 'shared/**/*')
+        .pipe(gulp.dest(config.temp));
+});
+
+gulp.task('shared:dist', function () {
+    return gulp.src(config.src + 'shared/**/*')
+        .pipe(gulp.dest(config.build));
+});
+
 /**
  * Building everything into a temp folder 
  */
-gulp.task('build:dev', ['inject'], function () {
+gulp.task('build:dev', ['inject', 'shared'], function () {
     log('Building for Development...');
 });
 
@@ -51,6 +61,13 @@ gulp.task('inject', ['styles', 'scripts', 'templatecache'], function () {
         .src(config.temp + 'scripts/**/*.js')
         .pipe($.angularFilesort());
 
+    var injectTests = gulp
+        .src([
+            config.temp + 'scripts/**/*.js',
+            config.temp + 'tests/**/*.spec.js'
+        ])
+        .pipe($.angularFilesort());
+
     var index = gulp
         .src(config.index)
         .pipe(wiredep(config.wiredepDefaultOptions))
@@ -61,10 +78,7 @@ gulp.task('inject', ['styles', 'scripts', 'templatecache'], function () {
 
     var test = gulp
         .src('./karma.conf.js')
-        .pipe($.inject(gulp.src([
-            config.temp + 'scripts/**/*.js',
-            config.temp + 'tests/**/*.spec.js'
-        ], { read: false }), {
+        .pipe($.inject(injectTests, {
                 starttag: '// inject:js',
                 endtag: '// endbower',
                 relative: true,
@@ -166,7 +180,8 @@ gulp.task('styles', ['clean-styles'], function () {
         .pipe($.sass().on('error', $.sass.logError))
         .pipe($.autoprefixer({ browsers: ['last 5 versions'] }))
         .pipe($.sourcemaps.write('.'))
-        .pipe(gulp.dest(config.temp + 'styles'));
+        .pipe(gulp.dest(config.temp + 'styles'))
+        .pipe(browserSync.stream());
 });
 
 /**
@@ -293,7 +308,7 @@ function transpileTS(source, dest) {
         // write comments to tell istanbul to ignore the code inside the iife parameters
         .pipe($.replace(/(}\)\()(.*\|\|.*;)/g, '$1/* istanbul ignore next */$2'))
         // write comments to tell istanbul to ignore the extends code that typescript generates
-        .pipe($.replace(/(var __extends = \(this && this.__extends\))/g, '$1/* istanbul ignore next */'))    
+        .pipe($.replace(/(var __extends = \(this && this.__extends\))/g, '$1/* istanbul ignore next */'))
         .pipe($.ngAnnotate({ add: true }))
         .pipe($.sourcemaps.write('.'))
         .pipe(gulp.dest(dest))

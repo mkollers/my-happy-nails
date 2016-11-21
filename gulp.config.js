@@ -35,7 +35,7 @@ const config = {
     templateCache: {
         file: 'templates.js',
         options: {
-            root: './my-happy-nails',
+            root: '/my-happy-nails',
             module: 'my-happy-nails',
             standAlone: false
         }
