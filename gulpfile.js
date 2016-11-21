@@ -52,13 +52,28 @@ gulp.task('inject', ['styles', 'scripts', 'templatecache'], function () {
         .src(config.temp + 'scripts/**/*.js')
         .pipe($.angularFilesort());
 
-    return gulp
+    var index = gulp
         .src(config.index)
         .pipe(wiredep(config.wiredepDefaultOptions))
         .pipe($.inject(injectScripts))
         .pipe($.inject(injectStyles))
         .pipe(gulp.dest(config.temp))
         .pipe(browserSync.stream());
+
+    var test = gulp
+        .src('./karma.conf.js')
+        .pipe($.inject(gulp.src(config.temp + 'scripts/**/*.js', { read: false }), {
+            starttag: '// inject:js',
+            endtag: '// endbower',
+            relative: true,
+            transform: function (filepath, file, i, length) {
+                return '  "' + filepath + '"' + (i + 1 < length ? ',' : '');
+            }
+        }))
+        .pipe((wiredep(config.wiredepDefaultOptions)))
+        .pipe(gulp.dest('./'));
+
+    return es.concat(index, test);
 });
 
 /**
@@ -78,22 +93,15 @@ gulp.task('serve', ['build'], function () {
  * tests the code and create coverage report
  * @return {Stream}
  */
-gulp.task('test', ['scripts'], function (done) {
+gulp.task('test', ['inject'], function (done) {
     log('Testing...');
 
     var Server = karma.Server;
     new Server({
         configFile: __dirname + '/karma.conf.js'
-    }, karmaCompleted).start();
-
-    function karmaCompleted(karmaResult) {
-        log('Karma completed');
-        if (karmaResult === 1) {
-            done('karma: tests failed');
-        } else {
-            done();
-        }
-    }
+    }, function () {
+        done();
+    }).start();
 });
 
 /**
@@ -119,7 +127,7 @@ gulp.task('scripts', ['lint', 'clean-code', 'templatecache'], function () {
     log('Transpiling TS --> JS');
 
     var src = transpileTS(config.ts, config.temp + 'scripts');
-    var test = transpileTS(config.tests, config.temp + + 'tests');
+    var test = transpileTS(config.tests, config.temp + 'tests');
 
     return es.concat(src, test);
 });
