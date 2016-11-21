@@ -27,9 +27,12 @@ module.exports = function(config) {
             "bower_components/angulartics/src/angulartics.js",
             "bower_components/angulartics-google-analytics/lib/angulartics-ga.js",
             // endbower
+            'node_modules/angular-mocks/angular-mocks.js',
             // inject:js
-                                ".tmp/scripts/app.js"
-                              // endbower
+                ".tmp/scripts/app.js",
+                ".tmp/scripts/config/config.js",
+                ".tmp/tests/app.config.spec.js"
+              // endbower
         ],
 
         // list of files to exclude

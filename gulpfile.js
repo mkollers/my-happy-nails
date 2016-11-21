@@ -62,14 +62,17 @@ gulp.task('inject', ['styles', 'scripts', 'templatecache'], function () {
 
     var test = gulp
         .src('./karma.conf.js')
-        .pipe($.inject(gulp.src(config.temp + 'scripts/**/*.js', { read: false }), {
-            starttag: '// inject:js',
-            endtag: '// endbower',
-            relative: true,
-            transform: function (filepath, file, i, length) {
-                return '  "' + filepath + '"' + (i + 1 < length ? ',' : '');
-            }
-        }))
+        .pipe($.inject(gulp.src([
+            config.temp + 'scripts/**/*.js',
+            config.temp + 'tests/**/*.spec.js'
+        ], { read: false }), {
+                starttag: '// inject:js',
+                endtag: '// endbower',
+                relative: true,
+                transform: function (filepath, file, i, length) {
+                    return '  "' + filepath + '"' + (i + 1 < length ? ',' : '');
+                }
+            }))
         .pipe((wiredep(config.wiredepDefaultOptions)))
         .pipe(gulp.dest('./'));
 
