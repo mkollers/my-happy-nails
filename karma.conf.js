@@ -29,13 +29,15 @@ module.exports = function(config) {
             // endbower
             'node_modules/angular-mocks/angular-mocks.js',
             // inject:js
-                                                      ".tmp/scripts/app.js",
-                                                      ".tmp/scripts/config/config.js",
-                                                      ".tmp/scripts/config/routes.js",
-                                                      ".tmp/tests/app.config.spec.js",
-                                                      ".tmp/tests/config/config.spec.js",
-                                                      ".tmp/tests/config/routes.spec.js"
-                                                    // endbower
+                                                        ".tmp/scripts/app.js",
+                                                        ".tmp/scripts/config/angulartics.js",
+                                                        ".tmp/scripts/config/config.js",
+                                                        ".tmp/scripts/config/routes.js",
+                                                        ".tmp/tests/app.config.spec.js",
+                                                        ".tmp/tests/config/angulartics.spec.js",
+                                                        ".tmp/tests/config/config.spec.js",
+                                                        ".tmp/tests/config/routes.spec.js"
+                                                      // endbower
         ],
 
         // list of files to exclude
