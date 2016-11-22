@@ -49,6 +49,10 @@ gulp.task('build:dev', ['inject', 'shared'], function () {
     log('Building for Development...');
 });
 
+/**
+ * Inject bower_components and all scripts under source into index.html
+ * and this + tests into karma.conf.js   
+ */
 gulp.task('inject', ['styles', 'scripts', 'templatecache'], function () {
     log('Wire up css and js into the html, after files are ready');
 
@@ -128,11 +132,22 @@ gulp.task('lint', function () {
     log('Analyzing source with TSLint');
 
     var reporter = args.verbose ? 'verbose' : 'prose';
-    return getChangedFiles(config.ts, config.build, '.js')
+
+    var src = getChangedFiles(config.ts, config.temp + 'scripts', '.js')
         .pipe($.tslint({
-            formatter: reporter
+            formatter: reporter,
+            emitError: false
         }))
         .pipe($.tslint.report());
+
+    var test = getChangedFiles(config.tests, config.temp + 'tests', '.js')
+        .pipe($.tslint({
+            formatter: reporter,
+            emitError: false
+        }))
+        .pipe($.tslint.report());
+
+    return es.concat(src, test);
 });
 
 /**
@@ -142,8 +157,8 @@ gulp.task('lint', function () {
 gulp.task('scripts', ['lint', 'clean-code', 'templatecache'], function () {
     log('Transpiling TS --> JS');
 
-    var src = transpileTS(config.ts, config.temp + 'scripts');
-    var test = transpileTS(config.tests, config.temp + 'tests');
+    var src = transpileTS(config.ts, config.temp + 'scripts', true);
+    var test = transpileTS(config.tests, config.temp + 'tests', false);
 
     return es.concat(src, test);
 });
@@ -301,7 +316,7 @@ function log(msg) {
  * Transpile ts to js 
  * @return {Stream}
  */
-function transpileTS(source, dest) {
+function transpileTS(source, dest, annotate) {
     var tsResult = getChangedFiles(source, dest, '.js')
         .pipe($.sourcemaps.init())
         .pipe($.typescript({
@@ -316,7 +331,7 @@ function transpileTS(source, dest) {
         .pipe($.replace(/(}\)\()(.*\|\|.*;)/g, '$1/* istanbul ignore next */$2'))
         // write comments to tell istanbul to ignore the extends code that typescript generates
         .pipe($.replace(/(var __extends = \(this && this.__extends\))/g, '$1/* istanbul ignore next */'))
-        .pipe($.ngAnnotate({ add: true }))
+        .pipe($.if(annotate, $.ngAnnotate({ add: true })))
         .pipe($.sourcemaps.write('.'))
         .pipe(gulp.dest(dest))
         .pipe(browserSync.stream());

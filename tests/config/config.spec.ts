@@ -1,7 +1,7 @@
 /// <reference path="../../typings/index.d.ts" />
 
-module MyHappyNails.Tests {
-    describe('module: CONFIG', (): void => {
+module MyHappyNails {
+    describe('config', (): void => {
         let $locationProvider: ng.ILocationProvider;
 
         beforeEach((): void => {

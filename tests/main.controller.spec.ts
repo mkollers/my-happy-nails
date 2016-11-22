@@ -1,6 +1,6 @@
 /// <reference path="../typings/index.d.ts" />
 
-module MyHappyNails.Tests {
+module MyHappyNails {
     describe('MainController', (): void => {
         let $controller: ng.IControllerService;
         let $rootScope: ng.IRootScopeService;
@@ -16,7 +16,7 @@ module MyHappyNails.Tests {
             // Arrange
 
             // Act
-            const controller = $controller<MyHappyNails.IMainController>('MainController');
+            const controller = $controller<IMainController>('MainController');
             $rootScope.$digest();
 
             // Assert
