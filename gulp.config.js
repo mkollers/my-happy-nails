@@ -1,10 +1,12 @@
+var bower_json = require('./bower.json');
+
 const temp = './.tmp/';
 const build = './dist/';
 const src = './src/';
 const index = src + 'index.html';
 const test = './tests/';
 const bower = {
-    json: require('./bower.json'),
+    json: bower_json,
     directory: './bower_components/',
     ignorePath: '..'
 };

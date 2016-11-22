@@ -5,7 +5,9 @@ var del = require('del');
 var es = require('event-stream');
 var gulp = require('gulp');
 var karma = require('karma');
+var path = require("path");
 var port = process.env.PORT || config.defaultPort;
+var package_json = require('./package.json');
 var typescript = require('typescript');
 var wiredep = require('wiredep').stream;
 var $ = require('gulp-load-plugins')({ lazy: false });
@@ -33,13 +35,11 @@ gulp.task('build', ['build:dev', 'shared:dist'], function () {
 });
 
 gulp.task('shared', function () {
-    return gulp.src(config.src + 'shared/**/*')
-        .pipe(gulp.dest(config.temp));
+    return copy(config.src + 'shared/**/*', config.temp);
 });
 
 gulp.task('shared:dist', function () {
-    return gulp.src(config.src + 'shared/**/*')
-        .pipe(gulp.dest(config.build));
+    return copy(config.src + 'shared/**/*', config.build)
 });
 
 /**
@@ -79,13 +79,13 @@ gulp.task('inject', ['styles', 'scripts', 'templatecache'], function () {
     var test = gulp
         .src('./karma.conf.js')
         .pipe($.inject(injectTests, {
-                starttag: '// inject:js',
-                endtag: '// endbower',
-                relative: true,
-                transform: function (filepath, file, i, length) {
-                    return '  "' + filepath + '"' + (i + 1 < length ? ',' : '');
-                }
-            }))
+            starttag: '// inject:js',
+            endtag: '// endbower',
+            relative: true,
+            transform: function (filepath, file, i, length) {
+                return '  "' + filepath + '"' + (i + 1 < length ? ',' : '');
+            }
+        }))
         .pipe((wiredep(config.wiredepDefaultOptions)))
         .pipe(gulp.dest('./'));
 
@@ -114,7 +114,7 @@ gulp.task('test', ['inject'], function (done) {
 
     var Server = karma.Server;
     new Server({
-        configFile: __dirname + '/karma.conf.js'
+        configFile: path.join(__dirname, 'karma.conf.js')
     }, function () {
         done();
     }).start();
@@ -189,11 +189,10 @@ gulp.task('styles', ['clean-styles'], function () {
  * @param  {Function} done - callback when complete
  */
 gulp.task('clean-styles', function (done) {
-    var files = [].concat(
+    clean([
         config.temp + 'styles/**/*',
         config.build + '**/*.css'
-    );
-    clean(files, done);
+    ], done);
 });
 
 /**
@@ -201,14 +200,22 @@ gulp.task('clean-styles', function (done) {
  * @param  {Function} done - callback when complete
  */
 gulp.task('clean-code', function (done) {
-    var files = [].concat(
+    clean([
         config.temp + 'scripts/**/*',
         config.build + '**/*.js'
-    );
-    clean(files, done);
+    ], done);
 });
 
 /////////////////////////////////////////////////
+
+/**
+ * Copy files, changed since the last transpilation 
+ * @return {Stream}
+ */
+function copy(source, dest) {
+    return gulp.src(source)
+        .pipe(gulp.dest(dest));
+}
 
 /**
  * Formatter for bytediff to display the size changes after processing
@@ -259,7 +266,7 @@ function getChangedFiles(source, dest, ext) {
  * @return {String}           Formatted file header
  */
 function getHeader() {
-    var pkg = require('./package.json');
+    var pkg = package_json;
     var template = ['/**',
         ' * <%= pkg.name %> - <%= pkg.description %>',
         ' * @authors <%= pkg.author %>',

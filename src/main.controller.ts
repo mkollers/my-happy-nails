@@ -4,11 +4,11 @@ module MyHappyNails {
     'use strict';
 
     export interface IMainController {
-        sidenavItems: Sidenav.ISidenavItem[];
+        sidenavItems: ISidenavItem[];
     }
 
     class MainController implements IMainController {
-        sidenavItems: Sidenav.ISidenavItem[];
+        sidenavItems: ISidenavItem[];
 
         constructor() {
             this.sidenavItems = [{
