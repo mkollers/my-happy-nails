@@ -13,11 +13,22 @@
    height="29.250345mm"
    viewBox="0 0 269.00219 103.64296"
    id="svg2"
-   version="1.1"
-   inkscape:version="0.91 r13725"
-   sodipodi:docname="Zeichnung.svg">
-  <defs
-     id="defs4" />
+   version="1.1">
+  <defs id="defs4">
+     <style type="text/css">
+        @font-face {
+            font-family: Cotillion;
+            src: url('cotillion-regular.svg#cotillion') format('svg'),
+                 url('cotillion-regular.eot'),
+                 url('cotillion-regular.eot?#iefix') format('embedded-opentype'),
+                 url('cotillion-regular.woff') format('woff'),
+                 url('cotillion-regular.woff2') format('woff2'), 
+                 url('cotillion-regular.ttf') format('truetype');                 
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+  </defs>
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
