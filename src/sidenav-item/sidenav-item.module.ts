@@ -1,6 +1,6 @@
 /// <reference path="../../typings/index.d.ts"/>
 
-module MyHappyNails.Sidenav.Item {
+module MyHappyNails {
     'use strict';
 
     angular.module('my-happy-nails.sidenav.item', [
