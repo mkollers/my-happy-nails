@@ -1,0 +1,6 @@
+[![Visual Studio Team services](https://img.shields.io/vso/build/mkollers/0bcaeea1-2d93-4fcb-9099-bf75ea604a06/10.svg)]()
+[![Code Climate](https://codeclimate.com/github/mkollers/my-happy-nails/badges/gpa.svg)](https://codeclimate.com/github/mkollers/my-happy-nails)
+[![Test Coverage](https://codeclimate.com/github/mkollers/my-happy-nails/badges/coverage.svg)](https://codeclimate.com/github/mkollers/my-happy-nails/coverage)
+[![Issue Count](https://codeclimate.com/github/mkollers/my-happy-nails/badges/issue_count.svg)](https://codeclimate.com/github/mkollers/my-happy-nails)
+![David](https://david-dm.org/mkollers/my-happy-nails/status.svg)
+![David](https://david-dm.org/mkollers/my-happy-nails/dev-status.svg)
