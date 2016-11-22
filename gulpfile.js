@@ -1,4 +1,5 @@
 var args = require('yargs').argv;
+var azureDeploy = require('azure-deploy');
 var browserSync = require('browser-sync').create();
 var config = require('./gulp.config');
 var del = require('del');
@@ -119,9 +120,19 @@ gulp.task('test', ['inject'], function (done) {
     var Server = karma.Server;
     new Server({
         configFile: path.join(__dirname, 'karma.conf.js')
-    }, function () {
-        done();
+    }, function (err) {
+        done(err);
     }).start();
+});
+
+gulp.task('publish', function(done) {
+  var deploymentManager = new azureDeploy.AzureWebSiteDeploymentManager(process.env.AZURE_WA_SITE, process.env.AZURE_WA_USERNAME, process.env.AZURE_WA_PASSWORD);
+
+  deploymentManager.deploy(paths.build).then(function(cb) {
+    done();
+  }).catch(function(error) {
+    done(error);
+  });
 });
 
 /**
