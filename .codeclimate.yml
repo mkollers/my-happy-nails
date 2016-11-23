@@ -17,6 +17,8 @@ ratings:
   - "**.js"
   - "**.ts"
   - "**.scss"
+  - "**.html"
+  - "**.json"
   - "**.jsx"
   - "**.module"
   - "**.php"
