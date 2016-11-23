@@ -19,17 +19,17 @@ module MyHappyNails {
             }, {
                 'name': 'Preise',
                 'title': 'Übersicht aller aktuellen Leistungen, Preise und Rabatte',
-                'view': 'index.prices',
+                'view': 'prices',
                 'icon': '&#xE227;'
             }, {
                 'name': 'Bilder',
                 'title': 'Bilder und Impressionen meiner Arbeiten',
-                'view': 'index.images',
+                'view': 'images',
                 'icon': '&#xE3B6;'
             }, {
                 'name': 'Kontakt',
                 'title': 'Wo findet Ihr mich? Wie könnt Ihr mich erreichen?',
-                'view': 'index.contact',
+                'view': 'contact',
                 'icon': '&#xE55F;'
             }];
         }
