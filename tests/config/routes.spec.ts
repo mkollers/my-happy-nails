@@ -16,7 +16,6 @@ module MyHappyNails {
         });
 
         it('should set default route to root', (): void => {
-            console.log($urlRouterProvider);
             expect($urlRouterProvider.otherwise).toHaveBeenCalledWith('/');
         });
     });
