@@ -49,7 +49,7 @@ gulp.task('shared:dist', function () {
 gulp.task('codeclimate', function () {
     return gulp
         .src(config.temp + 'coverage/lcov.info', { read: false })
-        .pipe(reporter({ token: process.env.CODECLIMATE_REPO_TOKEN }));
+        .pipe($.codeclimateReporter({ token: process.env.CODECLIMATE_REPO_TOKEN }));
 });
 
 /**
