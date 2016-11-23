@@ -165,7 +165,7 @@ gulp.task('lint', function () {
  * Transpile ts to js 
  * @return {Stream}
  */
-gulp.task('scripts', ['lint', 'clean-code', 'templatecache'], function () {
+gulp.task('scripts', ['lint', 'templatecache'], function () {
     log('Transpiling TS --> JS');
 
     var src = transpileTS(config.ts, config.temp + 'scripts', true);

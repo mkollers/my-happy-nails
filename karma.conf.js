@@ -29,25 +29,25 @@ module.exports = function(config) {
             // endbower
             'node_modules/angular-mocks/angular-mocks.js',
             // inject:js
-                    ".tmp/tests/sidenav-item/sidenav-item.controller.spec.js",
-                    ".tmp/tests/sidenav/sidenav.controller.spec.js",
-                    ".tmp/tests/config/routes.spec.js",
-                    ".tmp/tests/config/config.spec.js",
-                    ".tmp/tests/config/angulartics.spec.js",
-                    ".tmp/tests/main.controller.spec.js",
-                    ".tmp/scripts/sidenav-item/sidenav-item.module.js",
-                    ".tmp/scripts/sidenav-item/sidenav-item.controller.js",
-                    ".tmp/scripts/sidenav-item/sidenav-item.component.js",
-                    ".tmp/scripts/sidenav/sidenav.module.js",
-                    ".tmp/scripts/sidenav/sidenav.controller.js",
-                    ".tmp/scripts/sidenav/sidenav.component.js",
-                    ".tmp/scripts/app.js",
-                    ".tmp/scripts/config/routes.js",
-                    ".tmp/scripts/config/config.js",
-                    ".tmp/scripts/config/angulartics.js",
-                    ".tmp/scripts/templates.js",
-                    ".tmp/scripts/main.controller.js"
-                  // endbower
+                                  ".tmp/tests/sidenav-item/sidenav-item.controller.spec.js",
+                                  ".tmp/tests/sidenav/sidenav.controller.spec.js",
+                                  ".tmp/tests/config/routes.spec.js",
+                                  ".tmp/tests/config/config.spec.js",
+                                  ".tmp/tests/config/angulartics.spec.js",
+                                  ".tmp/tests/main.controller.spec.js",
+                                  ".tmp/scripts/sidenav-item/sidenav-item.module.js",
+                                  ".tmp/scripts/sidenav-item/sidenav-item.controller.js",
+                                  ".tmp/scripts/sidenav-item/sidenav-item.component.js",
+                                  ".tmp/scripts/sidenav/sidenav.module.js",
+                                  ".tmp/scripts/sidenav/sidenav.controller.js",
+                                  ".tmp/scripts/sidenav/sidenav.component.js",
+                                  ".tmp/scripts/app.js",
+                                  ".tmp/scripts/config/routes.js",
+                                  ".tmp/scripts/config/config.js",
+                                  ".tmp/scripts/config/angulartics.js",
+                                  ".tmp/scripts/templates.js",
+                                  ".tmp/scripts/main.controller.js"
+                                // endbower
         ],
 
         // list of files to exclude
