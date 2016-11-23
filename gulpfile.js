@@ -44,6 +44,15 @@ gulp.task('shared:dist', function () {
 });
 
 /**
+ * Reports coverage report to codeclimate
+ */
+gulp.task('codeclimate', function () {
+    return gulp
+        .src(config.temp + 'coverage/lcov.info', { read: false })
+        .pipe(reporter({ token: process.env.CODECLIMATE_REPO_TOKEN }));
+});
+
+/**
  * Building everything into a temp folder 
  */
 gulp.task('build:dev', ['inject', 'shared'], function () {
@@ -125,14 +134,14 @@ gulp.task('test', ['inject'], function (done) {
     }).start();
 });
 
-gulp.task('publish', function(done) {
-  var deploymentManager = new azureDeploy.AzureWebSiteDeploymentManager(process.env.AZURE_WA_SITE, process.env.AZURE_WA_USERNAME, process.env.AZURE_WA_PASSWORD);
+gulp.task('publish', function (done) {
+    var deploymentManager = new azureDeploy.AzureWebSiteDeploymentManager(process.env.AZURE_WA_SITE, process.env.AZURE_WA_USERNAME, process.env.AZURE_WA_PASSWORD);
 
-  deploymentManager.deploy(paths.build).then(function(cb) {
-    done();
-  }).catch(function(error) {
-    done(error);
-  });
+    deploymentManager.deploy(paths.build).then(function (cb) {
+        done();
+    }).catch(function (error) {
+        done(error);
+    });
 });
 
 /**
