@@ -1,6 +1,7 @@
 {
   "globalDependencies": {
     "angular": "registry:dt/angular#1.5.0+20161101124950",
+    "angular-material": "registry:dt/angular-material#1.1.0-rc5.0+20161028134338",
     "angular-mocks": "registry:dt/angular-mocks#1.5.0+20160608104721",
     "angular-ui-router": "registry:dt/angular-ui-router#1.1.5+20160810191828",
     "angulartics": "registry:dt/angulartics#0.20.2+20160317120654",

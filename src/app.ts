@@ -5,12 +5,12 @@ module MyHappyNails {
 
     angular.module('my-happy-nails', [
         // Angular modules
-        'ngMaterial',
         'ngSanitize',
 
         // 3rd Party Modules
         'angulartics',
         'angulartics.google.analytics',
+        'ngMaterial',
         'ui.router',
 
         // Custom modules

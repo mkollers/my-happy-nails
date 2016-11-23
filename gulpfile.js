@@ -120,8 +120,8 @@ gulp.task('test', ['inject'], function (done) {
     var Server = karma.Server;
     new Server({
         configFile: path.join(__dirname, 'karma.conf.js')
-    }, function (err) {
-        done(err);
+    }, function () {
+        done();
     }).start();
 });
 

@@ -1,7 +1,7 @@
 // Karma configuration
 // Generated on Mon Nov 21 2016 15:21:26 GMT+0100 (Mitteleuropäische Zeit)
 
-module.exports = function(config) {
+module.exports = function (config) {
     config.set({
 
         // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -29,25 +29,27 @@ module.exports = function(config) {
             // endbower
             'node_modules/angular-mocks/angular-mocks.js',
             // inject:js
-                                  ".tmp/tests/sidenav-item/sidenav-item.controller.spec.js",
-                                  ".tmp/tests/sidenav/sidenav.controller.spec.js",
-                                  ".tmp/tests/config/routes.spec.js",
-                                  ".tmp/tests/config/config.spec.js",
-                                  ".tmp/tests/config/angulartics.spec.js",
-                                  ".tmp/tests/main.controller.spec.js",
-                                  ".tmp/scripts/sidenav-item/sidenav-item.module.js",
-                                  ".tmp/scripts/sidenav-item/sidenav-item.controller.js",
-                                  ".tmp/scripts/sidenav-item/sidenav-item.component.js",
-                                  ".tmp/scripts/sidenav/sidenav.module.js",
-                                  ".tmp/scripts/sidenav/sidenav.controller.js",
-                                  ".tmp/scripts/sidenav/sidenav.component.js",
-                                  ".tmp/scripts/app.js",
-                                  ".tmp/scripts/config/routes.js",
-                                  ".tmp/scripts/config/config.js",
-                                  ".tmp/scripts/config/angulartics.js",
-                                  ".tmp/scripts/templates.js",
-                                  ".tmp/scripts/main.controller.js"
-                                // endbower
+                                          ".tmp/tests/sidenav-item/sidenav-item.controller.spec.js",
+                                          ".tmp/tests/sidenav/sidenav.controller.spec.js",
+                                          ".tmp/tests/config/theme.spec.js",
+                                          ".tmp/tests/config/routes.spec.js",
+                                          ".tmp/tests/config/config.spec.js",
+                                          ".tmp/tests/config/angulartics.spec.js",
+                                          ".tmp/tests/main.controller.spec.js",
+                                          ".tmp/scripts/sidenav-item/sidenav-item.module.js",
+                                          ".tmp/scripts/sidenav-item/sidenav-item.controller.js",
+                                          ".tmp/scripts/sidenav-item/sidenav-item.component.js",
+                                          ".tmp/scripts/sidenav/sidenav.module.js",
+                                          ".tmp/scripts/sidenav/sidenav.controller.js",
+                                          ".tmp/scripts/sidenav/sidenav.component.js",
+                                          ".tmp/scripts/app.js",
+                                          ".tmp/scripts/config/theme.js",
+                                          ".tmp/scripts/config/routes.js",
+                                          ".tmp/scripts/config/config.js",
+                                          ".tmp/scripts/config/angulartics.js",
+                                          ".tmp/scripts/templates.js",
+                                          ".tmp/scripts/main.controller.js"
+                                        // endbower
         ],
 
         // list of files to exclude
@@ -87,6 +89,7 @@ module.exports = function(config) {
         plugins: [
             'karma-junit-reporter',
             'karma-phantomjs-launcher',
+            'karma-chrome-launcher',
             'karma-jasmine',
             'karma-coverage',
             'karma-remap-istanbul'

@@ -1,4 +1,3 @@
-/// <reference path="sidenav/sidenav.controller.ts" />
 /// <reference path="../typings/index.d.ts" />
 
 module MyHappyNails {
