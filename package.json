@@ -9,7 +9,7 @@
     "postinstall": "bower install && typings install",
     "start": "node_modules/.bin/gulp serve:dev",
     "test": "node_modules/.bin/gulp test",
-    "codeclimate": "node_modules/.bin/gulp codeclimate"
+    "codeclimate": "node_modules/.bin/codeclimate-test-reporter < .tmp/coverage/lcov.info"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.8",

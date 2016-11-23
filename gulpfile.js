@@ -44,15 +44,6 @@ gulp.task('shared:dist', function () {
 });
 
 /**
- * Reports coverage report to codeclimate
- */
-gulp.task('codeclimate', function () {
-    return gulp
-        .src(config.temp + 'coverage/lcov.info', { read: false })
-        .pipe($.codeclimateReporter({ token: process.env.CODECLIMATE_REPO_TOKEN }));
-});
-
-/**
  * Building everything into a temp folder 
  */
 gulp.task('build:dev', ['inject', 'shared'], function () {
