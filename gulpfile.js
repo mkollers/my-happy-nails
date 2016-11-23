@@ -198,7 +198,7 @@ gulp.task('templatecache', function () {
  * Compile sass to css and copy css
  * @return {Stream}
  */
-gulp.task('styles', ['clean-styles'], function () {
+gulp.task('styles', function () {
     log('Compiling Sass --> CSS');
 
     return getChangedFiles(config.scss, config.temp, '.css')
@@ -208,28 +208,6 @@ gulp.task('styles', ['clean-styles'], function () {
         .pipe($.sourcemaps.write('.'))
         .pipe(gulp.dest(config.temp + 'styles'))
         .pipe(browserSync.stream());
-});
-
-/**
- * Remove all styles from the build and temp folders
- * @param  {Function} done - callback when complete
- */
-gulp.task('clean-styles', function (done) {
-    clean([
-        config.temp + 'styles/**/*',
-        config.build + '**/*.css'
-    ], done);
-});
-
-/**
- * Remove all js from the build and temp folders
- * @param  {Function} done - callback when complete
- */
-gulp.task('clean-code', function (done) {
-    clean([
-        config.temp + 'scripts/**/*',
-        config.build + '**/*.js'
-    ], done);
 });
 
 /////////////////////////////////////////////////
