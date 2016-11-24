@@ -110,6 +110,15 @@ gulp.task('serve', ['build'], function () {
     serve(false /*isDev*/);
 });
 
+gulp.task('scss-lint', function () {
+    return gulp.src(config.scss)
+        .pipe($.sassLint({
+            configFile: '.scss-lint.yml'
+        }))
+        .pipe($.sassLint.format())
+        .pipe($.sassLint.failOnError())
+});
+
 /**
  * tests the code and create coverage report
  * @return {Stream}
@@ -198,7 +207,7 @@ gulp.task('templatecache', function () {
  * Compile sass to css and copy css
  * @return {Stream}
  */
-gulp.task('styles', function () {
+gulp.task('styles', ['scss-lint'], function () {
     log('Compiling Sass --> CSS');
 
     return getChangedFiles(config.scss, config.temp, '.css')

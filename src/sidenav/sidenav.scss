@@ -1,9 +1,12 @@
 mhn-sidenav {
-    #logo {
-        margin: 2em 1em;
-    }
+  object {
+    margin: 2em 1em;
+  }
 
-    md-list-item {
-        padding: 0!important;
+  md-list-item {
+    &,
+    &.md-no-proxy {
+      padding: 0;
     }
+  }
 }
