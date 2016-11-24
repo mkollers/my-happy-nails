@@ -153,21 +153,14 @@ gulp.task('lint', function () {
 
     var reporter = args.verbose ? 'verbose' : 'prose';
 
-    var src = getChangedFiles(config.ts, config.temp + 'scripts', '.js')
+    var src = getChangedFiles(config.ts, config.temp + 'scripts', '.js');
+    var test = getChangedFiles(config.tests, config.temp + 'tests', '.js');
+
+    return es.merge(src, test)
         .pipe($.tslint({
-            formatter: reporter,
-            emitError: false
+            formatter: reporter
         }))
         .pipe($.tslint.report());
-
-    var test = getChangedFiles(config.tests, config.temp + 'tests', '.js')
-        .pipe($.tslint({
-            formatter: reporter,
-            emitError: false
-        }))
-        .pipe($.tslint.report());
-
-    return es.concat(src, test);
 });
 
 /**
