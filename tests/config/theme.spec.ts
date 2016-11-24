@@ -3,12 +3,16 @@
 module MyHappyNails {
     describe('config', (): void => {
         let $mdThemingProvider: ng.material.IThemingProvider;
+        let $mdIconProvider: ng.material.IIconProvider;
 
         beforeEach((): void => {
             angular.module('themingProviderConfig', ['ngMaterial'])
-                .config((_$mdThemingProvider_: ng.material.IThemingProvider): void => {
+                .config((_$mdThemingProvider_: ng.material.IThemingProvider, _$mdIconProvider_: ng.material.IIconProvider): void => {
                     $mdThemingProvider = _$mdThemingProvider_;
+                    $mdIconProvider = _$mdIconProvider_;
+
                     spyOn($mdThemingProvider, 'definePalette');
+                    spyOn($mdIconProvider, 'icon');
                 });
             angular.mock.module('themingProviderConfig');
             angular.mock.module('my-happy-nails');
@@ -36,6 +40,15 @@ module MyHappyNails {
             };
 
             expect($mdThemingProvider.definePalette).toHaveBeenCalledWith('my-happy-nails', palette);
+        });
+
+        it('should register icons', (): void => {
+            expect($mdIconProvider.icon).toHaveBeenCalledWith('menu', './assets/menu.svg', 24);
+            expect($mdIconProvider.icon).toHaveBeenCalledWith('home', './assets/home.svg', 16);
+            expect($mdIconProvider.icon).toHaveBeenCalledWith('images', './assets/images.svg', 16);
+            expect($mdIconProvider.icon).toHaveBeenCalledWith('location', './assets/location.svg', 16);
+            expect($mdIconProvider.icon).toHaveBeenCalledWith('euro', './assets/euro.svg', 16);
+            expect($mdIconProvider.icon).toHaveBeenCalledWith('phone', './assets/phone.svg', 16);
         });
     });
 }

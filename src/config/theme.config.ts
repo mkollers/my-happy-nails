@@ -7,7 +7,7 @@ module MyHappyNails {
         .module('my-happy-nails')
         .config(config);
 
-    function config($mdThemingProvider: ng.material.IThemingProvider): void {
+    function config($mdThemingProvider: ng.material.IThemingProvider, $mdIconProvider: ng.material.IIconProvider): void {
         $mdThemingProvider.definePalette('my-happy-nails', {
             '50': '#ffffff',
             '100': '#ead1ee',
@@ -30,5 +30,12 @@ module MyHappyNails {
         $mdThemingProvider.theme('default')
             .primaryPalette('my-happy-nails')
             .accentPalette('grey');
+
+        $mdIconProvider.icon('menu', './assets/menu.svg', 24);
+        $mdIconProvider.icon('home', './assets/home.svg', 16);
+        $mdIconProvider.icon('images', './assets/images.svg', 16);
+        $mdIconProvider.icon('location', './assets/location.svg', 16);
+        $mdIconProvider.icon('euro', './assets/euro.svg', 16);
+        $mdIconProvider.icon('phone', './assets/phone.svg', 16);
     }
 }

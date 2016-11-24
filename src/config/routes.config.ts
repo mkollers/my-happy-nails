@@ -27,6 +27,10 @@ module MyHappyNails {
                 url: 'Kontakt',
                 template: '<mhn-contact></mhn-contact>'
             })
+            .state('location', {
+                url: 'Anfahrt',
+                template: '<mhn-location></mhn-location>'
+            })
             .state('imprint', {
                 url: 'Impressum',
                 template: '<mhn-imprint></mhn-imprint>'

@@ -15,22 +15,27 @@ module MyHappyNails {
                 'name': 'Home',
                 'title': 'Aktuelle Informationen über mein Nagelstudio in Eschborn',
                 'view': 'home',
-                'icon': '&#xE88A;'
+                'icon': 'home'
             }, {
                 'name': 'Preise',
                 'title': 'Übersicht aller aktuellen Leistungen, Preise und Rabatte',
                 'view': 'prices',
-                'icon': '&#xE227;'
+                'icon': 'euro'
             }, {
                 'name': 'Bilder',
                 'title': 'Bilder und Impressionen meiner Arbeiten',
                 'view': 'images',
-                'icon': '&#xE3B6;'
+                'icon': 'images'
             }, {
                 'name': 'Kontakt',
-                'title': 'Wo findet Ihr mich? Wie könnt Ihr mich erreichen?',
+                'title': 'Wie könnt Ihr mich erreichen?',
                 'view': 'contact',
-                'icon': '&#xE55F;'
+                'icon': 'phone'
+            }, {
+                'name': 'Anfahrt',
+                'title': 'Wo findet Ihr mich? Wo könnt ihr Parken?',
+                'view': 'location',
+                'icon': 'location'
             }];
         }
     }
