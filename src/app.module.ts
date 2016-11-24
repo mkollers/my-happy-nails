@@ -14,6 +14,7 @@ module MyHappyNails {
         'ui.router',
 
         // Custom modules
-        'my-happy-nails.sidenav'
+        'my-happy-nails.sidenav',
+        'my-happy-nails.toolbar'
     ]);
 }

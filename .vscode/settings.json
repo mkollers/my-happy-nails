@@ -1,11 +1,8 @@
 // Platzieren Sie Ihre Einstellungen in dieser Datei, um Standard- und Benutzereinstellungen zu überschreiben.
 {
     "files.exclude": {
-        "node_modules/": true,
-        "bower_components/": true,
         ".tmp/": true,
-        ".vscode/": true,
-        "typings/": true
+        ".vscode/": true
     },
     "typescript.tsdk": "./node_modules/typescript/lib",
     "beautify.tabSize": 2

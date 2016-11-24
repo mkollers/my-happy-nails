@@ -14,9 +14,9 @@ module MyHappyNails {
 
         it('should create the controller', (): void => {
             // Arrange
+            const controller = $controller<ISidenavController>('SidenavController');
 
             // Act
-            const controller = $controller<ISidenavController>('SidenavController');
             $rootScope.$digest();
 
             // Assert

@@ -33,8 +33,11 @@
 
 <body layout="row" ng-controller="MainController as vm">
     <mhn-sidenav items="::vm.sidenavItems" layout="row"></mhn-sidenav>
-    <ui-view layout="row" layout-fill>        
-    </ui-view>
+    <div layout="column" layout-fill role="main">
+        <mhn-toolbar></mhn-toolbar>
+        <ui-view layout="row" layout-fill>
+        </ui-view>
+    </div>
 </body>
 
 </html>
