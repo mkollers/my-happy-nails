@@ -9,6 +9,8 @@ engines:
       - php
   eslint:
     enabled: true
+  tslint:
+    enabled: true
   fixme:
     enabled: true
   scss-lint:
