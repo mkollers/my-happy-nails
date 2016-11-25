@@ -5,6 +5,7 @@ var config = require('./gulp.config');
 var del = require('del');
 var es = require('event-stream');
 var gulp = require('gulp');
+var historyApiFallback = require('connect-history-api-fallback');
 var karma = require('karma');
 var path = require("path");
 var port = process.env.PORT || config.defaultPort;
@@ -367,7 +368,10 @@ function startBrowserSync(isDev, specRunner) {
     ] : [config.build];
 
     browserSync.init({
-        server: baseDir
+        server: {
+            baseDir: baseDir,
+            middleware: [historyApiFallback()]
+        }
     });
 }
 
