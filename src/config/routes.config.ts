@@ -13,27 +13,45 @@ module MyHappyNails {
         $stateProvider
             .state('home', {
                 url: '',
-                template: '<mhn-home></mhn-home>'
+                template: '<mhn-home></mhn-home>',
+                data: {
+                    header: 'Home'
+                }
             })
             .state('prices', {
                 url: 'Preise',
-                template: '<mhn-prices></mhn-prices>'
+                template: '<mhn-prices></mhn-prices>',
+                data: {
+                    header: 'Preise'
+                }
             })
             .state('images', {
                 url: 'Bilder',
-                template: '<mhn-images></mhn-images>'
+                template: '<mhn-images></mhn-images>',
+                data: {
+                    header: 'Bilder'
+                }
             })
             .state('contact', {
                 url: 'Kontakt',
-                template: '<mhn-contact></mhn-contact>'
+                template: '<mhn-contact></mhn-contact>',
+                data: {
+                    header: 'Kontakt'
+                }
             })
             .state('location', {
                 url: 'Anfahrt',
-                template: '<mhn-location></mhn-location>'
+                template: '<mhn-location></mhn-location>',
+                data: {
+                    header: 'Anfahrt'
+                }
             })
             .state('imprint', {
                 url: 'Impressum',
-                template: '<mhn-imprint></mhn-imprint>'
+                template: '<mhn-imprint></mhn-imprint>',
+                data: {
+                    header: 'Impressum'
+                }
             });
     }
 }

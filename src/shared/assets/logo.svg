@@ -18,12 +18,12 @@
      <style type="text/css">
         @font-face {
             font-family: Cotillion;
-            src: url('cotillion-regular.svg#cotillion') format('svg'),
-                 url('cotillion-regular.eot'),
-                 url('cotillion-regular.eot?#iefix') format('embedded-opentype'),
-                 url('cotillion-regular.woff') format('woff'),
-                 url('cotillion-regular.woff2') format('woff2'), 
-                 url('cotillion-regular.ttf') format('truetype');                 
+            src: url('../fonts/cotillion-regular.svg#cotillion') format('svg'),
+                 url('../fonts/cotillion-regular.eot'),
+                 url('../fonts/cotillion-regular.eot?#iefix') format('embedded-opentype'),
+                 url('../fonts/cotillion-regular.woff') format('woff'),
+                 url('../fonts/cotillion-regular.woff2') format('woff2'), 
+                 url('../fonts/cotillion-regular.ttf') format('truetype');                 
             font-weight: normal;
             font-style: normal;
         }
