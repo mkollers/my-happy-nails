@@ -4,13 +4,15 @@ module MyHappyNails {
     'use strict';
 
     export interface IMainController {
+        header: string;
         sidenavItems: ISidenavItem[];
     }
 
     class MainController implements IMainController {
+        header: string;
         sidenavItems: ISidenavItem[];
 
-        constructor() {
+        constructor(private $rootScope: ng.IRootScopeService, private $state: ng.ui.IStateService) {
             this.sidenavItems = [{
                 'name': 'Home',
                 'title': 'Aktuelle Informationen über mein Nagelstudio in Eschborn',
@@ -37,6 +39,15 @@ module MyHappyNails {
                 'view': 'location',
                 'icon': 'location'
             }];
+
+            this.watchState();
+        }
+
+        private watchState(): void {
+            this.$rootScope.$on('$stateChangeSuccess', (event: ng.IAngularEvent, currentRoute: ng.ui.IState): void => {
+                this.header = currentRoute.data.header;
+                console.log(this.header);
+            });
         }
     }
 

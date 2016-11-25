@@ -11,42 +11,46 @@ module MyHappyNails {
         $urlRouterProvider.otherwise('/');
 
         $stateProvider
-            .state('home', {
+            .state('base', {
+                url: '/',
+                abstract: true
+            })
+            .state('base.home', {
                 url: '',
                 template: '<mhn-home></mhn-home>',
                 data: {
                     header: 'Home'
                 }
             })
-            .state('prices', {
+            .state('base.prices', {
                 url: 'Preise',
                 template: '<mhn-prices></mhn-prices>',
                 data: {
                     header: 'Preise'
                 }
             })
-            .state('images', {
+            .state('base.images', {
                 url: 'Bilder',
                 template: '<mhn-images></mhn-images>',
                 data: {
                     header: 'Bilder'
                 }
             })
-            .state('contact', {
+            .state('base.contact', {
                 url: 'Kontakt',
                 template: '<mhn-contact></mhn-contact>',
                 data: {
                     header: 'Kontakt'
                 }
             })
-            .state('location', {
+            .state('base.location', {
                 url: 'Anfahrt',
                 template: '<mhn-location></mhn-location>',
                 data: {
                     header: 'Anfahrt'
                 }
             })
-            .state('imprint', {
+            .state('base.imprint', {
                 url: 'Impressum',
                 template: '<mhn-imprint></mhn-imprint>',
                 data: {

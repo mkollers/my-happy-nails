@@ -56,7 +56,7 @@
 <body layout="row" ng-controller="MainController as vm">
     <mhn-sidenav items="::vm.sidenavItems" layout="row"></mhn-sidenav>
     <div layout="column" layout-fill role="main">
-        <mhn-toolbar></mhn-toolbar>
+        <mhn-toolbar header="{{ vm.header }}"></mhn-toolbar>
         <ui-view layout="row" layout-fill>
         </ui-view>
     </div>

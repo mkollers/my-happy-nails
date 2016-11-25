@@ -23,5 +23,16 @@ module MyHappyNails {
             expect(controller.sidenavItems).not.toBe(null);
             expect(controller.sidenavItems).not.toBe(undefined);
         });
+
+        it('should initially set the header', (): void => {
+            // Arrange
+
+            // Act
+            const controller = $controller<IMainController>('MainController');
+            $rootScope.$digest();
+
+            // Assert
+            expect(controller.header).toEqual('Home');
+        });
     });
 }
