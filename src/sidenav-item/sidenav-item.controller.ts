@@ -3,13 +3,21 @@
 module MyHappyNails {
     'use strict';
 
-    class SidenavItemController implements ISidenavItem {
+    export interface ISidenavItemController extends ISidenavItem {
+        closeSidenav(): void;
+    }
+
+    class SidenavItemController implements ISidenavItemController {
         icon: string;
         name: string;
         title: string;
         view: string;
 
-        constructor() {
+        constructor(private $mdSidenav: ng.material.ISidenavService) {
+        }
+
+        closeSidenav(): void {
+            this.$mdSidenav('left').close();
         }
     }
 
