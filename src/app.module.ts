@@ -15,6 +15,7 @@ module MyHappyNails {
 
         // Custom modules
         'my-happy-nails.sidenav',
-        'my-happy-nails.toolbar'
+        'my-happy-nails.toolbar',
+        'my-happy-nails.footer'
     ]);
 }

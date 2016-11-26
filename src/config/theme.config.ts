@@ -37,5 +37,8 @@ module MyHappyNails {
         $mdIconProvider.icon('location', './assets/location.svg', 16);
         $mdIconProvider.icon('euro', './assets/euro.svg', 16);
         $mdIconProvider.icon('phone', './assets/phone.svg', 16);
+        $mdIconProvider.icon('facebook', './assets/facebook.svg', 24);
+        $mdIconProvider.icon('google-plus', './assets/google-plus.svg', 24);
+        $mdIconProvider.icon('github', './assets/github.svg', 24);
     }
 }

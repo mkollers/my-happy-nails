@@ -49,6 +49,9 @@ module MyHappyNails {
             expect($mdIconProvider.icon).toHaveBeenCalledWith('location', './assets/location.svg', 16);
             expect($mdIconProvider.icon).toHaveBeenCalledWith('euro', './assets/euro.svg', 16);
             expect($mdIconProvider.icon).toHaveBeenCalledWith('phone', './assets/phone.svg', 16);
+            expect($mdIconProvider.icon).toHaveBeenCalledWith('facebook', './assets/facebook.svg', 24);
+            expect($mdIconProvider.icon).toHaveBeenCalledWith('google-plus', './assets/google-plus.svg', 24);
+            expect($mdIconProvider.icon).toHaveBeenCalledWith('github', './assets/github.svg', 24);
         });
     });
 }
