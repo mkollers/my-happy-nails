@@ -2,12 +2,16 @@ mhn-sidenav-item {
   width: 100%;
 
   .md-button {
-    border-radius: none;
     line-height: 40px;
     margin: 0;
     padding: 0 16px;
     text-align: left;
     width: 100%;
+
+    &,
+    .md-ripple-container {
+      border-radius: 0;
+    }
 
     svg {
       height: 20px;
