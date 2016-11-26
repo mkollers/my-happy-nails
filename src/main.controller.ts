@@ -16,27 +16,27 @@ module MyHappyNails {
             this.sidenavItems = [{
                 'name': 'Home',
                 'title': 'Aktuelle Informationen über mein Nagelstudio in Eschborn',
-                'view': 'home',
+                'view': 'base.home',
                 'icon': 'home'
             }, {
                 'name': 'Preise',
                 'title': 'Übersicht aller aktuellen Leistungen, Preise und Rabatte',
-                'view': 'prices',
+                'view': 'base.prices',
                 'icon': 'euro'
             }, {
                 'name': 'Bilder',
                 'title': 'Bilder und Impressionen meiner Arbeiten',
-                'view': 'images',
+                'view': 'base.images',
                 'icon': 'images'
             }, {
                 'name': 'Kontakt',
                 'title': 'Wie könnt Ihr mich erreichen?',
-                'view': 'contact',
+                'view': 'base.contact',
                 'icon': 'phone'
             }, {
                 'name': 'Anfahrt',
                 'title': 'Wo findet Ihr mich? Wo könnt ihr Parken?',
-                'view': 'location',
+                'view': 'base.location',
                 'icon': 'location'
             }];
 
@@ -46,7 +46,6 @@ module MyHappyNails {
         private watchState(): void {
             this.$rootScope.$on('$stateChangeSuccess', (event: ng.IAngularEvent, currentRoute: ng.ui.IState): void => {
                 this.header = currentRoute.data.header;
-                console.log(this.header);
             });
         }
     }
