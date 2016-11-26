@@ -1,3 +1,5 @@
+$active-color: rgba(171, 71, 188, .3);
+
 mhn-sidenav-item {
   width: 100%;
 
@@ -7,6 +9,10 @@ mhn-sidenav-item {
     padding: 0 16px;
     text-align: left;
     width: 100%;
+
+    &.active {
+      background: $active-color;
+    }
 
     &,
     .md-ripple-container {
