@@ -1,8 +1,8 @@
-<footer md-colors="::{background: 'default-primary-500'}" layout="row">
-    <div layout="column" layout-align="center start" flex="60">
+<footer md-colors="::{background: 'default-primary-500'}" layout-xs="row" layout-gt-sm="column">
+    <div layout-xs="column" layout="row" layout-align-xs="center start"  layout-align="center center" flex-xs="60">
         <a ng-repeat="link in ::footer.links" ui-sref="{{ ::link.view }}" title="{{ ::link.title }}">{{ ::link.name }}</a>
     </div>
-    <div layout="column" flex="40" layout-align="center end">
+    <div layout-xs="column" layout="row" flex-xs="40" layout-align-xs="center end" layout-align="center center">
         <md-button href="https://www.facebook.com/MyHappyNailsNagelstudio" title="Zur Facebook-Seite" target="_blank" rel="noopener noreferrer"
             class="md-icon-button" analytics-on analytics-event="Facebook" analytics-category="external link" analytics-label="Zur Facebook-Seite">
             <md-tooltip md-direction="top">
