@@ -13,6 +13,11 @@ a {
   }
 }
 
+main {
+  background-image: url('/assets/isolierte_weisse_orchideenblueten.jpg');
+  background-size: cover;
+}
+
 noscript {
   div {
     color: $error-color;
