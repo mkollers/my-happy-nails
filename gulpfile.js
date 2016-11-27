@@ -138,7 +138,7 @@ gulp.task('test', ['inject'], function (done) {
 gulp.task('publish', function (done) {
     var deploymentManager = new azureDeploy.AzureWebSiteDeploymentManager(process.env.AZURE_WA_SITE, process.env.AZURE_WA_USERNAME, process.env.AZURE_WA_PASSWORD);
 
-    deploymentManager.deploy(paths.build).then(function (cb) {
+    deploymentManager.deploy(config.build).then(function (cb) {
         done();
     }).catch(function (error) {
         done(error);
