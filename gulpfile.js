@@ -357,7 +357,7 @@ function startBrowserSync(isDev, specRunner) {
         gulp.watch([config.scss], ['styles']).on('change', changeEvent);
         gulp.watch([config.ts], ['scripts']).on('change', changeEvent);
         gulp.watch([config.templates], ['templatecache']).on('change', changeEvent);
-        gulp.watch(config.index, ['browserSyncReload']).on('change', changeEvent);
+        gulp.watch(config.index, ['inject']).on('change', changeEvent);
     } else {
         gulp.watch([config.scss, config.ts, config.templates], ['browserSyncReload']).on('change', changeEvent);
     }

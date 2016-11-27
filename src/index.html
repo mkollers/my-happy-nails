@@ -56,13 +56,13 @@
 <body>
     <div layout="row" ng-controller="MainController as vm" layout-fill>
         <mhn-sidenav items="::vm.sidenavItems" layout="row"></mhn-sidenav>
-        <main layout="column" layout-fill>
+        <md-content layout="column" flex md-scroll-y>
             <mhn-toolbar header="{{ vm.header }}"></mhn-toolbar>
             <ui-view>
             </ui-view>
             <div flex></div>
             <mhn-footer links="::vm.footerLinks"></mhn-footer>
-        </main>
+        </md-content>
     </div>
 </body>
 
