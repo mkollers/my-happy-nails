@@ -1,7 +1,7 @@
 <md-card>
     <div ng-if="::card.mapConfig" map-lazy-load="https://maps.google.com/maps/api/js?key=AIzaSyBQPESAm-ZR0hJlHcRpeKiYWjJxcYGmKMk">
         <ng-map zoom-control="{{ ::card.mapConfig.zoomControl }}" center="{{ ::card.mapConfig.center.lat }},{{ ::card.mapConfig.center.lng }}"
-            zoom="{{ ::card.mapConfig.zoom }}" disable-default-u-i="{{ ::card.mapConfig.disableDefaultUI }}">
+            zoom="{{ ::card.mapConfig.zoom }}" disable-default-u-i="{{ ::card.mapConfig.disableDefaultUI }}" draggable="{{ ::card.mapConfig.draggable }}">
             <marker ng-if="::card.mapMarker" position="{{ ::card.mapMarker.position.lat }},{{ ::card.mapMarker.position.lng }}" title="{{ ::card.mapMarker.title }}"></marker>
         </ng-map>
     </div>
