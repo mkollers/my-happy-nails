@@ -53,14 +53,17 @@
     <!-- endbuild -->
 </head>
 
-<body layout="row" ng-controller="MainController as vm">
-    <mhn-sidenav items="::vm.sidenavItems" layout="row"></mhn-sidenav>
-    <main layout="column" layout-fill>
-        <mhn-toolbar header="{{ vm.header }}"></mhn-toolbar>
-        <ui-view layout="row" flex>
-        </ui-view>        
-        <mhn-footer links="::vm.footerLinks"></mhn-footer>
-    </main>
+<body>
+    <div layout="row" ng-controller="MainController as vm" layout-fill>
+        <mhn-sidenav items="::vm.sidenavItems" layout="row"></mhn-sidenav>
+        <main layout="column" layout-fill>
+            <mhn-toolbar header="{{ vm.header }}"></mhn-toolbar>
+            <ui-view>
+            </ui-view>
+            <div flex></div>
+            <mhn-footer links="::vm.footerLinks"></mhn-footer>
+        </main>
+    </div>
 </body>
 
 </html>

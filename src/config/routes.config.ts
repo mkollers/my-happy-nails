@@ -13,7 +13,8 @@ module MyHappyNails {
         $stateProvider
             .state('base', {
                 url: '/',
-                abstract: true
+                abstract: true,
+                template: '<ui-view />'
             })
             .state('base.home', {
                 url: '',
