@@ -7,6 +7,8 @@ module MyHappyNails {
         // Angular modules
 
         // 3rd Party Modules
+        'angulartics',
+        'angulartics.google.analytics'
 
         // Custom modules	
     ]);

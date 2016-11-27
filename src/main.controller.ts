@@ -4,11 +4,13 @@ module MyHappyNails {
     'use strict';
 
     export interface IMainController {
+        footerLinks: IFooterLink[];
         header: string;
         sidenavItems: ISidenavItem[];
     }
 
     class MainController implements IMainController {
+        footerLinks: IFooterLink[];
         header: string;
         sidenavItems: ISidenavItem[];
 
@@ -39,6 +41,13 @@ module MyHappyNails {
                 'view': 'base.location',
                 'icon': 'location'
             }];
+
+            this.footerLinks = this.sidenavItems.slice(0); // create a copy
+            this.footerLinks.push({
+                name: 'Impressum',
+                title: 'Gesetzlich vorgeschriebene Herkunftsangabe',
+                view: 'base.imprint'
+            });
 
             this.watchState();
         }

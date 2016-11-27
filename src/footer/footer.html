@@ -1,22 +1,24 @@
 <footer md-colors="::{background: 'default-primary-500'}" layout="row">
-    <div layout="column" layout-align="center center" flex="70">
-        <a href="#">Home</a>
-        <a href="#">Preise</a>
+    <div layout="column" layout-align="center start" flex="60">
+        <a ng-repeat="link in ::footer.links" ui-sref="{{ ::link.view }}" title="{{ ::link.title }}">{{ ::link.name }}</a>
     </div>
-    <div layout="column" flex="30" layout-align="center end">
-        <md-button href="https://www.facebook.com/MyHappyNailsNagelstudio" title="Zur Facebook-Seite" target="_blank" class="md-icon-button">
+    <div layout="column" flex="40" layout-align="center end">
+        <md-button href="https://www.facebook.com/MyHappyNailsNagelstudio" title="Zur Facebook-Seite" target="_blank" rel="noopener noreferrer"
+            class="md-icon-button" analytics-on analytics-event="Facebook" analytics-category="external link" analytics-label="Zur Facebook-Seite">
             <md-tooltip md-direction="top">
                 Facebook
             </md-tooltip>
             <md-icon md-svg-icon="facebook"></md-icon>
         </md-button>
-        <md-button href="https://plus.google.com/+MyHappyNailsEschborn" title="Zur Google+-Seite" target="_blank" class="md-icon-button">
+        <md-button href="https://plus.google.com/+MyHappyNailsEschborn" title="Zur Google+-Seite" target="_blank" rel="noopener noreferrer"
+            class="md-icon-button" analytics-on analytics-event="Google+" analytics-category="external link" analytics-label="Zur Google+-Seite">
             <md-tooltip md-direction="top">
                 Google+
             </md-tooltip>
             <md-icon md-svg-icon="google-plus"></md-icon>
         </md-button>
-        <md-button href="https://github.com/mkollers/my-happy-nails" title="Zu Github" target="_blank" class="md-icon-button">
+        <md-button href="https://github.com/mkollers/my-happy-nails" title="Zu Github" target="_blank" rel="noopener noreferrer"
+            class="md-icon-button" analytics-on analytics-event="Github" analytics-category="external link" analytics-label="Zur Github-Seite">
             <md-tooltip md-direction="top">
                 Github
             </md-tooltip>

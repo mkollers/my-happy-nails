@@ -3,7 +3,13 @@ $white: #fff;
 mhn-footer {
 
   footer {
-    padding: 2em 4em;
+    padding: 1em 4em;
+
+    a {
+      color: $white;
+      line-height: 24px;
+      text-decoration: none;
+    }
 
     md-icon {
       fill: $white;

@@ -12,7 +12,7 @@ module MyHappyNails {
             $rootScope = _$rootScope_;
         }));
 
-        it('should set items', (): void => {
+        it('should set the sidenav-items', (): void => {
             // Arrange
 
             // Act
@@ -22,6 +22,7 @@ module MyHappyNails {
             // Assert
             expect(controller.sidenavItems).not.toBe(null);
             expect(controller.sidenavItems).not.toBe(undefined);
+            expect(controller.sidenavItems.length).toEqual(5);
         });
 
         it('should initially set the header', (): void => {
@@ -33,6 +34,19 @@ module MyHappyNails {
 
             // Assert
             expect(controller.header).toEqual('Home');
+        });
+
+        it('should set the footer-items', (): void => {
+            // Arrange
+
+            // Act
+            const controller = $controller<IMainController>('MainController');
+            $rootScope.$digest();
+
+            // Assert
+            expect(controller.footerLinks).not.toBe(null);
+            expect(controller.footerLinks).not.toBe(undefined);
+            expect(controller.footerLinks.length).toEqual(controller.sidenavItems.length + 1);
         });
     });
 }

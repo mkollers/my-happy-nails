@@ -4,9 +4,18 @@ module MyHappyNails {
     'use strict';
 
     export interface IFooterController {
+        links: IFooterLink[];
+    }
+
+    export interface IFooterLink {
+        name: string;
+        title: string;
+        view: string;
     }
 
     class FooterController implements IFooterController {
+        links: IFooterLink[];
+
         constructor() {
         }
     }
