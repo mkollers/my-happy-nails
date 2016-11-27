@@ -5,11 +5,13 @@ module MyHappyNails {
 
     export interface ICardController {
         header: string;
+        mapConfig: google.maps.MapOptions;
         text: string;
     }
 
     class CardController implements ICardController {
         header: string;
+        mapConfig: google.maps.MapOptions;
         text: string;
 
         constructor() {

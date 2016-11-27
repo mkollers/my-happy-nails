@@ -7,7 +7,8 @@ module MyHappyNails {
         // Angular modules
 
         // 3rd Party Modules
-        'ngMaterial'
+        'ngMaterial',
+        'ngMap'
 
         // Custom modules	
     ]);
