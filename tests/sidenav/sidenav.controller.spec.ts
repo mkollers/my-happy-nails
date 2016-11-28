@@ -14,12 +14,26 @@ module MyHappyNails {
 
         it('should create the controller', (): void => {
             // Arrange
-            const controller = $controller<ISidenavController>('SidenavController');
+            const bindings: ISidenavController = {
+                items: [{
+                    'name': 'Home',
+                    'title': 'Aktuelle Informationen über mein Nagelstudio in Eschborn',
+                    'view': 'base.home',
+                    'icon': 'home'
+                }, {
+                    'name': 'Preise',
+                    'title': 'Übersicht aller aktuellen Leistungen, Preise und Rabatte',
+                    'view': 'base.prices',
+                    'icon': 'euro'
+                }]
+            };
+            const controller = $controller<ISidenavController>('SidenavController', {}, bindings);
 
             // Act
             $rootScope.$digest();
 
             // Assert
+            expect(controller.items).toEqual(bindings.items);
         });
     });
 }
