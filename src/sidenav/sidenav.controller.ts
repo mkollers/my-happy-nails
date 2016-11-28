@@ -3,7 +3,7 @@
 module MyHappyNails {
     'use strict';
 
-    export interface ISidenavController {
+    export interface ISidenavController extends ng.IComponentController {
         items: ISidenavItem[];
     }
 

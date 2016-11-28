@@ -8,7 +8,7 @@ module MyHappyNails {
         controller: 'SidenavController',
         controllerAs: 'sidenav',
         bindings: {
-            items: '='
+            items: '<'
         }
     };
 

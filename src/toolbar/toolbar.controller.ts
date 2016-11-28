@@ -3,7 +3,7 @@
 module MyHappyNails {
     'use strict';
 
-    export interface IToolbarController {
+    export interface IToolbarController extends ng.IComponentController {
         header: string;
         toggleSidenav(): void;
     }

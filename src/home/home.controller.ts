@@ -3,7 +3,7 @@
 module MyHappyNails {
     'use strict';
 
-    export interface IHomeController {
+    export interface IHomeController extends ng.IComponentController {
         location: google.maps.MapOptions;
         marker: google.maps.MarkerOptions;
     }

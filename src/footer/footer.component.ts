@@ -8,7 +8,7 @@ module MyHappyNails {
         controller: 'FooterController',
         controllerAs: 'footer',
         bindings: {
-            links: '='
+            links: '<'
         }
     };
 
