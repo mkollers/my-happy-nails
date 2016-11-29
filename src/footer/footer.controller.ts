@@ -3,7 +3,7 @@
 module MyHappyNails {
     'use strict';
 
-    export interface IFooterController {
+    export interface IFooterController extends ng.IComponentController {
         links: IFooterLink[];
     }
 

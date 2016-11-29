@@ -3,7 +3,7 @@
 module MyHappyNails {
     'use strict';
 
-    export interface ICardController {
+    export interface ICardController extends ng.IComponentController {
         header: string;
         mapConfig: google.maps.MapOptions;
         text: string;

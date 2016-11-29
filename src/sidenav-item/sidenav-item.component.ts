@@ -8,10 +8,10 @@ module MyHappyNails {
         controller: 'SidenavItemController',
         controllerAs: 'item',
         bindings: {
-            icon: '=',
-            name: '=',
-            title: '=',
-            view: '=',
+            icon: '<',
+            name: '<',
+            title: '<',
+            view: '<',
         }
     };
 

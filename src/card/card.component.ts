@@ -9,8 +9,8 @@ module MyHappyNails {
         controllerAs: 'card',
         bindings: {
             header: '@',
-            mapConfig: '=',
-            mapMarker: '='
+            mapConfig: '<',
+            mapMarker: '<'
         },
         transclude: true
     };

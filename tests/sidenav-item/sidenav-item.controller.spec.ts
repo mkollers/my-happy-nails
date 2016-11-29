@@ -22,12 +22,22 @@ module MyHappyNails {
 
         it('should create the controller', (): void => {
             // Arrange
+            const bindings: ISidenavItem = {
+                name: 'Preise',
+                title: 'Übersicht aller aktuellen Leistungen, Preise und Rabatte',
+                view: 'base.prices',
+                icon: 'euro'
+            };
+            const controller = $controller<ISidenavItemController>('SidenavItemController', {}, bindings);
 
             // Act
-            const controller = $controller<ISidenavItemController>('SidenavItemController');
             $rootScope.$digest();
 
             // Assert
+            expect(controller.name).toEqual(bindings.name);
+            expect(controller.title).toEqual(bindings.title);
+            expect(controller.view).toEqual(bindings.view);
+            expect(controller.icon).toEqual(bindings.icon);
         });
 
         it('should close sidenav', inject(($mdSidenav: ng.material.ISidenavService): void => {
