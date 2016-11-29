@@ -19,7 +19,7 @@ module MyHappyNails {
                     lng: 8.5351918
                 },
                 disableDefaultUI: true,
-                draggable: false,
+                draggable: true,
                 zoom: 17,
                 zoomControl: false
             };
