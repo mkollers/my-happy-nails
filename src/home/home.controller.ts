@@ -12,7 +12,7 @@ module MyHappyNails {
         location: google.maps.MapOptions;
         marker: google.maps.MarkerOptions;
 
-        constructor() {
+        $onInit() {
             this.location = {
                 center: {
                     lat: 50.133442,
