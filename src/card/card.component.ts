@@ -10,7 +10,8 @@ module MyHappyNails {
         bindings: {
             header: '@',
             mapConfig: '<',
-            mapMarker: '<'
+            mapMarker: '<',
+            iFrameUrl: '@'
         },
         transclude: true
     };

@@ -3,14 +3,12 @@
 module MyHappyNails {
     'use strict';
 
-    angular.module('my-happy-nails.card', [
+    angular.module('my-happy-nails.location', [
         // Angular modules
-        'ngSanitize',
 
         // 3rd Party Modules
-        'ngMaterial',
-        'ngMap'
 
-        // Custom modules	
+        // Custom modules
+        'my-happy-nails.card'
     ]);
 }

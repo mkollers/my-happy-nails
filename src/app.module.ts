@@ -17,6 +17,7 @@ module MyHappyNails {
         'my-happy-nails.sidenav',
         'my-happy-nails.toolbar',
         'my-happy-nails.footer',
-        'my-happy-nails.home'
+        'my-happy-nails.home',
+        'my-happy-nails.location'
     ]);
 }

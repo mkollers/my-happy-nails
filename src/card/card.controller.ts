@@ -5,16 +5,24 @@ module MyHappyNails {
 
     export interface ICardController extends ng.IComponentController {
         header: string;
+        iFrameUrl: string;
+        saveIFrameUrl: string;
         mapConfig: google.maps.MapOptions;
         text: string;
     }
 
     class CardController implements ICardController {
         header: string;
+        iFrameUrl: string;
+        saveIFrameUrl: string;
         mapConfig: google.maps.MapOptions;
         text: string;
 
-        constructor() {
+        constructor(private $sce: ng.ISCEService) {
+        }
+
+        $onInit() {
+            this.saveIFrameUrl = this.$sce.trustAsResourceUrl(this.iFrameUrl);
         }
     }
 
