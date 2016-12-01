@@ -1,7 +1,22 @@
 $transparent-white: rgba(255, 255, 255, .75);
+$border-radius: 15px;
 
 mhn-card {
   md-card {
     background: $transparent-white;
+    border-radius: $border-radius;
+  }
+
+  ng-map {
+    border-radius: $border-radius $border-radius 0 0;
+    overflow: hidden;
+  }
+
+  md-list-item {
+
+    &,
+    &.md-no-proxy {
+      padding: 0;
+    }
   }
 }

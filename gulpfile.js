@@ -207,7 +207,7 @@ gulp.task('styles', ['scss-lint'], function () {
     return getChangedFiles(config.scss, config.temp, '.css')
         .pipe($.sourcemaps.init())
         .pipe($.sass().on('error', $.sass.logError))
-        .pipe($.autoprefixer({ browsers: ['last 5 versions'] }))
+        .pipe($.autoprefixer('>1%'))
         .pipe($.sourcemaps.write('.'))
         .pipe(gulp.dest(config.temp + 'styles'))
         .pipe(browserSync.stream());
