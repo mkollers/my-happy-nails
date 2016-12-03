@@ -3,6 +3,9 @@ import 'angular-material';
 
 import { ToolbarComponent } from './toolbar.component';
 
+import 'angular-material/angular-material.scss';
+import './toolbar.scss';
+
 angular.module('my-happy-nails.toolbar', [
     // Angular modules
 
@@ -10,4 +13,4 @@ angular.module('my-happy-nails.toolbar', [
     'ngMaterial',
 
     // Custom modules	
-]).component("myHappyNailsToolbar", new ToolbarComponent());
+]).component('myHappyNailsToolbar', new ToolbarComponent());

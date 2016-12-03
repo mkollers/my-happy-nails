@@ -6,6 +6,9 @@ import './sidenav-item.controller';
 
 import { SidenavItemComponent } from './sidenav-item.component';
 
+import 'angular-material/angular-material.scss';
+import './sidenav-item.scss';
+
 angular.module('my-happy-nails.sidenav.item', [
     // Angular modules
 
@@ -14,4 +17,4 @@ angular.module('my-happy-nails.sidenav.item', [
     'ui.router',
 
     // Custom modules	
-]).component("myHappyNailsSidenavItem", new SidenavItemComponent());
+]).component('myHappyNailsSidenavItem', new SidenavItemComponent());

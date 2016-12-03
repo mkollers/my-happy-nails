@@ -10,6 +10,10 @@ import '../footer/footer.module';
 import '../home/home.module';
 
 import { AppComponent } from './app.component';
+import { config as themeConfig } from './configs/theme.config';
+
+import 'angular-material/angular-material.scss';
+import './app.scss';
 
 angular.module('my-happy-nails.app', [
     // Angular modules
@@ -25,4 +29,5 @@ angular.module('my-happy-nails.app', [
     'my-happy-nails.toolbar',
     'my-happy-nails.footer',
     'my-happy-nails.home'
-]).component("myHappyNailsApp", new AppComponent());
+]).component('myHappyNailsApp', new AppComponent())
+    .config(themeConfig);

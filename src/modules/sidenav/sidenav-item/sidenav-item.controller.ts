@@ -10,6 +10,7 @@ export class SidenavItemController implements ISidenavItemController {
     title: string;
     view: string;
 
+    /* @ngInject */
     constructor(private $mdSidenav: ng.material.ISidenavService) {
     }
 

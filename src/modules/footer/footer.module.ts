@@ -5,6 +5,9 @@ import 'angulartics-google-analytics';
 
 import { FooterComponent } from './footer.component';
 
+import 'angular-material/angular-material.scss';
+import './footer.scss';
+
 angular.module('my-happy-nails.footer', [
     // Angular modules
 
@@ -14,4 +17,4 @@ angular.module('my-happy-nails.footer', [
     'angulartics.google.analytics'
 
     // Custom modules	
-]).component("myHappyNailsFooter", new FooterComponent());
+]).component('myHappyNailsFooter', new FooterComponent());

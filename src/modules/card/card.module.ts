@@ -4,6 +4,9 @@ import 'ngmap';
 
 import { CardComponent } from './card.component';
 
+import 'angular-material/angular-material.scss';
+import './card.scss';
+
 angular.module('my-happy-nails.card', [
     // Angular modules
 

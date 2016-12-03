@@ -14,7 +14,11 @@ export class AppController implements IAppController {
     header: string;
     sidenavItems: ISidenavItem[];
 
+    /* @ngInject */
     constructor(private $rootScope: ng.IRootScopeService, private $state: ng.ui.IStateService) {
+    }
+
+    $onInit() {
         this.sidenavItems = [{
             'name': 'Home',
             'title': 'Aktuelle Informationen über mein Nagelstudio in Eschborn',

@@ -6,6 +6,7 @@ export interface IToolbarController extends ng.IComponentController {
 export class ToolbarController implements IToolbarController {
     header: string;
 
+    /* @ngInject */
     constructor(private $mdSidenav: ng.material.ISidenavService) {
     }
 

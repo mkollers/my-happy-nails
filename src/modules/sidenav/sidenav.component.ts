@@ -7,7 +7,7 @@ export class SidenavComponent implements ng.IComponentOptions {
         <md-divider></md-divider>
         <md-list>        
             <md-list-item ng-repeat="item in ::sidenav.items">
-                <mhn-sidenav-item view="::item.view" title="::item.title" icon="::item.icon" name="::item.name" />
+                <my-happy-nails-sidenav-item view="::item.view" title="::item.title" icon="::item.icon" name="::item.name" />
             </md-list-item>
         </md-list>
     </md-sidenav>`;
