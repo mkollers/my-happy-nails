@@ -6,7 +6,6 @@
   "homepage": "http://my-happy-nails.de",
   "scripts": {
     "build": "node_modules/.bin/gulp build",
-    "postinstall": "bower install && typings install",
     "test": "node_modules/.bin/gulp test",
     "codeclimate": "node_modules/.bin/codeclimate-test-reporter < .tmp/coverage/lcov.info",
     "publish": "node_modules/.bin/gulp publish",
