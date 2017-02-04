@@ -1,3 +1,12 @@
-<h1>
-  {{title}}
-</h1>
+<md-sidenav-container>
+  <md-sidenav #sidenav mode="side">
+    <object id="logo" data="assets/logo.svg" type="image/svg+xml" height="100">
+    </object>
+  </md-sidenav>
+  <main>
+    <md-toolbar color="primary">
+      <button class="toolbar-icon-button" md-button (click)="sidenav.toggle()"><md-icon>menu</md-icon></button>
+      <span id="title">{{ toolbarService?.title }}</span>
+    </md-toolbar>
+  </main>
+</md-sidenav-container>

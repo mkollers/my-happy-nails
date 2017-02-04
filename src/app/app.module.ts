@@ -1,9 +1,10 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-
 import { AppComponent } from './app.component';
+import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { HttpModule } from '@angular/http';
+import { MaterialModule } from '@angular/material';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -11,8 +12,10 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot([]),
+    MaterialModule.forRoot(),
+    FlexLayoutModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

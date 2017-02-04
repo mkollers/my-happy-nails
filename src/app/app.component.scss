@@ -1,0 +1,69 @@
+md-toolbar {
+    #title {
+        margin-left: 5px;
+    }
+    /* ISSUE: md-icon-button does not center icon. try again in a newer version of angular-material */
+    .toolbar-icon-button {
+        min-width: 0;
+        padding: 0 6px;
+    }
+}
+
+md-sidenav {
+    width: 320px;
+    #logo {
+        display: block;
+        margin: 32px auto;
+    }
+    button.list-item-dropdown {
+        min-width: 0;
+        padding: 0;
+    }
+    md-list-item {
+        padding: 0 16px;
+        h3 {
+            font-size: 14px;
+            font-weight: 500;
+        }
+        p {
+            font-size: 13px;
+        }
+    }
+    ul {
+        list-style-type: none;
+        border-top: 1px solid #e7e7e7;
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        &.seperator {
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-color: #e7e7e7;
+        }
+        cursor: pointer;
+        margin: 0;
+        padding: 0 16px;
+        color: #212121;
+        box-sizing: border-box;
+        display: block;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 47px;
+        text-decoration: none;
+        transition: all .3s;
+        padding: 0 16px;
+        position: relative;
+        outline: none;
+        letter-spacing: 1px;
+        md-icon {
+            vertical-align: middle;
+            line-height: 20px;
+            margin-right: 8px;
+        }
+        &.active {
+            color: #a2b700;
+            background: rgba(162, 183, 0, 0.1);
+        }
+    }
+}
