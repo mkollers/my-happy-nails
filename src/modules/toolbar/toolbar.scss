@@ -1,9 +1,0 @@
-md-toolbar {
-  &.md-default-theme,
-  &:not(.md-menu-toolbar) {
-    &:not(.md-menu-toolbar),
-    & {
-      background-color: transparent;
-    }
-  }
-}

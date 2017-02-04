@@ -1,9 +1,0 @@
-// Platzieren Sie Ihre Einstellungen in dieser Datei, um Standard- und Benutzereinstellungen zu überschreiben.
-{
-    "files.exclude": {
-        ".tmp/": true,
-        ".vscode/": true
-    },
-    "typescript.tsdk": "./node_modules/typescript/lib",
-    "beautify.tabSize": 2
-}
