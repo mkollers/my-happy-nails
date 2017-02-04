@@ -13,10 +13,10 @@ const defaultRoute = {
 
 export const AppRoutes: Routes = [
     { path: '', component: HomeComponent },
-    { path: 'Preise', component: PricesComponent },
-    { path: 'Bilder', component: ImagesComponent },
-    { path: 'Kontakt', component: ContactComponent },
-    { path: 'Anfahrt', component: LocationComponent },
-    { path: 'Impressum', component: ImprintComponent },
+    { path: 'preise', component: PricesComponent },
+    { path: 'bilder', component: ImagesComponent },
+    { path: 'kontakt', component: ContactComponent },
+    { path: 'anfahrt', component: LocationComponent },
+    { path: 'impressum', component: ImprintComponent },
     defaultRoute
 ];

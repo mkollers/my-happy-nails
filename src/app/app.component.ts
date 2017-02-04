@@ -1,21 +1,29 @@
-import { DomSanitizer } from '@angular/platform-browser';
+import { NavigationItem } from './shared/models/navigation-item';
+import { ApplicationState } from './shared/store/application-state';
+import { Component, OnInit } from '@angular/core';
 import { MdIconRegistry } from '@angular/material';
-import { Component } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'app works!';
+export class AppComponent implements OnInit {
+  sidenavItems$: Observable<NavigationItem[]>;
 
   constructor(
     private mdIconRegistry: MdIconRegistry,
-    private sanitizer: DomSanitizer) {
+    private sanitizer: DomSanitizer,
+    private store: Store<ApplicationState>) { }
 
-    this.mdIconRegistry.addSvgIcon('facebook', this.sanitizer.bypassSecurityTrustResourceUrl('assets/facebook.svg'))
-    this.mdIconRegistry.addSvgIcon('github', this.sanitizer.bypassSecurityTrustResourceUrl('assets/github.svg'))
-    this.mdIconRegistry.addSvgIcon('google-plus', this.sanitizer.bypassSecurityTrustResourceUrl('assets/google-plus.svg'))
+  ngOnInit() {
+    this.mdIconRegistry.addSvgIcon('facebook', this.sanitizer.bypassSecurityTrustResourceUrl('assets/facebook.svg'));
+    this.mdIconRegistry.addSvgIcon('github', this.sanitizer.bypassSecurityTrustResourceUrl('assets/github.svg'));
+    this.mdIconRegistry.addSvgIcon('google-plus', this.sanitizer.bypassSecurityTrustResourceUrl('assets/google-plus.svg'));
+
+    this.sidenavItems$ = this.store.do(state => console.log(state)).map(state => state.uiState.sidenavItems);
   }
 }

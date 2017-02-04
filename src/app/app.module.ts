@@ -21,8 +21,8 @@ export function storeReducer(state: ApplicationState, action: Action) {
   //   case CHANGE_TITLE_ACTION:
   //     return handle(state, action as ChangeTitleAction);
   //   default:
-  //     return state;
-  // }
+  return state;
+  //  }
 }
 
 // export function handle(state: ApplicationState, action: ChangeTitleAction): ApplicationState {
