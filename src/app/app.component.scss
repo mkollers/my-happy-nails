@@ -3,15 +3,35 @@
 // Import your custom theme
 @import 'src/my-happy-nails-theme.scss';
 $accent: md-color($my-happy-nails-primary);
-md-toolbar {
-    background: transparent;
-    #title {
-        margin-left: 5px;
+footer {
+    background: #bf74cc;
+    padding: 1em 4em;
+    a {
+        color: #fff;
+        line-height: 24px;
+        font-size: 1rem;
+        padding: 0 1em;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+        md-icon {
+            margin-top: 8px;
+        }
     }
-    /* ISSUE: md-icon-button does not center icon. try again in a newer version of angular-material */
-    .toolbar-icon-button {
-        min-width: 0;
-        padding: 0 6px;
+}
+
+md-toolbar {
+    &#header {
+        background: transparent;
+        #title {
+            margin-left: 5px;
+        }
+        /* ISSUE: md-icon-button does not center icon. try again in a newer version of angular-material */
+        .toolbar-icon-button {
+            min-width: 0;
+            padding: 0 6px;
+        }
     }
 }
 
