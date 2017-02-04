@@ -1,4 +1,10 @@
+// Import theming functions
+@import '~@angular/material/core/theming/theming';
+// Import your custom theme
+@import 'src/my-happy-nails-theme.scss';
+$accent: md-color($my-happy-nails-primary);
 md-toolbar {
+    background: transparent;
     #title {
         margin-left: 5px;
     }
@@ -37,15 +43,10 @@ md-sidenav {
         padding: 0;
     }
     li {
-        &.seperator {
-            border-top-width: 1px;
-            border-top-style: solid;
-            border-color: #e7e7e7;
-        }
+        color: $accent;
         cursor: pointer;
         margin: 0;
         padding: 0 16px;
-        color: #212121;
         box-sizing: border-box;
         display: block;
         font-size: 13px;
@@ -63,8 +64,7 @@ md-sidenav {
             margin-right: 8px;
         }
         &.active {
-            color: #a2b700;
-            background: rgba(162, 183, 0, 0.1);
+            background: rgba(red($accent), green($accent), blue($accent), 0.1);
         }
     }
 }

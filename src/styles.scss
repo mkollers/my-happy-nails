@@ -7,7 +7,7 @@ main {
     margin: 0;
     width: 100%;
     height: 100%;
-    background-image: url(/assets/bg_xl.jpg);
+    background-image: url(/assets/bg_xl.jpg) no-repeat center center fixed;
     @media (max-width: 1920px) {
         background-image: url(/assets/bg_lg.jpg);
     }
@@ -25,9 +25,14 @@ main {
 
 .splash {
     width: 50%;
-    position: fixed;
     left: 25%;
-    top: 40%;
+    top: 25%;
+    @media (max-width: 600px) {
+        width: 80%;
+        left: 10%;
+        top: 40%;
+    }
+    position: fixed;
     animation: blink-animation 1.7s cubic-bezier(.5, 0, 1, 1) infinite alternate;
 }
 

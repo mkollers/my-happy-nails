@@ -18,7 +18,8 @@
       "tsconfig": "tsconfig.json",
       "prefix": "app",
       "styles": [
-        "styles.scss"
+        "styles.scss",
+        "my-happy-nails-theme.scss"
       ],
       "scripts": [],
       "environments": {
