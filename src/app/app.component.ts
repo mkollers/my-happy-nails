@@ -13,6 +13,7 @@ import { Observable } from 'rxjs/Rx';
 })
 export class AppComponent implements OnInit {
   sidenavItems$: Observable<NavigationItem[]>;
+  footerItems$: Observable<NavigationItem[]>;
 
   constructor(
     private mdIconRegistry: MdIconRegistry,
@@ -24,6 +25,7 @@ export class AppComponent implements OnInit {
     this.mdIconRegistry.addSvgIcon('github', this.sanitizer.bypassSecurityTrustResourceUrl('assets/github.svg'));
     this.mdIconRegistry.addSvgIcon('google-plus', this.sanitizer.bypassSecurityTrustResourceUrl('assets/google-plus.svg'));
 
-    this.sidenavItems$ = this.store.do(state => console.log(state)).map(state => state.uiState.sidenavItems);
+    this.sidenavItems$ = this.store.map(state => state.uiState.sidenavItems);
+    this.footerItems$ = this.store.map(state => state.uiState.footerItems);
   }
 }
