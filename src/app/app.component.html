@@ -2,6 +2,11 @@
   <md-sidenav #sidenav mode="side">
     <object id="logo" data="assets/logo.svg" type="image/svg+xml" height="100">
     </object>
+    <ul>
+      <li [routerLink]="['/home']" (click)="sidenav.close()" [routerLinkActive]="['active']">
+        <md-icon>home</md-icon>Home
+      </li>            
+    </ul>
   </md-sidenav>
   <main>
     <md-toolbar color="primary">
