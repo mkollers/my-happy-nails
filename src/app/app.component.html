@@ -3,21 +3,21 @@
     <object id="logo" data="assets/logo.svg" type="image/svg+xml" height="100">
     </object>
     <ul>
-      <li [routerLink]="['/']" (click)="sidenav.close()" [routerLinkActive]="['active']">
+      <li [routerLink]="['/']" (click)="sidenav.close()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
         <md-icon>home</md-icon>Home
       </li>
       <li [routerLink]="['/Preise']" (click)="sidenav.close()" [routerLinkActive]="['active']">
         <md-icon>euro_symbol</md-icon>Preise
-      </li> 
+      </li>
       <li [routerLink]="['/Bilder']" (click)="sidenav.close()" [routerLinkActive]="['active']">
         <md-icon>photo</md-icon>Bilder
-      </li> 
+      </li>
       <li [routerLink]="['/Kontakt']" (click)="sidenav.close()" [routerLinkActive]="['active']">
         <md-icon>phone</md-icon>Kontakt
-      </li> 
+      </li>
       <li [routerLink]="['/Anfahrt']" (click)="sidenav.close()" [routerLinkActive]="['active']">
         <md-icon>location_on</md-icon>Anfahrt
-      </li> 
+      </li>
     </ul>
   </md-sidenav>
   <main>
@@ -25,5 +25,6 @@
       <button class="toolbar-icon-button" md-button (click)="sidenav.toggle()"><md-icon>menu</md-icon></button>
       <span id="title">{{ toolbarService?.title }}</span>
     </md-toolbar>
+    <router-outlet></router-outlet>
   </main>
 </md-sidenav-container>
