@@ -2,5 +2,22 @@
     padding: 8px;
     md-card {
         margin: 8px;
+        md-icon {
+            color: #bf74cc;
+            margin-right: 16px;
+        }
+        &#contact-card {
+            h3 {
+                font-size: 20px;
+                font-weight: 400;
+            }
+            p {
+                color: rgba(0, 0, 0, 0.54);
+            }
+        }
     }
+}
+
+md-divider {
+    margin: 16px 0;
 }

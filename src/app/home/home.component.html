@@ -1,15 +1,80 @@
-<div class="wrapper" fxLayout.gt-md="row" fxLayoutWrap>
-  <md-card fxFlex.gt-md="55%" fxFlexOrder.gt-md="-1">
-    <md-card-title>Meine Arbeit in Sulzbach</md-card-title>
-    <p>
-      In meinem Nagelstudio in Sulzbach kümmere ich mich engagiert und mit großer Liebe zum Beruf darum, meinen Kundinnen zu einem
-      gepflegten Aussehen zu verhelfen.<br><br>Unsere Hände sind fast immer sichtbar und stehen vielfach im Zentrum
-      des Interesses. Nicht umsonst gibt es die Redewendung "jemandem auf die Finger sehen". Ob beim Essen, beim gestenreichen
-      Sprechen oder einfach in legerer Haltung, unsere Hände sind sichtbar und ziehen viele Blicke auf sich.<br><br>Maniküre
-      und Nageldesign sind weit mehr als ausschließlich künstliche Fingernägel. Eine Basispflege ist bei mir ebenso denkbar
-      wie aufwendig gestylte Nägel – ganz nach Wunsch.<br><br>Wenn Sie der Meinung sind, dass künstliche Fingernägel gleichzusetzen
-      sind mit unnatürlich langen Krallen, wie sie vor Jahrzehnten modern waren, lassen Sie sich vom Gegenteil überzeugen.
-      Ich zeige Ihnen gerne, wie wunderbar natürlich zeitgemäßes Nageldesign aussieht.
-    </p>
-  </md-card>
+<div class="wrapper" fxLayout.gt-sm="row" fxLayout="column" fxLayoutWrap>
+  <div fxFlex.gt-sm="40%" fxFlex.gt-lg="30%">
+    <md-card>
+      <md-card-title>Wo findet Ihr mich?</md-card-title>
+      <span>{{ (address$ | async)?.street }} {{ (address$ | async)?.houseNumber }}</span><br />
+      <span>{{ (address$ | async)?.zip }} {{ (address$ | async)?.city }}</span>
+    </md-card>
+    <md-card>
+      <md-card-title>Wie erreicht ihr mich?</md-card-title>
+      <md-list>
+        <md-list-item>
+          <md-icon>phone</md-icon>
+          <a [href]="'tel:' + (phone$ | async)">{{ phone$ | async }}</a>
+        </md-list-item>
+        <md-divider></md-divider>
+        <md-list-item>
+          <md-icon>mail</md-icon>
+          <a [href]="'mailto:' + (mail$ | async)">{{ mail$ | async }}</a>
+        </md-list-item>
+      </md-list>
+    </md-card>
+    <md-card id="contact-card">
+      <md-card-title>Wann arbeite ich?</md-card-title>
+      <md-list>
+        <md-list-item>
+          <h3 md-line>9:00 - 19:00</h3>
+          <p md-line>Montag - Freitag</p>
+        </md-list-item>
+        <md-divider></md-divider>
+        <md-list-item>
+          <h3 md-line>9:00 - 17:00</h3>
+          <p md-line>Samstag</p>
+        </md-list-item>
+        <md-divider></md-divider>
+        <md-list-item>
+          <h3 md-line>Geschlossen</h3>
+          <p md-line>Sonntag</p>
+        </md-list-item>
+      </md-list>
+    </md-card>
+  </div>
+  <div fxFlex.gt-sm="55%" fxFlexOrder.gt-sm="-1">
+    <md-card>
+      <md-card-title>Meine Arbeit in Sulzbach</md-card-title>
+      <p>
+        In meinem Nagelstudio in Sulzbach kümmere ich mich engagiert und mit großer Liebe zum Beruf darum, meinen Kundinnen zu einem
+        gepflegten Aussehen zu verhelfen.<br><br>Unsere Hände sind fast immer sichtbar und stehen vielfach im Zentrum
+        des Interesses. Nicht umsonst gibt es die Redewendung "jemandem auf die Finger sehen". Ob beim Essen, beim gestenreichen
+        Sprechen oder einfach in legerer Haltung, unsere Hände sind sichtbar und ziehen viele Blicke auf sich.<br><br>Maniküre
+        und Nageldesign sind weit mehr als ausschließlich künstliche Fingernägel. Eine Basispflege ist bei mir ebenso denkbar
+        wie aufwendig gestylte Nägel – ganz nach Wunsch.<br><br>Wenn Sie der Meinung sind, dass künstliche Fingernägel gleichzusetzen
+        sind mit unnatürlich langen Krallen, wie sie vor Jahrzehnten modern waren, lassen Sie sich vom Gegenteil überzeugen.
+        Ich zeige Ihnen gerne, wie wunderbar natürlich zeitgemäßes Nageldesign aussieht.
+      </p>
+    </md-card>
+    <md-card>
+      <md-card-title>Nageldesign – ein kleiner Rückblick</md-card-title>
+      <p>
+        Gerade in der heutigen Zeit ist gutes und vor allem gepflegtes Aussehen wichtig – beruflich wie privat.<br><br>Aber
+        auch in der Antike kümmerten sich die Menschen bereits sorgfältig um ihre Nägel. Cleopatra etwa, Inbegriff der Schönheit,
+        modellierte ihre Fingernägel mit Porzellanpulver und färbte sie anschließend golden oder mit Henna orangerot. In
+        der Ming-Dynastie wussten die Menschen ebenfalls ihre Nägel zu verstärken.<br><br>Im 20. Jahrhundert begann der Siegeszug
+        der künstlichen Fingernägel, die bald auch für jeden populär wurden. Gestaltung und Materialien waren und sind dabei
+        der jeweiligen Mode und dem individuellen Geschmack unterworfen.<br><br>In angenehmen und wohltuenden Ambiente sorge
+        ich dafür, dass Sie stolz auf Ihre Hände sein können.
+      </p>
+    </md-card>
+    <md-card>
+      <md-card-title>Künstliche Fingernägel – viele Varianten möglich</md-card-title>
+      <p>
+        Ob Sie schlicht geformte oder auffällig gefeilte Fingernägel wünschen, ob dezent lackiert, üppig mit Steinchen verziert oder
+        aufwendig gemustert – in allen Techniken verfüge ich über viel Erfahrung.<br>Gerne berate ich Sie bei der
+        Auswahl der Lacke und Farben wie auch bei der Form Ihrer Fingernägel.<br><br>Dabei spielt selbstverständlich der
+        Anlass eine große Rolle. Ein festlicher Abend gestattet ein pompöses Design, farblich passend zu Ihrem Kleid. Für
+        den Alltag empfiehlt sich eher ein schlichter Look.<br><br>Wesentlich bei allem ist jedoch, dass Sie selbst sich
+        wohlfühlen und gerne Ihre gepflegten Hände und schönen Fingernägel zeigen.
+      </p>
+    </md-card>
+  </div>
 </div>
