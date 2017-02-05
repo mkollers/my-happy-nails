@@ -4,6 +4,7 @@ export interface StoreData {
     address: Address;
     phone: string;
     mail: string;
+    location: google.maps.LatLng | google.maps.LatLngLiteral;
 };
 
 export const INITIAL_STORE_DATA: StoreData = {
@@ -14,5 +15,9 @@ export const INITIAL_STORE_DATA: StoreData = {
         city: 'Sulzbach (Taunus)'
     },
     phone: '+49 177 6342 915',
-    mail: 'kontakt@my-happy-nails.de'
+    mail: 'kontakt@my-happy-nails.de',
+    location: {
+        lat: 50.133442,
+        lng: 8.5351918
+    }
 };

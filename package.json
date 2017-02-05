@@ -24,7 +24,9 @@
     "@angular/router": "^3.4.6",
     "@ngrx/core": "^1.2.0",
     "@ngrx/store": "^2.2.1",
+    "@types/google-maps": "^3.2.0",
     "core-js": "^2.4.1",
+    "google-maps": "^3.2.1",
     "rxjs": "^5.1.0",
     "ts-helpers": "^1.1.2",
     "zone.js": "^0.7.6"

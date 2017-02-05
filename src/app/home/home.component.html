@@ -1,6 +1,7 @@
 <div class="wrapper" fxLayout.gt-sm="row" fxLayout="column" fxLayoutWrap>
   <div fxFlex.gt-sm="40%" fxFlex.gt-lg="30%">
     <md-card>
+      <div id="map"></div>
       <md-card-title>Wo findet Ihr mich?</md-card-title>
       <span>{{ (address$ | async)?.street }} {{ (address$ | async)?.houseNumber }}</span><br />
       <span>{{ (address$ | async)?.zip }} {{ (address$ | async)?.city }}</span>
