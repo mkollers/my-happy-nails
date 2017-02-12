@@ -14,7 +14,7 @@
   <main fxLayout="column">
     <md-toolbar id="header">
       <button class="toolbar-icon-button" md-button (click)="sidenav.toggle()"><md-icon>menu</md-icon></button>
-      <span id="title">{{ toolbarService?.title }}</span>
+      <span id="title">{{ title$ | async }}</span>
     </md-toolbar>
     <div fxFlex>
       <router-outlet></router-outlet>

@@ -1,4 +1,7 @@
+import { UpdateTitleAction } from '../shared/store/actions/ui-actions';
+import { ApplicationState } from '../shared/store/application-state';
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-prices',
@@ -7,9 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PricesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store<ApplicationState>) { }
 
   ngOnInit() {
+    this.store.dispatch(new UpdateTitleAction('Preise'));
   }
 
 }

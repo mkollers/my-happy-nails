@@ -7,32 +7,15 @@ import { LocationComponent } from './location/location.component';
 import { PricesComponent } from './prices/prices.component';
 import { AppRoutes } from './routes';
 import { Services } from './shared/services';
-import { ApplicationState, INITIAL_APPLICATION_STATE } from './shared/store/application-state';
+import { storeReducer } from './shared/store/reducers/store-reducer';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { Action, StoreModule } from '@ngrx/store';
-
-export function storeReducer(state: ApplicationState, action: Action) {
-  // switch (action.type) {
-  //   case CHANGE_TITLE_ACTION:
-  //     return handle(state, action as ChangeTitleAction);
-  //   default:
-  return state;
-  //  }
-}
-
-// export function handle(state: ApplicationState, action: ChangeTitleAction): ApplicationState {
-//   const knowledges = action.payload;
-//   const newState: ApplicationState = Object.assign({}, state);
-
-//   newState.uiState.knowledges = knowledges;
-
-//   return newState;
-// }
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -50,7 +33,8 @@ export function storeReducer(state: ApplicationState, action: Action) {
     RouterModule.forRoot(AppRoutes),
     MaterialModule.forRoot(),
     FlexLayoutModule.forRoot(),
-    StoreModule.provideStore(storeReducer, INITIAL_APPLICATION_STATE)
+    StoreModule.provideStore(storeReducer),
+    StoreDevtoolsModule.instrumentOnlyWithExtension()
   ],
   providers: [
     ...Services

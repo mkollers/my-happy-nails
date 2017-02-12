@@ -1,9 +1,9 @@
 import { Address } from '../shared/models/address';
-import { Observable } from 'rxjs/Rx';
+import { UpdateTitleAction } from '../shared/store/actions/ui-actions';
 import { ApplicationState } from '../shared/store/application-state';
-import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
-import * as maps from 'google-maps';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-home',
@@ -21,6 +21,8 @@ export class HomeComponent implements OnInit {
     this.address$ = this.store.map(state => state.storeData.address);
     this.phone$ = this.store.map(state => state.storeData.phone);
     this.mail$ = this.store.map(state => state.storeData.mail);
+
+    this.store.dispatch(new UpdateTitleAction('Home'));
 
     this.createMap();
   }
