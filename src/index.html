@@ -15,6 +15,29 @@
 
 <body>
   <app-root>
+    <style type="text/css">
+      .splash {
+        width: 50%;
+        left: 25%;
+        top: 25%;
+        position: fixed;
+        animation: blink-animation 1.7s cubic-bezier(.5, 0, 1, 1) infinite alternate;
+      }
+      
+      @media (max-width: 600px) {
+        .splash {
+          width: 80%;
+          left: 10%;
+          top: 40%;
+        }
+      }
+      
+      @keyframes blink-animation {
+        to {
+          opacity: 0;
+        }
+      }
+    </style>
     <img class="splash" alt="Logo" src="assets/logo.svg">
   </app-root>
 </body>

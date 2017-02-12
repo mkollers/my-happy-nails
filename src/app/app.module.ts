@@ -32,7 +32,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     HttpModule,
     RouterModule.forRoot(AppRoutes),
     MaterialModule.forRoot(),
-    FlexLayoutModule.forRoot(),
+    FlexLayoutModule,
     StoreModule.provideStore(storeReducer),
     StoreDevtoolsModule.instrumentOnlyWithExtension()
   ],

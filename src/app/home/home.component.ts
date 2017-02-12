@@ -18,9 +18,9 @@ export class HomeComponent implements OnInit {
   constructor(private store: Store<ApplicationState>) { }
 
   ngOnInit() {
-    this.address$ = this.store.map(state => state.storeData.address);
-    this.phone$ = this.store.map(state => state.storeData.phone);
-    this.mail$ = this.store.map(state => state.storeData.mail);
+    this.address$ = this.store.select(state => state.storeData.address);
+    this.phone$ = this.store.select(state => state.storeData.phone);
+    this.mail$ = this.store.select(state => state.storeData.mail);
 
     this.store.dispatch(new UpdateTitleAction('Home'));
 

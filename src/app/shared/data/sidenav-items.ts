@@ -2,7 +2,7 @@ import { NavigationItem } from '../models/navigation-item';
 
 export const SidenavItems: NavigationItem[] = [{
     text: 'Home',
-    url: '/',
+    url: '',
     icon: 'home',
     title: 'Aktuelle Informationen über mein Nagelstudio in Sulzbach'
 }, {

@@ -1,10 +1,10 @@
 <md-sidenav-container>
-  <md-sidenav #sidenav mode="side">
+  <md-sidenav #sidenav [mode]="(sidenavOpened$ | async) ? 'side' : 'over'" [opened]="sidenavOpened$ | async">
     <object id="logo" data="assets/logo.svg" type="image/svg+xml" height="100">
     </object>
     <ul>
       <li *ngFor="let item of sidenavItems$ | async">
-        <a [routerLink]="[item.url]" (click)="sidenav.close()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}"
+        <a [routerLink]="[item.url]" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}"
           [title]="item.title">
           <md-icon>{{ item.icon }}</md-icon>{{ item.text }}
           </a>
