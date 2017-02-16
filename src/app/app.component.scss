@@ -35,9 +35,10 @@ md-toolbar {
     }
 }
 
-md-sidenav {
+.mat-sidenav {
     width: 320px;
     background: white;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
     #logo {
         display: block;
         margin: 32px auto;
@@ -87,4 +88,8 @@ md-sidenav {
             background: rgba(red($accent), green($accent), blue($accent), 0.1);
         }
     }
+}
+
+footer {
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
 }
