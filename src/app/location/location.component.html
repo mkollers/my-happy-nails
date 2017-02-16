@@ -3,16 +3,16 @@
     <div class="card-header">
       <iframe height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" [src]="iFrameUrl$ | async"></iframe>
     </div>
-    <md-card-title>Wo findet Ihr mich?</md-card-title>    
+    <md-card-title>Wo findest du mich?</md-card-title>    
     <span>{{ (address$ | async)?.street }} {{ (address$ | async)?.houseNumber }}</span><br />
     <span>{{ (address$ | async)?.zip }} {{ (address$ | async)?.city }}</span><br /><br />
-    <span>Bitte klingelt bei "Kollers & Hauschild".</span>
+    <span>Bitte klingel bei "Kollers & Hauschild".</span>
   </md-card>
   <md-card fxFlex.lg="70%" fxFlex.xl="50%">
     <div class="card-header">
       <div id="map"></div>
     </div>
-    <md-card-title>Wo könnt Ihr parken?</md-card-title>
-    <p>Kostenlose öffentliche Parkplätze findet Ihr bei den eingezeichneten Flächen. Der Hauseingang ist sowohl vom Falkensteiner Weg, als auch von der Eschborner Straße aus zugänglich.</p>
+    <md-card-title>Wo kannst du parken?</md-card-title>
+    <p>Kostenlose öffentliche Parkplätze findest du bei den eingezeichneten Flächen. Der Hauseingang ist sowohl vom Falkensteiner Weg, als auch von der Eschborner Straße aus zugänglich.</p>
   </md-card>
 </div>
