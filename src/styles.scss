@@ -2,7 +2,7 @@
 @import '~@angular/material/core/theming/theming';
 // Import your custom theme
 @import 'src/my-happy-nails-theme.scss';
-$accent: md-color($my-happy-nails-primary);
+$accent: mat-color($my-happy-nails-primary);
 html,
 body,
 app-root,
