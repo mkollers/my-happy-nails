@@ -4,10 +4,9 @@
     </object>
     <ul>
       <li *ngFor="let item of sidenavItems$ | async">
-        <a [routerLink]="[item.url]" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}"
-          [title]="item.title">
+        <a [routerLink]="item.url" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}" [title]="item.title">
           <md-icon>{{ item.icon }}</md-icon>{{ item.text }}
-          </a>
+        </a>
       </li>
     </ul>
   </md-sidenav>
@@ -22,7 +21,7 @@
     <footer>
       <div fxLayout.gt-sm="column" fxLayout="row" fxFlex="100%">
         <div fxLayout="row" fxLayout.xs="column" fxFlex="100%" fxFlex.xs="60%" fxLayoutAlign="center center" fxLayoutAlign.xs="center start">
-          <a *ngFor="let item of footerItems$ | async" [routerLink]="[item.url]" [routerLinkActive]="['active']" [title]="item.title">{{ item.text }}</a>
+          <a *ngFor="let item of footerItems$ | async" [routerLink]="item.url" [title]="item.title">{{ item.text }}</a>
         </div>
         <div fxLayout.xs="column" fxLayout="row" fxFlex="100%" fxFlex.xs="40%" fxLayoutAlign.xs="center end" fxLayoutAlign="center center">
           <a href="https://www.facebook.com/MyHappyNailsNagelstudio" title="Zur Facebook-Seite" target="_blank" rel="noopener noreferrer"

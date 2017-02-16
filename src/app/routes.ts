@@ -12,11 +12,11 @@ const defaultRoute = {
 };
 
 export const AppRoutes: Routes = [
-    { path: '', component: HomeComponent },
-    { path: 'preise', component: PricesComponent },
-    { path: 'bilder', component: ImagesComponent },
-    { path: 'kontakt', component: ContactComponent },
-    { path: 'anfahrt', component: LocationComponent },
-    { path: 'impressum', component: ImprintComponent },
+    { path: '', component: HomeComponent, pathMatch: 'full' },
+    { path: 'preise', component: PricesComponent, pathMatch: 'full' },
+    { path: 'bilder', component: ImagesComponent, pathMatch: 'full' },
+    { path: 'kontakt', component: ContactComponent, pathMatch: 'full' },
+    { path: 'anfahrt', component: LocationComponent, pathMatch: 'full' },
+    { path: 'impressum', component: ImprintComponent, pathMatch: 'full' },
     defaultRoute
 ];

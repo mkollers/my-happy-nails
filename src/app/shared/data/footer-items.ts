@@ -1,9 +1,10 @@
+import { NavigationItem } from '../models/navigation-item';
 import { SidenavItems } from './sidenav-items';
 
-export const FooterItems = [
+export const FooterItems: NavigationItem[] = [
     ...SidenavItems, {
         text: 'Impressum',
-        url: '/impressum',
+        url: ['/impressum'],
         icon: undefined,
         title: 'Gesetzlich vorgeschriebene Herkunftsangabe'
     }

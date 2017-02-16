@@ -31,7 +31,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     BrowserModule,
     HttpModule,
     RouterModule.forRoot(AppRoutes),
-    MaterialModule.forRoot(),
+    MaterialModule,
     FlexLayoutModule,
     StoreModule.provideStore(storeReducer),
     StoreDevtoolsModule.instrumentOnlyWithExtension()
