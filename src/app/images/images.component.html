@@ -1,3 +1,7 @@
-<p>
-  images works!
-</p>
+<div class="masonry-layout">
+  <div class="masonry-layout__panel" *ngFor="let photo of (photos$ | async)" #el>
+    <md-card>
+      <img [src]="(getImageUrl(photo, el) | async)" />
+    </md-card>
+  </div>
+</div>

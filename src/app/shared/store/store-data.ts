@@ -1,3 +1,4 @@
+import { Photo } from '../models/photo';
 import { Address } from '../models/address';
 
 export interface StoreData {
@@ -5,6 +6,7 @@ export interface StoreData {
     phone: string;
     mail: string;
     location: google.maps.LatLng | google.maps.LatLngLiteral;
+    photos: Photo[];
 };
 
 export const INITIAL_STORE_DATA: StoreData = {
@@ -19,5 +21,6 @@ export const INITIAL_STORE_DATA: StoreData = {
     location: {
         lat: 50.133442,
         lng: 8.5351918
-    }
+    },
+    photos: []
 };

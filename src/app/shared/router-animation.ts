@@ -4,7 +4,7 @@ export function RouterTransition() {
     return slideToLeft();
 }
 
-function slideToLeft() {
+export function slideToLeft() {
     return trigger('routerTransition', [
         transition('void => *', [
             style({ position: 'absolute', width: '100%', height: '100%', transform: 'translateX(100%)' }),

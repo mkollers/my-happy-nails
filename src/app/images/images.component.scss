@@ -1,0 +1,26 @@
+.mat-card {
+    padding: 16px;
+    img {
+        width: 100%;
+    }
+}
+
+.masonry-layout {
+    column-count: 1;
+    @media (min-width: 1920px) {
+        column-count: 4;
+    }
+    @media (min-width: 960px) {
+        column-count: 3;
+    }
+    @media (min-width: 600px) {
+        column-count: 2;
+    }
+    column-gap: 0;
+    padding: 8px;
+}
+
+.masonry-layout__panel {
+    break-inside: avoid;
+    padding: 8px;
+}
