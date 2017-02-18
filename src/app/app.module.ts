@@ -1,3 +1,4 @@
+import { Effects } from './shared/store/effects';
 import { AppComponent } from './app.component';
 import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
@@ -34,6 +35,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     MaterialModule,
     FlexLayoutModule,
     StoreModule.provideStore(storeReducer),
+    ...Effects,
     StoreDevtoolsModule.instrumentOnlyWithExtension()
   ],
   providers: [
