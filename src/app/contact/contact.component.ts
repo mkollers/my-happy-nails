@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Rx';
 import { RouterTransition } from '../shared/router-animation';
 import { UpdateTitleAction } from '../shared/store/actions/ui-actions';
 import { ApplicationState } from '../shared/store/application-state';
@@ -12,11 +13,16 @@ import { Store } from '@ngrx/store';
 })
 export class ContactComponent implements OnInit {
   @HostBinding('@routerTransition') routerTransition = '';
+  phone$: Observable<string>;
+  mail$: Observable<string>;
 
   constructor(private store: Store<ApplicationState>) { }
 
   ngOnInit() {
     this.store.dispatch(new UpdateTitleAction('Kontakt'));
+
+    this.phone$ = this.store.select(state => state.storeData.phone);
+    this.mail$ = this.store.select(state => state.storeData.mail);
   }
 
 }

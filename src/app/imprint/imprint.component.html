@@ -2,8 +2,9 @@
   <div fxFlex.gt-md="45%">
     <md-card>
       <md-card-title>Angaben gemäß § 5 TMG</md-card-title>
-      <p>My Happy Nails<br /> Inhaberin: Denise Sara Hauschild<br /><br /> Falkensteiner Weg 10<br /> 65843 Sulzbach (Taunus)<br
-        /><br /> Telefon: <a href="tel:0177 6342915">0177 6342915</a><br /> E-Mail: <a href="mailto:kontakt@my-happy-nails.de">kontakt@my-happy-nails.de</a>
+      <p>My Happy Nails<br /> Inhaberin: Denise Sara Hauschild<br /><br />{{ (address$ | async)?.street }} {{ (address$ | async)?.houseNumber
+        }}<br /> {{ (address$ | async)?.zip }} {{ (address$ | async)?.city }}<br /><br /> Telefon: <a [href]="'tel:'+ (phone$ | async)">{{ phone$ | async }}</a><br
+        /> E-Mail: <a [href]="'mailto:' + (mail$ | async)">{{ mail$ | async }}</a>
       </p>
     </md-card>
     <md-card>
