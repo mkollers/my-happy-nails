@@ -6,7 +6,7 @@ import { Store } from '@ngrx/store';
 @Component({
   selector: 'app-imprint',
   templateUrl: './imprint.component.html',
-  styleUrls: ['./imprint.component.css']
+  styleUrls: ['./imprint.component.scss']
 })
 export class ImprintComponent implements OnInit {
 
