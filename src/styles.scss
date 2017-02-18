@@ -15,7 +15,7 @@ main {
 }
 
 .mat-sidenav-container {
-    background: url(/assets/bg_xl.jpg) no-repeat center center fixed;
+    background: url(/assets/bg_xl.jpg) no-repeat center center fixed;    
     @media (max-width: 1919px) {
         background: url(/assets/bg_lg.jpg) no-repeat center center fixed;
     }
@@ -28,7 +28,7 @@ main {
     @media (max-width: 599px) {
         background: url(/assets/bg_xs.jpg) no-repeat center center fixed;
     }
-    background-size: cover;
+    background-size: cover!important;
 }
 
 app-root {
@@ -63,4 +63,8 @@ a {
     @media (max-width: 600px) {
         margin: -24px -16px 24px -16px!important;
     }
+}
+
+.mat-sidenav-content {
+    overflow-x: hidden!important;
 }

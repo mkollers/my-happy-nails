@@ -1,18 +1,21 @@
+import { RouterTransition } from '../shared/router-animation';
 import { UsingObservable } from 'rxjs/observable/UsingObservable';
 import { Address } from '../shared/models/address';
 import { UpdateTitleAction } from '../shared/store/actions/ui-actions';
 import { ApplicationState } from '../shared/store/application-state';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs/Rx';
 
 @Component({
+  animations: [RouterTransition()],
   selector: 'app-location',
   templateUrl: './location.component.html',
   styleUrls: ['./location.component.scss']
 })
 export class LocationComponent implements OnInit, OnDestroy {
+  @HostBinding('@routerTransition') routerTransition = '';
   mapSubscription: Subscription;
   address$: Observable<Address>;
   iFrameUrl$: Observable<SafeResourceUrl>;

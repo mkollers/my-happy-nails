@@ -1,16 +1,19 @@
+import { RouterTransition } from '../shared/router-animation';
 import { Address } from '../shared/models/address';
 import { UpdateTitleAction } from '../shared/store/actions/ui-actions';
 import { ApplicationState } from '../shared/store/application-state';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs/Rx';
 
 @Component({
+  animations: [RouterTransition()],
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, OnDestroy {
+  @HostBinding('@routerTransition') routerTransition = '';
   mapSubscription: Subscription;
   address$: Observable<Address>;
   phone$: Observable<string>;
