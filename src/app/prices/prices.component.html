@@ -1,3 +1,45 @@
-<p>
-  prices works!
-</p>
+<div class="masonry-layout">
+  <div class="masonry-layout__panel" *ngFor="let category of (services$ | async)">
+    <md-card>
+      <md-card-title>{{ category.name }}</md-card-title>
+      <md-list>
+        <md-list-item *ngFor="let service of category.services">
+          <h3 md-line>{{ service.name }}</h3>
+          <p md-line>{{ service.description }}</p>
+          <p class="cost" fxFlexOrder="999">{{ service.cost }}</p>
+        </md-list-item>
+      </md-list>
+    </md-card>
+  </div>
+  <div class="masonry-layout__panel">
+    <md-card>
+      <md-card-title>Hinweis zu Haltbarkeit und Gesundheit</md-card-title>
+      <p>Bitte setzen Sie Ihren Nägeln mindestens drei Stunden vor einem Nagelstudiotermin keinem Wasser oder Handcremes mehr
+        aus. Beides kann die Haltbarkeit erheblich negativ beeinflussen.<br/><br/> Das Auffüllen der Nagelmodellage sollte
+        je nach Wachstum nach drei bis vier Wochen erfolgen. Ein abgebrochener Nagel sollte nicht wieder aufgeklebt werden,
+        da es zu einer Pilzinfektion kommen kann.<br/><br/> Die Gelnägel können selbstverständlich auch lackiert werden,
+        bitte beachten Sie nur beim ablackieren einen acetonfreien Nagellackentferner zu benutzen. Falls Sie mit scharfen
+        Reinigungsmitteln arbeiten, benutzen Sie bitte Handschuhe.<br/><br/> Falls Sie Ihre Gelnägel einmal nicht mehr haben
+        möchten, feilen Sie diese bitte ab oder vereinbaren Sie einen Termin mit mir. Das Abreissen der Nägel kann zu einer
+        Verletzung der eigenen Nagelplatte führen.</p>
+    </md-card>
+  </div>
+  <div class="masonry-layout__panel">
+    <md-card>
+      <md-card-title>Produkte & Hersteller</md-card-title>
+      <p>Ich verwende fast ausschließlich die Qualitätsprodukte der Firma <a title="Shop von LCN" href="http://www.lcn-shop.de/">LCN (Light Concept Nails) Wilde Cosmetics</a>.<br/><br/>        Nagelmodellage Gele von LCN bieten höchstmögliche Bioverträglichkeit und sind frei von Tierversuchen. LCN-Gele sind
+        gemäß den neuesten Regularien der Europäischen Kosmetikverordnung ausgerichtet und werden in der hauseigenen Qualitätssicherung
+        ständig überprüft.<br/><br/>Seit 30 Jahren entwickelt LCN Gele für die Nagelmodellage und Pflegeprodukte von ausgewählter
+        Qualität. Das Unternehmen vertreibt weltweit Produkte aus den Bereichen Hand-, Nagel- und Fußpflege mit höchstem
+        Anspruch an Qualität und exklusiven Inhaltsstoffen. Das Angebot ist vielseitig und modisch immer ganz up to date.</p>
+    </md-card>
+  </div>
+  <div class="masonry-layout__panel">
+    <md-card>
+      <md-card-title>Hinweis bei Fremdmaterial</md-card-title>
+      <p>Da ich bei Kunden, welche vorher in einem anderen Nagelstudio waren nicht weiß, welche Produkte verwendet wurden, oder
+        wie diese mit meinen Materialien reagieren, kann ich keine Garantie für die Haftung der Nägel übernehmen.<br/><br/>Selbstverständlich
+        ist es allerdings auch in meinem Interesse für die bestmögliche Qualität Ihrer Nägel zu sorgen.</p>
+    </md-card>
+  </div>
+</div>

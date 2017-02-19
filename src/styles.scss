@@ -14,8 +14,12 @@ main {
     height: 100%;
 }
 
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
 .mat-sidenav-container {
-    background: url(/assets/bg_xl.jpg) no-repeat center center fixed;    
+    background: url(/assets/bg_xl.jpg) no-repeat center center fixed;
     @media (max-width: 1919px) {
         background: url(/assets/bg_lg.jpg) no-repeat center center fixed;
     }
@@ -59,7 +63,6 @@ a {
     border-radius: 15px 15px 0 0;
     overflow: hidden;
     margin: -24px -24px 24px -24px!important;
-
     @media (max-width: 600px) {
         margin: -24px -16px 24px -16px!important;
     }
