@@ -1,3 +1,4 @@
+import { Image } from '../shared/models/image';
 import { ObservableMedia } from '@angular/flex-layout';
 import { DomSanitizer } from '@angular/platform-browser';
 import { observableToBeFn } from 'rxjs/testing/TestScheduler';
@@ -32,10 +33,15 @@ export class ImagesComponent implements OnInit {
   }
 
   getImageUrl(photo: Photo, el: HTMLElement) {
-    return Observable.of(photo.images)
-      .map(images => _.filter(images, image => image.width >= el.clientWidth - 16))
-      .map(images => _.orderBy(images, image => image.width))
-      .map(images => _.first(images))
-      .map(image => this.sanitizer.bypassSecurityTrustResourceUrl(image.source as string));
+    let images = photo.images;
+    images = _.filter(images, image => image.width >= el.clientWidth - 16);
+    images = _.orderBy(images, image => image.width);
+
+    const image = _.first(images);
+    if (!image) {
+      return undefined;
+    }
+
+    return this.sanitizer.bypassSecurityTrustResourceUrl(image.source);
   }
 }
