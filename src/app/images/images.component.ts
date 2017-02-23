@@ -1,15 +1,18 @@
-import { Image } from '../shared/models/image';
-import { ObservableMedia } from '@angular/flex-layout';
-import { DomSanitizer } from '@angular/platform-browser';
-import { observableToBeFn } from 'rxjs/testing/TestScheduler';
-import { Observable } from 'rxjs/Rx';
 import { Photo } from '../shared/models/photo';
 import { RouterTransition } from '../shared/router-animation';
-import { UpdateTitleAction } from '../shared/store/actions/ui-actions';
+import {
+  UpdateDescriptionAction,
+  UpdateHeaderAction,
+  UpdateKeywordsAction,
+  UpdateTitleAction
+} from '../shared/store/actions/seo-actions';
 import { ApplicationState } from '../shared/store/application-state';
-import { Store } from '@ngrx/store';
 import { Component, HostBinding, OnInit } from '@angular/core';
+import { ObservableMedia } from '@angular/flex-layout';
+import { DomSanitizer } from '@angular/platform-browser';
+import { Store } from '@ngrx/store';
 import * as _ from 'lodash';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   animations: [RouterTransition()],
@@ -29,7 +32,10 @@ export class ImagesComponent implements OnInit {
   ngOnInit() {
     this.photos$ = this.store.select(state => state.storeData.photos);
 
-    this.store.dispatch(new UpdateTitleAction('Bilder'));
+    this.store.dispatch(new UpdateHeaderAction('Bilder'));
+    this.store.dispatch(new UpdateTitleAction('Bilder und Impresionen von modernem Nageldesign und Modellagen'));
+    this.store.dispatch(new UpdateKeywordsAction(['nagelstudio', 'nageldesign', 'sulzbach', 'bilder', 'eindrücke', 'gallerie', 'impressionen']));
+    this.store.dispatch(new UpdateDescriptionAction('Aktuelle Bilder und Impressionen meiner Nagelmodellagen und anderer Arbeiten aus meinem Nagelstudio in Sulzbach (Taunus)'));
   }
 
   getImageUrl(photo: Photo, el: HTMLElement) {

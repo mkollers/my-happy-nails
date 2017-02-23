@@ -1,4 +1,3 @@
-import { Effects } from './shared/store/effects';
 import { AppComponent } from './app.component';
 import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
@@ -8,6 +7,7 @@ import { LocationComponent } from './location/location.component';
 import { PricesComponent } from './prices/prices.component';
 import { AppRoutes } from './routes';
 import { Services } from './shared/services';
+import { Effects } from './shared/store/effects';
 import { storeReducer } from './shared/store/reducers/store-reducer';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -17,6 +17,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { MetaModule } from '@nglibs/meta';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     FlexLayoutModule,
     StoreModule.provideStore(storeReducer),
     ...Effects,
-    StoreDevtoolsModule.instrumentOnlyWithExtension()
+    StoreDevtoolsModule.instrumentOnlyWithExtension(),
+    MetaModule.forRoot()
   ],
   providers: [
     ...Services

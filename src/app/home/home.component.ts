@@ -1,6 +1,11 @@
-import { RouterTransition } from '../shared/router-animation';
 import { Address } from '../shared/models/address';
-import { UpdateTitleAction } from '../shared/store/actions/ui-actions';
+import { RouterTransition } from '../shared/router-animation';
+import {
+    UpdateDescriptionAction,
+    UpdateHeaderAction,
+    UpdateKeywordsAction,
+    UpdateTitleAction
+} from '../shared/store/actions/seo-actions';
 import { ApplicationState } from '../shared/store/application-state';
 import { Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
@@ -19,14 +24,18 @@ export class HomeComponent implements OnInit, OnDestroy {
   phone$: Observable<string>;
   mail$: Observable<string>;
 
-  constructor(private store: Store<ApplicationState>) { }
+  constructor(
+    private store: Store<ApplicationState>) { }
 
   ngOnInit() {
     this.address$ = this.store.select(state => state.storeData.address);
     this.phone$ = this.store.select(state => state.storeData.phone);
     this.mail$ = this.store.select(state => state.storeData.mail);
 
-    this.store.dispatch(new UpdateTitleAction('Home'));
+    this.store.dispatch(new UpdateHeaderAction('Home'));
+    this.store.dispatch(new UpdateTitleAction('Günstiges Nagelstudio für schöne Fingernägel in Sulzbach'));
+    this.store.dispatch(new UpdateKeywordsAction(['nagelstudio', 'nageldesign', 'sulzbach', 'öffnungszeiten', 'maniküre', 'kontakt', 'adresse']));
+    this.store.dispatch(new UpdateDescriptionAction('Professionelles Nagelstudio zu fairen Preisen in Sulzbach. Du suchst einen Profi für deine Nägel zu günstigen Preisen? Kunstnägel, Gelnägel, Maniküre, Nailart'));
 
     this.createMap();
   }

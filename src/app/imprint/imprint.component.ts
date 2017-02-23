@@ -1,10 +1,15 @@
 import { Address } from '../shared/models/address';
-import { Observable } from 'rxjs/Rx';
 import { RouterTransition } from '../shared/router-animation';
-import { UpdateTitleAction } from '../shared/store/actions/ui-actions';
+import {
+  UpdateDescriptionAction,
+  UpdateHeaderAction,
+  UpdateKeywordsAction,
+  UpdateTitleAction
+} from '../shared/store/actions/seo-actions';
 import { ApplicationState } from '../shared/store/application-state';
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   animations: [RouterTransition()],
@@ -21,7 +26,10 @@ export class ImprintComponent implements OnInit {
   constructor(private store: Store<ApplicationState>) { }
 
   ngOnInit() {
+    this.store.dispatch(new UpdateHeaderAction('Impressum'));
     this.store.dispatch(new UpdateTitleAction('Impressum'));
+    this.store.dispatch(new UpdateKeywordsAction([]));
+    this.store.dispatch(new UpdateDescriptionAction(''));
 
     this.address$ = this.store.select(state => state.storeData.address);
     this.phone$ = this.store.select(state => state.storeData.phone);
