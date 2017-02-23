@@ -21,6 +21,10 @@
 }
 
 .masonry-layout__panel {
-    break-inside: avoid;
-    padding: 8px;
+  display: inline-block;
+  width: 100%;
+  break-inside: avoid;
+  md-card {
+    margin: 8px;
+  }
 }
