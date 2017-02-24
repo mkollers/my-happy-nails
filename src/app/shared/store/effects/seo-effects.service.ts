@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Actions, Effect } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
 import * as _ from 'lodash';
-import { MetaService } from 'ng2-meta';
+import { MetaService } from '@nglibs/meta';
 import { Observable } from 'rxjs/Rx';
 
 @Injectable()
