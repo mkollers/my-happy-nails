@@ -9,8 +9,13 @@
       "root": "src",
       "outDir": "dist",
       "assets": [
-        "assets",
-        "favicon.ico"
+        "assets/**",
+        "*.png",
+        "favicon.ico",
+        "manifest.json",
+        "robots.txt",
+        "sitemap.xml",
+        "Web.config"
       ],
       "index": "index.html",
       "main": "main.ts",

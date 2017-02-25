@@ -36,7 +36,8 @@ export class FacebookEffectsService {
       for (const photo of photos) {
         images$.push(this.facebookService.getImages(accessToken, photo.id).map(images => photo.images = images).mapTo(photo));
       }
-      return Observable.forkJoin(images$);
+      return Observable.forkJoin(images$)
+        .catch(err => Observable.of([]));
     })
     .map(photos => new FacebookPhotosLoadedAction(photos));
 
