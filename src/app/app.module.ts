@@ -15,9 +15,10 @@ import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { MetaModule } from '@nglibs/meta';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { MetaModule } from '@nglibs/meta';
+import { Angulartics2GoogleAnalytics, Angulartics2Module } from 'angulartics2';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { MetaModule } from '@nglibs/meta';
     StoreModule.provideStore(storeReducer),
     ...Effects,
     StoreDevtoolsModule.instrumentOnlyWithExtension(),
-    MetaModule.forRoot()
+    MetaModule.forRoot(),
+    Angulartics2Module.forRoot([Angulartics2GoogleAnalytics])
   ],
   providers: [
     ...Services
