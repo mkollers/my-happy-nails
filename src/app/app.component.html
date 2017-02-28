@@ -10,18 +10,19 @@
       </li>
     </ul>
   </md-sidenav>
-  <main fxLayout="column">
+  <main>
     <md-toolbar id="header">
       <button class="toolbar-icon-button" md-button (click)="sidenav.toggle()"><md-icon svgIcon="menu"></md-icon></button>
       <span id="title">{{ title$ | async }}</span>
     </md-toolbar>
-    <div fxFlex>
+    <div style="min-height: 100%">
       <router-outlet></router-outlet>
     </div>
     <footer>
       <div fxLayout.gt-sm="column" fxLayout="row" fxFlex="100%">
         <div fxLayout="row" fxLayout.xs="column" fxFlex="100%" fxFlex.xs="60%" fxLayoutAlign="center center" fxLayoutAlign.xs="center start">
-          <a *ngFor="let item of footerItems$ | async" [routerLink]="item.url" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}" [title]="item.title">{{ item.text }}</a>
+          <a *ngFor="let item of footerItems$ | async" [routerLink]="item.url" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}"
+            [title]="item.title">{{ item.text }}</a>
         </div>
         <div fxLayout.xs="column" fxLayout="row" fxFlex="100%" fxFlex.xs="40%" fxLayoutAlign.xs="center end" fxLayoutAlign="center center">
           <a href="https://www.facebook.com/MyHappyNailsNagelstudio" title="Zur Facebook-Seite" target="_blank" rel="noopener noreferrer"
