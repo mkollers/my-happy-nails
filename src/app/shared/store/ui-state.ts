@@ -20,7 +20,7 @@ export const INITIAL_UI_STATE: UiState = {
     },
     footerItems: FooterItems,
     location: {
-        iFrameUrl: 'https://maps.google.de/maps?hl=de&q=Falkensteiner%20Weg%2010&t=&z=16&ie=UTF8&iwloc=B&output=embed'
+        iFrameUrl: 'https://maps.google.de/maps/embed/v1/place?key=AIzaSyCNAFjhmK9AMKYH6ovmAtoE_8CjsnbLuqY&q=My+Happy+Nails'
     },
     title: 'Home',
     sidenavItems: SidenavItems
