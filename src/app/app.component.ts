@@ -28,6 +28,13 @@ export class AppComponent implements OnInit {
     this.mdIconRegistry.addSvgIcon('facebook', this.sanitizer.bypassSecurityTrustResourceUrl('assets/facebook.svg'));
     this.mdIconRegistry.addSvgIcon('github', this.sanitizer.bypassSecurityTrustResourceUrl('assets/github.svg'));
     this.mdIconRegistry.addSvgIcon('google-plus', this.sanitizer.bypassSecurityTrustResourceUrl('assets/google-plus.svg'));
+    this.mdIconRegistry.addSvgIcon('euro_symbol', this.sanitizer.bypassSecurityTrustResourceUrl('assets/ic_euro_symbol.svg'));
+    this.mdIconRegistry.addSvgIcon('menu', this.sanitizer.bypassSecurityTrustResourceUrl('assets/ic_menu.svg'));
+    this.mdIconRegistry.addSvgIcon('home', this.sanitizer.bypassSecurityTrustResourceUrl('assets/ic_home.svg'));
+    this.mdIconRegistry.addSvgIcon('mail', this.sanitizer.bypassSecurityTrustResourceUrl('assets/ic_email.svg'));
+    this.mdIconRegistry.addSvgIcon('image', this.sanitizer.bypassSecurityTrustResourceUrl('assets/ic_image.svg'));
+    this.mdIconRegistry.addSvgIcon('location_on', this.sanitizer.bypassSecurityTrustResourceUrl('assets/ic_location_on.svg'));
+    this.mdIconRegistry.addSvgIcon('phone', this.sanitizer.bypassSecurityTrustResourceUrl('assets/ic_phone.svg'));
 
     this.sidenavItems$ = this.store.select(state => state.uiState.sidenavItems);
     this.footerItems$ = this.store.select(state => state.uiState.footerItems);

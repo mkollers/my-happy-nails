@@ -5,14 +5,14 @@
     <ul>
       <li *ngFor="let item of sidenavItems$ | async">
         <a [routerLink]="item.url" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}" [title]="item.title">
-          <md-icon>{{ item.icon }}</md-icon>{{ item.text }}
+          <md-icon [svgIcon]="item.icon"></md-icon>{{ item.text }}
         </a>
       </li>
     </ul>
   </md-sidenav>
   <main fxLayout="column">
     <md-toolbar id="header">
-      <button class="toolbar-icon-button" md-button (click)="sidenav.toggle()"><md-icon>menu</md-icon></button>
+      <button class="toolbar-icon-button" md-button (click)="sidenav.toggle()"><md-icon svgIcon="menu"></md-icon></button>
       <span id="title">{{ title$ | async }}</span>
     </md-toolbar>
     <div fxFlex>

@@ -12,12 +12,12 @@
       <md-card-title>Wie erreichst du mich?</md-card-title>
       <md-list>
         <md-list-item>
-          <md-icon>phone</md-icon>
+          <md-icon svgIcon="phone"></md-icon>
           <a [href]="'tel:' + (phone$ | async)">{{ phone$ | async }}</a>
         </md-list-item>
         <md-divider></md-divider>
         <md-list-item>
-          <md-icon>mail</md-icon>
+          <md-icon svgIcon="mail"></md-icon>
           <a [href]="'mailto:' + (mail$ | async)">{{ mail$ | async }}</a>
         </md-list-item>
       </md-list>
