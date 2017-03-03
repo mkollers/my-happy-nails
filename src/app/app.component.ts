@@ -1,26 +1,32 @@
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { NavigationItem } from './shared/models/navigation-item';
 import { ApplicationState } from './shared/store/application-state';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ObservableMedia } from '@angular/flex-layout';
-import { MdIconRegistry } from '@angular/material';
+import { MdIconRegistry, MdSidenav } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs/Rx';
+import { Observable, Subscription } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
+  private susbcriptions: Subscription[] = [];
   sidenavItems$: Observable<NavigationItem[]>;
   footerItems$: Observable<NavigationItem[]>;
   title$: Observable<string>;
   sidenavOpened$: Observable<boolean>;
 
+  @ViewChild('sidenav')
+  sidenav: MdSidenav;
+
   constructor(
     private mdIconRegistry: MdIconRegistry,
     private media: ObservableMedia,
+    private router: Router,
     private sanitizer: DomSanitizer,
     private store: Store<ApplicationState>) { }
 
@@ -48,6 +54,21 @@ export class AppComponent implements OnInit {
           default:
             return true;
         }
-      });
+      }).startWith(false);
+
+    const closeSidenav$ = this.router.events
+      .filter(e => e instanceof NavigationEnd) // only on routing
+      .withLatestFrom(this.sidenavOpened$) // only on mobile screens
+      .map(([outer, inner]) => !inner) // for clearer next step...avoid tuple
+      .filter(close => close) // trigger only if nav should be closed
+      .do(() => this.sidenav.close());
+
+    this.susbcriptions.push(closeSidenav$.subscribe());
+  }
+
+  ngOnDestroy() {
+    for (const subscription of this.susbcriptions) {
+      subscription.unsubscribe();
+    }
   }
 }
