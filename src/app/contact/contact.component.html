@@ -1,5 +1,5 @@
 <div class="wrapper" fxLayout.gt-md="row" fxLayout="column" fxLayoutWrap>
-  <md-card fxFlex.lg="50%" fxFlex.xl="30%">
+  <md-card fxFlex="none" fxFlex.lg="50%" fxFlex.xl="30%">
     <md-card-title>Wie kannst du mich erreichen?</md-card-title>
     <p>
       Du willst einen Termin vereinbaren oder hast Fragen?<br/><br/> Telefonisch bin ich unter <a [href]="'tel:'+ (phone$ | async)">{{ phone$ | async }}</a> zu erreichen. Selbstverständlich kannst du mir auch per SMS oder WhatsApp schreiben ;-)<br/><br/> Alternativ kannst

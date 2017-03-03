@@ -1,10 +1,10 @@
-import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { NavigationItem } from './shared/models/navigation-item';
 import { ApplicationState } from './shared/store/application-state';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ObservableMedia } from '@angular/flex-layout';
 import { MdIconRegistry, MdSidenav } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
+import { NavigationEnd, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs/Rx';
 
