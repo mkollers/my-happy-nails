@@ -1,3 +1,4 @@
+import { Angulartics2GoogleAnalytics } from 'angulartics2/dist';
 import { NavigationItem } from './shared/models/navigation-item';
 import { ApplicationState } from './shared/store/application-state';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
@@ -24,6 +25,7 @@ export class AppComponent implements OnInit, OnDestroy {
   sidenav: MdSidenav;
 
   constructor(
+    private angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
     private mdIconRegistry: MdIconRegistry,
     private media: ObservableMedia,
     private router: Router,
