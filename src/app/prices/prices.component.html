@@ -1,7 +1,7 @@
 <div class="masonry-layout">
   <div class="masonry-layout__panel" *ngFor="let category of (services$ | async)">
     <md-card>
-      <md-card-title>{{ category.name }}</md-card-title>
+      <md-card-title><h2>{{ category.name }}</h2></md-card-title>
       <md-list>
         <md-list-item *ngFor="let service of category.services">
           <h3 md-line>{{ service.name }}</h3>
@@ -13,7 +13,7 @@
   </div>
   <div class="masonry-layout__panel">
     <md-card>
-      <md-card-title>Hinweis zu Haltbarkeit und Gesundheit</md-card-title>
+      <md-card-title><h2>Hinweis zu Haltbarkeit und Gesundheit</h2></md-card-title>
       <p>Bitte setzen Sie Ihren Nägeln mindestens drei Stunden vor einem Nagelstudiotermin keinem Wasser oder Handcremes mehr
         aus. Beides kann die Haltbarkeit erheblich negativ beeinflussen.<br/><br/> Das Auffüllen der Nagelmodellage sollte
         je nach Wachstum nach drei bis vier Wochen erfolgen. Ein abgebrochener Nagel sollte nicht wieder aufgeklebt werden,
@@ -26,7 +26,7 @@
   </div>
   <div class="masonry-layout__panel">
     <md-card>
-      <md-card-title>Produkte & Hersteller</md-card-title>
+      <md-card-title><h2>Produkte & Hersteller</h2></md-card-title>
       <p>Ich verwende fast ausschließlich die Qualitätsprodukte der Firma <a title="Shop von LCN" href="http://www.lcn-shop.de/">LCN (Light Concept Nails) Wilde Cosmetics</a>.<br/><br/>        Nagelmodellage Gele von LCN bieten höchstmögliche Bioverträglichkeit und sind frei von Tierversuchen. LCN-Gele sind
         gemäß den neuesten Regularien der Europäischen Kosmetikverordnung ausgerichtet und werden in der hauseigenen Qualitätssicherung
         ständig überprüft.<br/><br/>Seit 30 Jahren entwickelt LCN Gele für die Nagelmodellage und Pflegeprodukte von ausgewählter
@@ -36,7 +36,7 @@
   </div>
   <div class="masonry-layout__panel">
     <md-card>
-      <md-card-title>Hinweis bei Fremdmaterial</md-card-title>
+      <md-card-title><h2>Hinweis bei Fremdmaterial</h2></md-card-title>
       <p>Da ich bei Kunden, welche vorher in einem anderen Nagelstudio waren nicht weiß, welche Produkte verwendet wurden, oder
         wie diese mit meinen Materialien reagieren, kann ich keine Garantie für die Haftung der Nägel übernehmen.<br/><br/>Selbstverständlich
         ist es allerdings auch in meinem Interesse für die bestmögliche Qualität Ihrer Nägel zu sorgen.</p>

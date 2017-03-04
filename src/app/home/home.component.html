@@ -4,12 +4,12 @@
       <div class="card-header">
         <div id="map"></div>
       </div>
-      <md-card-title>Wo findest du mich?</md-card-title>
+      <md-card-title><h2>Adresse</h2></md-card-title>
       <span>{{ (address$ | async)?.street }} {{ (address$ | async)?.houseNumber }}</span><br />
       <span>{{ (address$ | async)?.zip }} {{ (address$ | async)?.city }}</span>
     </md-card>
     <md-card>
-      <md-card-title>Wie erreichst du mich?</md-card-title>
+      <md-card-title><h2>Kontakt</h2></md-card-title>
       <md-list>
         <md-list-item>
           <md-icon svgIcon="phone"></md-icon>
@@ -23,7 +23,7 @@
       </md-list>
     </md-card>
     <md-card id="contact-card">
-      <md-card-title>Wann arbeite ich?</md-card-title>
+      <md-card-title><h2>Öffnungszeiten</h2></md-card-title>
       <md-list>
         <md-list-item>
           <h3 md-line>9:00 - 19:00</h3>
@@ -44,7 +44,7 @@
   </div>
   <div fxFlex="none" fxFlex.gt-sm="55%" fxFlexOrder.gt-sm="-1">
     <md-card>
-      <md-card-title>Meine Arbeit in Sulzbach</md-card-title>
+      <md-card-title><h2>Meine Arbeit in Sulzbach</h2></md-card-title>
       <p>
         In meinem Nagelstudio in Sulzbach kümmere ich mich engagiert und mit großer Liebe zum Beruf darum, meinen Kundinnen zu einem
         gepflegten Aussehen zu verhelfen.<br><br>Unsere Hände sind fast immer sichtbar und stehen vielfach im Zentrum
@@ -57,7 +57,7 @@
       </p>
     </md-card>
     <md-card>
-      <md-card-title>Nageldesign – ein kleiner Rückblick</md-card-title>
+      <md-card-title><h2>Nageldesign – ein kleiner Rückblick</h2></md-card-title>
       <p>
         Gerade in der heutigen Zeit ist gutes und vor allem gepflegtes Aussehen wichtig – beruflich wie privat.<br><br>Aber
         auch in der Antike kümmerten sich die Menschen bereits sorgfältig um ihre Nägel. Cleopatra etwa, Inbegriff der Schönheit,
@@ -69,7 +69,7 @@
       </p>
     </md-card>
     <md-card>
-      <md-card-title>Künstliche Fingernägel – viele Varianten möglich</md-card-title>
+      <md-card-title><h2>Künstliche Fingernägel – viele Varianten möglich</h2></md-card-title>
       <p>
         Ob du schlicht geformte oder auffällig gefeilte Fingernägel wünschst, ob dezent lackiert, üppig mit Steinchen verziert oder
         aufwendig gemustert – in allen Techniken verfüge ich über viel Erfahrung.<br>Gerne berate ich dich bei der
