@@ -1,30 +1,36 @@
 <md-sidenav-container>
   <md-sidenav #sidenav [mode]="(sidenavOpened$ | async) ? 'side' : 'over'" [opened]="sidenavOpened$ | async">
-    <object id="logo" data="assets/logo.svg" type="image/svg+xml" height="100">
+    <aside>
+      <object id="logo" data="assets/logo.svg" type="image/svg+xml" height="100">
     </object>
-    <ul>
-      <li *ngFor="let item of sidenavItems$ | async">
-        <a [routerLink]="item.url" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}" [title]="item.title">
-          <md-icon [svgIcon]="item.icon"></md-icon>{{ item.text }}
-        </a>
-      </li>
-    </ul>
+      <nav>
+        <ul>
+          <li *ngFor="let item of sidenavItems$ | async">
+            <a [routerLink]="item.url" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}" [title]="item.title">
+              <md-icon [svgIcon]="item.icon"></md-icon>{{ item.text }}
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
   </md-sidenav>
   <main>
     <md-toolbar id="header">
-      <button class="toolbar-icon-button" md-button (click)="sidenav.toggle()"><md-icon svgIcon="menu"></md-icon></button>
-      <h1 id="title">{{ title$ | async }}</h1>
+      <header>
+        <button class="toolbar-icon-button" md-button (click)="sidenav.toggle()"><md-icon svgIcon="menu"></md-icon></button>
+        <h1 id="title">{{ title$ | async }}</h1>
+      </header>
     </md-toolbar>
-    <div style="min-height: 100%">
+    <section style="min-height: 100%">
       <router-outlet></router-outlet>
-    </div>
+    </section>
     <footer>
-      <div fxLayout.gt-sm="column" fxLayout="row">
+      <nav fxLayout.gt-sm="column" fxLayout="row">
         <div fxLayout="row" fxLayout.xs="column" fxFlex="none" fxFlex.xs="60%" fxLayoutAlign="center center" fxLayoutAlign.xs="center start">
           <a *ngFor="let item of footerItems$ | async" [routerLink]="item.url" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}"
             [title]="item.title">{{ item.text }}</a>
         </div>
-        <div fxLayout.xs="column" fxLayout="row" fxFlex="none" fxFlex.xs="40%" fxLayoutAlign.xs="center end" fxLayoutAlign="center center">
+        <div fxLayout.xs="column" fxLayout="row" fxFlex="none" fxFlex.xs="40%" fxLayoutAlign.xs="center end" fxLayoutAlign="center center">          
           <a href="https://www.facebook.com/MyHappyNailsNagelstudio" title="Zur Facebook-Seite" target="_blank" rel="noopener noreferrer"
             aria-label="Facebook">
             <md-icon svgIcon="facebook"></md-icon>
@@ -36,7 +42,7 @@
               <md-icon svgIcon="github"></md-icon>
             </a>
         </div>
-      </div>
+      </nav>
     </footer>
   </main>
 </md-sidenav-container>
