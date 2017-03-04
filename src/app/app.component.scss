@@ -28,6 +28,7 @@ md-toolbar {
         background: transparent;
         #title {
             margin-left: 5px;
+            display: inline;
         }
         /* ISSUE: md-icon-button does not center icon. try again in a newer version of angular-material */
         .toolbar-icon-button {
