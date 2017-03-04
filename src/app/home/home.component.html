@@ -1,6 +1,6 @@
 <div class="wrapper" fxLayout.gt-sm="row" fxLayout="column" fxLayoutWrap>
   <div fxFlex="none" fxFlex.gt-sm="40%" fxFlex.gt-lg="30%">
-    <md-card>
+    <md-card itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
       <div class="card-header">
         <div id="map"></div>
       </div>
@@ -17,12 +17,12 @@
       <md-list>
         <md-list-item>
           <md-icon svgIcon="phone"></md-icon>
-          <a [href]="'tel:' + (phone$ | async)">{{ phone$ | async }}</a>
+          <a itemprop="telephone" [href]="'tel:' + (phone$ | async)">{{ phone$ | async }}</a>
         </md-list-item>
         <md-divider></md-divider>
         <md-list-item>
           <md-icon svgIcon="mail"></md-icon>
-          <a [href]="'mailto:' + (mail$ | async)">{{ mail$ | async }}</a>
+          <a itemprop="email" [href]="'mailto:' + (mail$ | async)">{{ mail$ | async }}</a>
         </md-list-item>
       </md-list>
     </md-card>

@@ -5,10 +5,10 @@
         <h2>{{ category.name }}</h2>
       </md-card-title>
       <md-list>
-        <md-list-item *ngFor="let service of category.services">
-          <h3 md-line>{{ service.name }}</h3>
-          <p md-line>{{ service.description }}</p>
-          <p class="cost" fxFlexOrder="999">{{ service.cost }}</p>
+        <md-list-item *ngFor="let service of category.services" itemscope itemprop="makesOffer" itemtype="http://schema.org/Offer">
+          <h3 md-line itemprop="name">{{ service.name }}</h3>
+          <p md-line itemprop="description">{{ service.description }}</p>
+          <p class="cost" fxFlexOrder="999" itemprop="price">{{ service.cost }}</p>
         </md-list-item>
       </md-list>
     </md-card>

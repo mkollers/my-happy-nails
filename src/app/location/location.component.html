@@ -1,11 +1,11 @@
 <div class="wrapper" fxLayout.gt-md="row" fxLayout="column" fxLayoutWrap>
-  <md-card fxFlex="none" fxFlex.lg="70%" fxFlex.xl="50%">
+  <md-card fxFlex="none" fxFlex.lg="70%" fxFlex.xl="50%" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
     <div class="card-header">
       <iframe height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" [src]="iFrameUrl$ | async"></iframe>
     </div>
     <md-card-title><h2>Wo findest du mich?</h2></md-card-title>    
-    <span>{{ (address$ | async)?.street }} {{ (address$ | async)?.houseNumber }}</span><br />
-    <span>{{ (address$ | async)?.zip }} {{ (address$ | async)?.city }}</span><br /><br />
+    <span itemprop="streetAddress">{{ (address$ | async)?.street }} {{ (address$ | async)?.houseNumber }}</span><br />
+    <span><span itemprop="postalCode">{{ (address$ | async)?.zip }}</span> <span itemprop="addressLocality">{{ (address$ | async)?.city }}</span></span><br /><br />
     <span>Bitte klingel bei "Kollers & Hauschild".</span>
   </md-card>
   <md-card fxFlex="none" fxFlex.lg="70%" fxFlex.xl="50%">
