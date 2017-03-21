@@ -1,5 +1,5 @@
 <md-sidenav-container>
-  <md-sidenav #sidenav [mode]="(sidenavOpened$ | async) ? 'side' : 'over'" [opened]="sidenavOpened$ | async">
+  <md-sidenav #sidenav (swipeleft)="sidenav.close()" [mode]="(sidenavOpened$ | async) ? 'side' : 'over'" [opened]="sidenavOpened$ | async">
     <aside>
       <object itemscope itemtype="http://schema.org/Brand" id="logo" data="assets/logo.svg" type="image/svg+xml" height="100"></object>
       <nav>
