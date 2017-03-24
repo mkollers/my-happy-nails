@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
@@ -32,6 +33,7 @@ import { Angulartics2GoogleAnalytics, Angulartics2Module } from 'angulartics2';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpModule,
     RouterModule.forRoot(AppRoutes),
     MaterialModule,
