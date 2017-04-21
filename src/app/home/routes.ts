@@ -1,7 +1,5 @@
 import { HomeComponent } from './home.component';
-import { ModuleWithProviders } from '@angular/core/core';
-import { Route } from '@angular/router';
-import { RouterModule } from '@angular/router/router';
+import { Route, RouterModule } from '@angular/router';
 
 export const Routes: Route[] = [{
     path: '', component: HomeComponent

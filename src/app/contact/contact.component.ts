@@ -1,9 +1,9 @@
 import { RouterTransition } from '../shared/router-animation';
 import {
-  UpdateDescriptionAction,
-  UpdateHeaderAction,
-  UpdateKeywordsAction,
-  UpdateTitleAction
+    UpdateDescriptionAction,
+    UpdateHeaderAction,
+    UpdateKeywordsAction,
+    UpdateTitleAction
 } from '../shared/store/actions/seo-actions';
 import { ApplicationState } from '../shared/store/application-state';
 import { Component, HostBinding, OnInit } from '@angular/core';

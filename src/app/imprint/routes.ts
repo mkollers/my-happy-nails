@@ -1,6 +1,5 @@
 import { ImprintComponent } from './imprint.component';
-import { Route } from '@angular/router';
-import { RouterModule } from '@angular/router/router';
+import { Route, RouterModule } from '@angular/router';
 
 export const Routes: Route[] = [{
     path: '', component: ImprintComponent

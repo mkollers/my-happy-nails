@@ -1,7 +1,7 @@
 import { HomeComponent } from './home.component';
 import { Routing } from './routes';
-import { CommonModule } from '@angular/common/common';
-import { NgModule } from '@angular/core/core';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '@angular/material';
 
