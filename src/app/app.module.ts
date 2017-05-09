@@ -13,7 +13,6 @@ import { MdToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { MetaModule } from '@nglibs/meta';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { Angulartics2GoogleAnalytics, Angulartics2Module } from 'angulartics2';
@@ -32,7 +31,6 @@ import { Angulartics2GoogleAnalytics, Angulartics2Module } from 'angulartics2';
     StoreModule.provideStore(storeReducer),
     ...Effects,
     StoreDevtoolsModule.instrumentOnlyWithExtension(),
-    MetaModule.forRoot(),
     Angulartics2Module.forRoot([Angulartics2GoogleAnalytics])
   ],
   providers: [

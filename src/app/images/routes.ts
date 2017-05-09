@@ -1,6 +1,5 @@
 import { ImagesComponent } from './images.component';
-import { Route } from '@angular/router';
-import { RouterModule } from '@angular/router/router';
+import { Route, RouterModule } from '@angular/router';
 
 export const Routes: Route[] = [{
     path: '', component: ImagesComponent
