@@ -9,7 +9,8 @@ import {
 import { ApplicationState } from '../shared/store/application-state';
 import { Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable, Subscription } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   animations: [RouterTransition()],

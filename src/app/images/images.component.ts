@@ -1,18 +1,18 @@
 import { Photo } from '../shared/models/photo';
 import { RouterTransition } from '../shared/router-animation';
 import {
-  UpdateDescriptionAction,
-  UpdateHeaderAction,
-  UpdateKeywordsAction,
-  UpdateTitleAction
+    UpdateDescriptionAction,
+    UpdateHeaderAction,
+    UpdateKeywordsAction,
+    UpdateTitleAction
 } from '../shared/store/actions/seo-actions';
 import { ApplicationState } from '../shared/store/application-state';
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { ObservableMedia } from '@angular/flex-layout';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Store } from '@ngrx/store';
-import * as _ from 'lodash';
-import { Observable } from 'rxjs/Rx';
+import { filter, first, orderBy } from 'lodash';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   animations: [RouterTransition()],
@@ -40,10 +40,10 @@ export class ImagesComponent implements OnInit {
 
   getImageUrl(photo: Photo, el: HTMLElement) {
     let images = photo.images;
-    images = _.filter(images, image => image.width >= el.clientWidth - 16);
-    images = _.orderBy(images, image => image.width);
+    images = filter(images, image => image.width >= el.clientWidth - 16);
+    images = orderBy(images, image => image.width);
 
-    const image = _.first(images);
+    const image = first(images);
     if (!image) {
       return undefined;
     }

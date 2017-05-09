@@ -1,13 +1,15 @@
-import { Angulartics2GoogleAnalytics } from 'angulartics2/dist';
 import { NavigationItem } from './shared/models/navigation-item';
 import { ApplicationState } from './shared/store/application-state';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ObservableMedia } from '@angular/flex-layout';
-import { MdIconRegistry, MdSidenav } from '@angular/material';
+import { MdIconRegistry } from '@angular/material/icon';
+import { MdSidenav } from '@angular/material/sidenav';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NavigationEnd, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Observable, Subscription } from 'rxjs/Rx';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/dist';
+import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-root',

@@ -6,7 +6,10 @@ import { storeReducer } from './shared/store/reducers/store-reducer';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpModule } from '@angular/http';
-import { MaterialModule } from '@angular/material';
+import { MdButtonModule } from '@angular/material/button';
+import { MdIconModule } from '@angular/material/icon';
+import { MdSidenavModule } from '@angular/material/sidenav';
+import { MdToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
@@ -24,7 +27,7 @@ import { Angulartics2GoogleAnalytics, Angulartics2Module } from 'angulartics2';
     BrowserAnimationsModule,
     HttpModule,
     FlexLayoutModule,
-    MaterialModule,
+    MdSidenavModule, MdToolbarModule, MdButtonModule, MdIconModule,
     RouterModule.forRoot(AppRoutes),
     StoreModule.provideStore(storeReducer),
     ...Effects,

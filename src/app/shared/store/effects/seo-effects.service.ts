@@ -1,10 +1,10 @@
 import { SEO } from '../actions/seo-actions';
 import { Injectable } from '@angular/core';
+import { MetaService } from '@nglibs/meta';
 import { Actions, Effect } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
-import * as _ from 'lodash';
-import { MetaService } from '@nglibs/meta';
-import { Observable } from 'rxjs/Rx';
+import { join } from 'lodash';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class SeoEffectsService {
@@ -25,7 +25,7 @@ export class SeoEffectsService {
   updateKeywords$: Observable<Action> = this.actions$
     .ofType(SEO.UPDATE_KEYWORDS_ACTION)
     .map(action => action.payload)
-    .do(keywords => this.metaService.setTag('keywords', _.join(keywords, ',')));
+    .do(keywords => this.metaService.setTag('keywords', join(keywords, ',')));
 
   constructor(
     private actions$: Actions,

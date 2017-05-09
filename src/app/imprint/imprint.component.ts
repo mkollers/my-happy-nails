@@ -1,15 +1,15 @@
 import { Address } from '../shared/models/address';
 import { RouterTransition } from '../shared/router-animation';
 import {
-  UpdateDescriptionAction,
-  UpdateHeaderAction,
-  UpdateKeywordsAction,
-  UpdateTitleAction
+    UpdateDescriptionAction,
+    UpdateHeaderAction,
+    UpdateKeywordsAction,
+    UpdateTitleAction
 } from '../shared/store/actions/seo-actions';
 import { ApplicationState } from '../shared/store/application-state';
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   animations: [RouterTransition()],

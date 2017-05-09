@@ -1,10 +1,8 @@
-import { ApplicationState } from '../store/application-state';
-import { Store } from '@ngrx/store';
 import { Image } from '../models/image';
 import { Photo } from '../models/photo';
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class FacebookService {
