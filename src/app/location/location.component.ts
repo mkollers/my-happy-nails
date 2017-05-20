@@ -1,10 +1,10 @@
 import { Address } from '../shared/models/address';
 import { RouterTransition } from '../shared/router-animation';
 import {
-    UpdateDescriptionAction,
-    UpdateHeaderAction,
-    UpdateKeywordsAction,
-    UpdateTitleAction
+  UpdateDescriptionAction,
+  UpdateHeaderAction,
+  UpdateKeywordsAction,
+  UpdateTitleAction
 } from '../shared/store/actions/seo-actions';
 import { ApplicationState } from '../shared/store/application-state';
 import { Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
@@ -47,10 +47,11 @@ export class LocationComponent implements OnInit, OnDestroy {
 
   createMap() {
     this.mapSubscription = this.store.select(state => state.storeData.location)
+      .debounceTime(200)
       .subscribe(location => {
         const map = new google.maps.Map(document.getElementById('map'), {
           center: location,
-          zoom: 18,
+          zoom: 17,
           zoomControl: false,
           zoomControlOptions: true,
           disableDefaultUI: true

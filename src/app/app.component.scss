@@ -1,5 +1,5 @@
 // Import theming functions
-@import '~@angular/material/theming';
+@import '~@angular/material/_theming.scss';
 // Import your custom theme
 @import 'src/my-happy-nails-theme.scss';
 $accent: mat-color($my-happy-nails-primary);
@@ -27,7 +27,6 @@ md-toolbar {
     &#header {
         background: transparent;
         #title {
-            margin-left: 5px;
             display: inline;
         }
         /* ISSUE: md-icon-button does not center icon. try again in a newer version of angular-material */

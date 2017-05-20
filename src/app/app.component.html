@@ -14,12 +14,12 @@
     </aside>
   </md-sidenav>
   <main>
-    <md-toolbar id="header">
-      <header>
+    <header>
+      <md-toolbar id="header">
         <button class="toolbar-icon-button" md-button (click)="sidenav.toggle()"><md-icon svgIcon="menu"></md-icon></button>
         <h1 id="title">{{ title$ | async }}</h1>
-      </header>
-    </md-toolbar>
+      </md-toolbar>
+    </header>
     <section style="min-height: 100%">
       <router-outlet></router-outlet>
     </section>
@@ -29,17 +29,17 @@
           <a *ngFor="let item of footerItems$ | async" [routerLink]="item.url" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}"
             [title]="item.title">{{ item.text }}</a>
         </div>
-        <div fxLayout.xs="column" fxLayout="row" fxFlex="none" fxFlex.xs="40%" fxLayoutAlign.xs="center end" fxLayoutAlign="center center">          
+        <div fxLayout.xs="column" fxLayout="row" fxFlex="none" fxFlex.xs="40%" fxLayoutAlign.xs="center end" fxLayoutAlign="center center">
           <a href="https://www.facebook.com/MyHappyNailsNagelstudio" title="Zur Facebook-Seite" target="_blank" rel="noopener noreferrer"
             aria-label="Facebook">
             <md-icon svgIcon="facebook"></md-icon>
-            </a>
-            <a href="https://plus.google.com/+MyHappyNailsEschborn" title="Zu Google+" target="_blank" rel="noopener noreferrer" aria-label="Google+">
-              <md-icon svgIcon="google-plus"></md-icon>
-            </a>
-            <a href="https://github.com/mkollers/my-happy-nails" title="Zu Github" target="_blank" rel="noopener noreferrer" aria-label="Github">
-              <md-icon svgIcon="github"></md-icon>
-            </a>
+          </a>
+          <a href="https://plus.google.com/+MyHappyNailsEschborn" title="Zu Google+" target="_blank" rel="noopener noreferrer" aria-label="Google+">
+            <md-icon svgIcon="google-plus"></md-icon>
+          </a>
+          <a href="https://github.com/mkollers/my-happy-nails" title="Zu Github" target="_blank" rel="noopener noreferrer" aria-label="Github">
+            <md-icon svgIcon="github"></md-icon>
+          </a>
         </div>
       </nav>
     </footer>

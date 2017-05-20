@@ -48,6 +48,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   createMap() {
     this.mapSubscription = this.store
       .select(state => state.storeData.location)
+      .debounceTime(200)
       .subscribe(location => {
         const map = new google.maps.Map(document.getElementById('map'), {
           center: location,

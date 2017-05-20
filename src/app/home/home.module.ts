@@ -3,7 +3,7 @@ import { Routing } from './routes';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MdCardModule, MdCoreModule, MdListModule } from '@angular/material';
+import { MdCardModule, MdCoreModule, MdListModule, MdIconModule } from '@angular/material';
 
 @NgModule({
     declarations: [
@@ -15,7 +15,8 @@ import { MdCardModule, MdCoreModule, MdListModule } from '@angular/material';
         FlexLayoutModule,
         MdCoreModule,
         MdCardModule,
-        MdListModule
+        MdListModule,
+        MdIconModule
     ],
     providers: [
     ],
