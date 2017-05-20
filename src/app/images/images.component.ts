@@ -36,6 +36,8 @@ export class ImagesComponent implements OnInit {
     this.store.dispatch(new UpdateTitleAction('Bilder und Impresionen von modernem Nageldesign und Modellagen'));
     this.store.dispatch(new UpdateKeywordsAction(['nagelstudio', 'nageldesign', 'sulzbach', 'bilder', 'eindrücke', 'gallerie', 'impressionen']));
     this.store.dispatch(new UpdateDescriptionAction('Aktuelle Bilder und Impressionen meiner Nagelmodellagen und anderer Arbeiten aus meinem Nagelstudio in Sulzbach (Taunus)'));
+
+    (window as any).prerenderReady = true;
   }
 
   getImageUrl(photo: Photo, el: HTMLElement) {

@@ -39,6 +39,8 @@ export class LocationComponent implements OnInit, OnDestroy {
     this.store.dispatch(new UpdateKeywordsAction(['nagelstudio', 'sulzbach', 'taunus', 'frankfurt', 'anfahrt', 'parken', 'main-taunus-kreis']));
     this.store.dispatch(new UpdateDescriptionAction('Mein Nagelstudio findest du im Falkensteiner Weg 10 in 65843 Sulzbach (Taunus). Kostenlose öffentliche Parkplätze findest du in den eingezeichneten Flächen.'));
     this.createMap();
+
+    (window as any).prerenderReady = true;
   }
 
   ngOnDestroy() {
@@ -81,7 +83,7 @@ export class LocationComponent implements OnInit, OnDestroy {
       });
   }
 
-  private createParkingLot(paths: Array<google.maps.LatLng | google.maps.LatLngLiteral>) {
+  private createParkingLot(paths: Array<google.maps.LatLngLiteral>) {
     return new google.maps.Polygon({
       paths: paths,
       strokeColor: '#AB47BC',

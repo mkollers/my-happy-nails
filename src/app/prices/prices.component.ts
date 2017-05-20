@@ -30,6 +30,8 @@ export class PricesComponent implements OnInit {
     this.store.dispatch(new UpdateDescriptionAction('50 Prozent Neukunden-Rabatt - Auffüllen mit UV-Gel 40€ - Neumodellage mit UV-Gel ab 50€ - Maniküre ab 12€ - Gutes, preiswertes Nagelstudio in Sulzbach'));
 
     this.services$ = this.store.select(state => state.storeData.services);
+
+    (window as any).prerenderReady = true;
   }
 
 }

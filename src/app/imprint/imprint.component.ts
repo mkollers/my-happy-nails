@@ -34,6 +34,8 @@ export class ImprintComponent implements OnInit {
     this.address$ = this.store.select(state => state.storeData.address);
     this.phone$ = this.store.select(state => state.storeData.phone);
     this.mail$ = this.store.select(state => state.storeData.mail);
+
+    (window as any).prerenderReady = true;
   }
 
 }

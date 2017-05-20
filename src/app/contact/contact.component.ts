@@ -21,7 +21,8 @@ export class ContactComponent implements OnInit {
   phone$: Observable<string>;
   mail$: Observable<string>;
 
-  constructor(private store: Store<ApplicationState>) { }
+  constructor(
+    private store: Store<ApplicationState>) { }
 
   ngOnInit() {
     this.store.dispatch(new UpdateHeaderAction('Kontakt'));
@@ -31,6 +32,8 @@ export class ContactComponent implements OnInit {
 
     this.phone$ = this.store.select(state => state.storeData.phone);
     this.mail$ = this.store.select(state => state.storeData.mail);
+
+    (window as any).prerenderReady = true;
   }
 
 }

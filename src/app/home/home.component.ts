@@ -39,6 +39,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.store.dispatch(new UpdateDescriptionAction('Professionelles Nagelstudio zu fairen Preisen in Sulzbach. Du suchst einen Profi für deine Nägel zu günstigen Preisen? Kunstnägel, Gelnägel, Maniküre, Nailart'));
 
     this.createMap();
+    (window as any).prerenderReady = true;
   }
 
   ngOnDestroy() {
