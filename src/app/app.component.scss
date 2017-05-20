@@ -1,5 +1,5 @@
 // Import theming functions
-@import '~@angular/material/core/theming/theming';
+@import '~@angular/material/theming';
 // Import your custom theme
 @import 'src/my-happy-nails-theme.scss';
 $accent: mat-color($my-happy-nails-primary);
