@@ -1,11 +1,10 @@
 import { SEO } from '../actions/seo-actions';
 import { Injectable } from '@angular/core';
-import { MetaService } from '@nglibs/meta';
+import { Meta, Title } from '@angular/platform-browser';
 import { Actions, Effect } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
 import { join } from 'lodash';
 import { Observable } from 'rxjs/Observable';
-import { Meta, Title } from '@angular/platform-browser';
 
 @Injectable()
 export class SeoEffectsService {
@@ -20,7 +19,7 @@ export class SeoEffectsService {
   updateTitle$: Observable<Action> = this.actions$
     .ofType(SEO.UPDATE_TITLE_ACTION)
     .map(action => action.payload)
-    .do(title => setTimeout(() => { this.titleService.setTitle(title); })); // Workaround: https://github.com/vinaygopinath/ng2-meta/issues/7
+    .do(title => this.titleService.setTitle(title));
 
   @Effect({ dispatch: false })
   updateKeywords$: Observable<Action> = this.actions$
