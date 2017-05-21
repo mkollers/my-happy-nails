@@ -2,8 +2,8 @@
   <md-card fxFlex="none" fxFlex.lg="50%" fxFlex.xl="30%">
     <md-card-title>Wie kannst du mich erreichen?</md-card-title>
     <p>
-      Du willst einen Termin vereinbaren oder hast Fragen?<br/><br/> Telefonisch bin ich unter <a [href]="'tel:'+ (phone$ | async)">{{ phone$ | async }}</a> zu erreichen. Selbstverständlich kannst du mir auch per SMS oder WhatsApp schreiben ;-)<br/><br/> Alternativ kannst
-      du mir auch eine E-Mail an <a [href]="'mailto:' + (mail$ | async)">{{ mail$ | async }}</a> schicken.
+      Du willst einen Termin vereinbaren oder hast Fragen?<br/><br/> Telefonisch bin ich unter <a itemprop="telephone" [href]="'tel:'+ (phone$ | async)">{{ phone$ | async }}</a> zu erreichen. Selbstverständlich kannst du mir auch per SMS oder WhatsApp schreiben ;-)<br/><br/> Alternativ kannst
+      du mir auch eine E-Mail an <a itemprop="email" [href]="'mailto:' + (mail$ | async)">{{ mail$ | async }}</a> schicken.
     </p>
   </md-card>
 </div>

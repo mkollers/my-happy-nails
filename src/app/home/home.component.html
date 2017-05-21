@@ -7,8 +7,8 @@
       <md-card-title>
         <h2>Adresse</h2>
       </md-card-title>
-      <span>{{ (address$ | async)?.street }} {{ (address$ | async)?.houseNumber }}</span><br />
-      <span>{{ (address$ | async)?.zip }} {{ (address$ | async)?.city }}</span>
+      <span itemprop="streetAddress">{{ (address$ | async)?.street }} {{ (address$ | async)?.houseNumber }}</span><br />
+      <span itemprop="postalCode">{{ (address$ | async)?.zip }}</span> <span itemprop="addressLocality">{{ (address$ | async)?.city }}</span>
     </md-card>
     <md-card>
       <md-card-title>
@@ -30,20 +30,20 @@
       <md-card-title>
         <h2>Öffnungszeiten</h2>
       </md-card-title>
-      <md-list>
+      <md-list itemprop="openingHoursSpecification" itemscope itemtype="http://schema.org/OpeningHoursSpecification">
         <md-list-item>
-          <h3 md-line>9:00 - 19:00</h3>
-          <p md-line>Montag - Freitag</p>
+          <h3 md-line><span itemprop="opens" content="09:00:00">9:00</span> - <span itemprop="closes" content="19:00:00">19:00</span></h3>
+          <p md-line itemprop="dayOfWeek" content="Monday Tuesday Wednesday Thursday Friday">Montag - Freitag</p>
         </md-list-item>
         <md-divider></md-divider>
         <md-list-item>
-          <h3 md-line>9:00 - 17:00</h3>
-          <p md-line>Samstag</p>
+          <h3 md-line><span itemprop="opens" content="09:00:00">9:00</span> - <span itemprop="closes" content="17:00:00">17:00</span></h3>
+          <p md-line itemprop="dayOfWeek">Samstag</p>
         </md-list-item>
         <md-divider></md-divider>
         <md-list-item>
           <h3 md-line>Geschlossen</h3>
-          <p md-line>Sonntag</p>
+          <p md-line itemprop="dayOfWeek">Sonntag</p>
         </md-list-item>
       </md-list>
     </md-card>
