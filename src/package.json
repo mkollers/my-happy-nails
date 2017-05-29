@@ -1,0 +1,18 @@
+{
+  "name": "my-happy-nails",
+  "version": "2.0.0",
+  "license": "MIT",
+  "angular-cli": {},
+  "private": true,
+  "dependencies": {
+    "@google-cloud/debug-agent": "0.10.2",
+    "@google/cloud-errors": "0.1.1",
+    "@google/cloud-trace": "0.6.2",
+    "body-parser": "1.16.1",
+    "express": "4.14.1",
+    "prerender-node": "^2.7.1"
+  },
+  "engines": {
+    "node": "~6"
+  }
+}

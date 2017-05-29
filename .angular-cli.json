@@ -15,7 +15,9 @@
         "manifest.json",
         "robots.txt",
         "sitemap.xml",
-        "Web.config"
+        "server.js",
+        "app.yaml",
+        "package.json"
       ],
       "index": "index.html",
       "main": "main.ts",
