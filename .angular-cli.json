@@ -15,9 +15,7 @@
         "manifest.json",
         "robots.txt",
         "sitemap.xml",
-        "server.js",
-        "app.yaml",
-        "package.json"
+        "_redirects"
       ],
       "index": "index.html",
       "main": "main.ts",
