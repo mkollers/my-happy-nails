@@ -13,7 +13,7 @@ export class SeoEffectsService {
   updateDescription$: Observable<Action> = this.actions$
     .ofType(SEO.UPDATE_DESCRIPTION_ACTION)
     .map(action => action.payload)
-    .do(description => this.metaService.updateTag({ property: 'description', content: description }));
+    .do(description => this.metaService.updateTag({ name: 'description', content: description }));
 
   @Effect({ dispatch: false })
   updateTitle$: Observable<Action> = this.actions$
@@ -25,7 +25,7 @@ export class SeoEffectsService {
   updateKeywords$: Observable<Action> = this.actions$
     .ofType(SEO.UPDATE_KEYWORDS_ACTION)
     .map(action => action.payload)
-    .do(keywords => this.metaService.updateTag({ property: 'keywords', content: join(keywords, ',') }));
+    .do(keywords => this.metaService.updateTag({ name: 'keywords', content: join(keywords, ',') }));
 
   constructor(
     private actions$: Actions,
