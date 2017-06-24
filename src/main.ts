@@ -12,6 +12,7 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/switchMapTo';
 import 'rxjs/add/operator/startWith';
+import 'rxjs/add/operator/retry';
 
 if (environment.production) {
   enableProdMode();
