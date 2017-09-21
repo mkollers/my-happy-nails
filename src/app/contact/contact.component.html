@@ -11,7 +11,7 @@
     <md-card>
       <md-card-title>Nachricht senden</md-card-title>
       <p>Alternativ kannst du mir direkt hier eine Nachricht schicken. Deine E-Mail-Adresse und Handnummer benötige ich um dir zu antworten. Selbstverständlich werde ich deine Kontaktdaten nicht an Dritte weiter geben, oder zu einem anderen Zweck verwenden.</p>
-      <form [formGroup]="formGroup" #form (ngSubmit)="formGroup.valid && send(formGroup.value); form.reset();">
+      <form [formGroup]="formGroup" #form (ngSubmit)="formGroup.valid && send(formGroup.value) && form.reset();">
         <md-dialog-content fxLayout="column">
           <md-form-field fxFlex="100%">
             <input mdInput formControlName="firstname" class="form-control" placeholder="Vorname" type="text" required>
