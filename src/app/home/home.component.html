@@ -7,8 +7,8 @@
       <md-card-title>
         <h2>Adresse</h2>
       </md-card-title>
-      <span itemprop="streetAddress">{{ (address$ | async)?.street }} {{ (address$ | async)?.houseNumber }}</span><br />
-      <span itemprop="postalCode">{{ (address$ | async)?.zip }}</span> <span itemprop="addressLocality">{{ (address$ | async)?.city }}</span>
+      <span itemprop="streetAddress">{{ address?.street }} {{ address?.houseNumber }}</span><br />
+      <span itemprop="postalCode">{{ address?.zip }}</span> <span itemprop="addressLocality">{{ address?.city }}</span>
     </md-card>
     <md-card>
       <md-card-title>
@@ -17,12 +17,12 @@
       <md-list>
         <md-list-item>
           <md-icon svgIcon="phone"></md-icon>
-          <a itemprop="telephone" [href]="'tel:' + (phone$ | async)">{{ phone$ | async }}</a>
+          <a itemprop="telephone" [href]="'tel:' + phone">{{ phone }}</a>
         </md-list-item>
         <md-divider></md-divider>
         <md-list-item>
           <md-icon svgIcon="mail"></md-icon>
-          <a itemprop="email" [href]="'mailto:' + (mail$ | async)">{{ mail$ | async }}</a>
+          <a itemprop="email" [href]="'mailto:' + mail">{{ mail }}</a>
         </md-list-item>
       </md-list>
     </md-card>

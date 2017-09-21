@@ -1,10 +1,10 @@
 <div class="wrapper" fxLayout.gt-sm="row" fxLayout="column" fxLayoutWrap>
-  <div fxFlex="none" fxFlex.gt-md="45%">
+  <div fxFlex="auto" fxFlex.gt-md="45%">
     <md-card>
       <md-card-title><h2>Angaben gemäß § 5 TMG</h2></md-card-title>
-      <p>My Happy Nails<br /> Inhaberin: Denise Sara Hauschild<br /><br />{{ (address$ | async)?.street }} {{ (address$ | async)?.houseNumber
-        }}<br /> {{ (address$ | async)?.zip }} {{ (address$ | async)?.city }}<br /><br /> Telefon: <a [href]="'tel:'+ (phone$ | async)">{{ phone$ | async }}</a><br
-        /> E-Mail: <a [href]="'mailto:' + (mail$ | async)">{{ mail$ | async }}</a>
+      <p>My Happy Nails<br /> Inhaberin: Denise Sara Hauschild<br /><br />{{ address?.street }} {{ address?.houseNumber
+        }}<br /> {{ address?.zip }} {{ address?.city }}<br /><br /> Telefon: <a [href]="'tel:'+ phone">{{ phone }}</a><br
+        /> E-Mail: <a [href]="'mailto:' + mail">{{ mail }}</a>
       </p>
     </md-card>
     <md-card>
@@ -32,7 +32,7 @@
         nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.</p>
     </md-card>
   </div>
-  <div fxFlex="none" fxFlex.gt-md="55%">
+  <div fxFlex="auto" fxFlex.gt-md="55%">
     <md-card>
       <md-card-title><h2>Urheberrecht</h2></md-card-title>
       <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht.

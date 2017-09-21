@@ -1,14 +1,15 @@
-import { NavigationItem } from './shared/models/navigation-item';
-import { ApplicationState } from './shared/store/application-state';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ObservableMedia } from '@angular/flex-layout';
 import { MdIconRegistry, MdSidenav } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NavigationEnd, Router } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { Angulartics2GoogleAnalytics } from 'angulartics2/dist';
+import { Angulartics2GoogleAnalytics } from 'angulartics2';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
+
+import { NavigationItem } from './shared/models/navigation-item';
+import { ToolbarService } from './shared/services/toolbar.service';
+import { INITIAL_UI_STATE } from './shared/store/ui-state';
 
 @Component({
   selector: 'app-root',
@@ -17,9 +18,8 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class AppComponent implements OnInit, OnDestroy {
   private susbcriptions: Subscription[] = [];
-  sidenavItems$: Observable<NavigationItem[]>;
-  footerItems$: Observable<NavigationItem[]>;
-  title$: Observable<string>;
+  sidenavItems: NavigationItem[];
+  footerItems: NavigationItem[];
   sidenavOpened$: Observable<boolean>;
 
   @ViewChild('sidenav')
@@ -31,7 +31,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private media: ObservableMedia,
     private router: Router,
     private sanitizer: DomSanitizer,
-    private store: Store<ApplicationState>) { }
+    public toolbarService: ToolbarService) { }
 
   ngOnInit() {
     this.mdIconRegistry.addSvgIcon('facebook', this.sanitizer.bypassSecurityTrustResourceUrl('assets/facebook.svg'));
@@ -45,9 +45,8 @@ export class AppComponent implements OnInit, OnDestroy {
     this.mdIconRegistry.addSvgIcon('location_on', this.sanitizer.bypassSecurityTrustResourceUrl('assets/ic_location_on.svg'));
     this.mdIconRegistry.addSvgIcon('phone', this.sanitizer.bypassSecurityTrustResourceUrl('assets/ic_phone.svg'));
 
-    this.sidenavItems$ = this.store.select(state => state.uiState.sidenavItems);
-    this.footerItems$ = this.store.select(state => state.uiState.footerItems);
-    this.title$ = this.store.select(state => state.uiState.title);
+    this.sidenavItems = INITIAL_UI_STATE.sidenavItems;
+    this.footerItems = INITIAL_UI_STATE.footerItems;
     this.sidenavOpened$ = this.media.asObservable()
       .map(value => {
         switch (value.mqAlias) {

@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { MdButtonModule, MdCardModule, MdInputModule, MdSnackBarModule } from '@angular/material';
 
 import { ContactComponent } from './contact.component';
@@ -17,7 +17,7 @@ import { Routing } from './routes';
         CommonModule,
         Routing,
         ReactiveFormsModule,
-        HttpModule,
+        HttpClientModule,
         FlexLayoutModule,
         MdInputModule,
         MdSnackBarModule,

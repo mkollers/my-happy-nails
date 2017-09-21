@@ -4,8 +4,8 @@
       <md-card-title>Wie kannst du mich erreichen?</md-card-title>
       <p>
         Du willst einen Termin vereinbaren oder hast Fragen?<br/><br/> Telefonisch bin ich unter <a itemprop="telephone"
-          [href]="'tel:'+ (phone$ | async)">{{ phone$ | async }}</a> zu erreichen. Selbstverständlich kannst du mir auch per
-        SMS oder WhatsApp schreiben ;-)<br/><br/> Alternativ kannst du mir auch eine E-Mail an <a itemprop="email" [href]="'mailto:' + (mail$ | async)">{{ mail$ | async }}</a>        schicken.
+          [href]="'tel:'+ phone">{{ phone }}</a> zu erreichen. Selbstverständlich kannst du mir auch per
+        SMS oder WhatsApp schreiben ;-)<br/><br/> Alternativ kannst du mir auch eine E-Mail an <a itemprop="email" [href]="'mailto:' + mail">{{ mail }}</a> schicken.
       </p>
     </md-card>
     <md-card>
@@ -13,21 +13,21 @@
       <p>Alternativ kannst du mir direkt hier eine Nachricht schicken. Deine E-Mail-Adresse und Handnummer benötige ich um dir zu antworten. Selbstverständlich werde ich deine Kontaktdaten nicht an Dritte weiter geben, oder zu einem anderen Zweck verwenden.</p>
       <form [formGroup]="formGroup" #form (ngSubmit)="formGroup.valid && send(formGroup.value); form.reset();">
         <md-dialog-content fxLayout="column">
-          <md-input-container fxFlex>
+          <md-form-field fxFlex="100%">
             <input mdInput formControlName="firstname" class="form-control" placeholder="Vorname" type="text" required>
-          </md-input-container>
-          <md-input-container fxFlex>
+          </md-form-field>
+          <md-form-field fxFlex>
             <input mdInput formControlName="lastname" class="form-control" placeholder="Nachname" type="text" required>
-          </md-input-container>
-          <md-input-container>
+          </md-form-field>
+          <md-form-field>
             <input mdInput formControlName="mail" class="form-control" placeholder="E-Mail" type="email" required>
-          </md-input-container>
-          <md-input-container>
+          </md-form-field>
+          <md-form-field>
             <input mdInput formControlName="phone" class="form-control" placeholder="Handynummer" type="phone" required>
-          </md-input-container>
-          <md-input-container fxFlex="100%">
+          </md-form-field>
+          <md-form-field fxFlex="100%">
             <textarea rows="8" mdInput formControlName="text" class="form-control" placeholder="Nachricht" required></textarea>
-          </md-input-container>
+          </md-form-field>
         </md-dialog-content>
         <md-card-actions [style.margin.px]="0">
           <button md-raised-button color="primary">Absenden</button>

@@ -1,15 +1,11 @@
+import { Component, HostBinding, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
+import { INITIAL_STORE_DATA } from 'app/shared/store/store-data';
+import { join } from 'lodash';
+
 import { ServiceCategory } from '../shared/models/service-category';
 import { RouterTransition } from '../shared/router-animation';
-import {
-    UpdateDescriptionAction,
-    UpdateHeaderAction,
-    UpdateKeywordsAction,
-    UpdateTitleAction
-} from '../shared/store/actions/seo-actions';
-import { ApplicationState } from '../shared/store/application-state';
-import { Component, HostBinding, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs/Observable';
+import { ToolbarService } from '../shared/services/toolbar.service';
 
 @Component({
   animations: [RouterTransition()],
@@ -19,19 +15,29 @@ import { Observable } from 'rxjs/Observable';
 })
 export class PricesComponent implements OnInit {
   @HostBinding('@routerTransition') routerTransition = '';
-  services$: Observable<ServiceCategory[]>;
+  services: ServiceCategory[];
 
-  constructor(private store: Store<ApplicationState>) { }
+  constructor(
+    private metaService: Meta,
+    private toolbarService: ToolbarService,
+    private titleService: Title
+  ) {
+    this.setSeoData();
+    this.setData();
+  }
 
   ngOnInit() {
-    this.store.dispatch(new UpdateHeaderAction('Preise und Hinweise'));
-    this.store.dispatch(new UpdateTitleAction('Spare 50 Prozent als Neukunde in deinem Nagelstudio in Sulzbach'));
-    this.store.dispatch(new UpdateKeywordsAction(['nagelstudio', 'preise', 'leistungen', 'rabatte', 'kunstnägel', 'maniküre', 'gelnägel']));
-    this.store.dispatch(new UpdateDescriptionAction('50 Prozent Neukunden-Rabatt - Auffüllen mit UV-Gel 40€ - Neumodellage mit UV-Gel ab 50€ - Maniküre ab 12€ - Gutes, preiswertes Nagelstudio in Sulzbach'));
-
-    this.services$ = this.store.select(state => state.storeData.services);
-
     (window as any).prerenderReady = true;
   }
 
+  private setData() {
+    this.services = INITIAL_STORE_DATA.services;
+  }
+
+  private setSeoData() {
+    this.toolbarService.title$.next('Preise und Hinweise');
+    this.titleService.setTitle('Spare 50 Prozent als Neukunde in deinem Nagelstudio in Sulzbach');
+    this.metaService.updateTag({ name: 'description', content: '50 Prozent Neukunden-Rabatt - Auffüllen mit UV-Gel 40€ - Neumodellage mit UV-Gel ab 50€ - Maniküre ab 12€ - Gutes, preiswertes Nagelstudio in Sulzbach' })
+    this.metaService.updateTag({ name: 'keywords', content: join(['nagelstudio', 'preise', 'leistungen', 'rabatte', 'kunstnägel', 'maniküre', 'gelnägel'], ',') })
+  }
 }

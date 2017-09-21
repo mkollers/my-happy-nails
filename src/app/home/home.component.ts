@@ -1,16 +1,11 @@
+import { Component, HostBinding, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
+import { join } from 'lodash';
+
 import { Address } from '../shared/models/address';
 import { RouterTransition } from '../shared/router-animation';
-import {
-    UpdateDescriptionAction,
-    UpdateHeaderAction,
-    UpdateKeywordsAction,
-    UpdateTitleAction
-} from '../shared/store/actions/seo-actions';
-import { ApplicationState } from '../shared/store/application-state';
-import { Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs/Observable';
-import { Subscription } from 'rxjs/Subscription';
+import { ToolbarService } from '../shared/services/toolbar.service';
+import { INITIAL_STORE_DATA } from '../shared/store/store-data';
 
 @Component({
   animations: [RouterTransition()],
@@ -18,52 +13,50 @@ import { Subscription } from 'rxjs/Subscription';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit {
   @HostBinding('@routerTransition') routerTransition = '';
-  mapSubscription: Subscription;
-  address$: Observable<Address>;
-  phone$: Observable<string>;
-  mail$: Observable<string>;
+  address: Address;
+  phone: string;
+  mail: string;
 
   constructor(
-    private store: Store<ApplicationState>) { }
+    private metaService: Meta,
+    private toolbarService: ToolbarService,
+    private titleService: Title) {
+    this.setData();
+    this.setSeoData();
+  }
 
   ngOnInit() {
-    this.address$ = this.store.select(state => state.storeData.address);
-    this.phone$ = this.store.select(state => state.storeData.phone);
-    this.mail$ = this.store.select(state => state.storeData.mail);
-
-    this.store.dispatch(new UpdateHeaderAction('Home'));
-    this.store.dispatch(new UpdateTitleAction('Günstiges Nagelstudio für schöne Fingernägel in Sulzbach'));
-    this.store.dispatch(new UpdateKeywordsAction(['nagelstudio', 'nageldesign', 'sulzbach', 'öffnungszeiten', 'maniküre', 'kontakt', 'adresse']));
-    this.store.dispatch(new UpdateDescriptionAction('Professionelles Nagelstudio zu fairen Preisen in Sulzbach. Du suchst einen Profi für deine Nägel zu günstigen Preisen? Kunstnägel, Gelnägel, Maniküre, Nailart'));
-
     this.createMap();
     (window as any).prerenderReady = true;
   }
 
-  ngOnDestroy() {
-    this.mapSubscription.unsubscribe();
+  createMap() {
+    const map = new google.maps.Map(document.getElementById('map'), {
+      center: INITIAL_STORE_DATA.location,
+      zoom: 17,
+      zoomControl: false,
+      disableDefaultUI: true
+    });
+
+    const marker = new google.maps.Marker({
+      animation: google.maps.Animation.BOUNCE,
+      position: INITIAL_STORE_DATA.location,
+      map: map
+    });
   }
 
-  createMap() {
-    this.mapSubscription = this.store
-      .select(state => state.storeData.location)
-      .debounceTime(200)
-      .subscribe(location => {
-        const map = new google.maps.Map(document.getElementById('map'), {
-          center: location,
-          zoom: 17,
-          zoomControl: false,
-          zoomControlOptions: true,
-          disableDefaultUI: true
-        });
+  private setData() {
+    this.address = INITIAL_STORE_DATA.address;
+    this.phone = INITIAL_STORE_DATA.phone;
+    this.mail = INITIAL_STORE_DATA.mail;
+  }
 
-        const marker = new google.maps.Marker({
-          animation: google.maps.Animation.BOUNCE,
-          position: location,
-          map: map
-        });
-      });
+  private setSeoData() {
+    this.toolbarService.title$.next('Home');
+    this.titleService.setTitle('Günstiges Nagelstudio für schöne Fingernägel in Sulzbach');
+    this.metaService.updateTag({ name: 'description', content: 'Professionelles Nagelstudio zu fairen Preisen in Sulzbach. Du suchst einen Profi für deine Nägel zu günstigen Preisen? Kunstnägel, Gelnägel, Maniküre, Nailart' })
+    this.metaService.updateTag({ name: 'keywords', content: join(['nagelstudio', 'nageldesign', 'sulzbach', 'öffnungszeiten', 'maniküre', 'kontakt', 'adresse'], ',') })
   }
 }

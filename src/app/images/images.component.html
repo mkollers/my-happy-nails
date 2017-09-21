@@ -1,5 +1,5 @@
 <div class="masonry-layout">
-  <div class="masonry-layout__panel" *ngFor="let photo of (photos$ | async)" #el>
+  <div class="masonry-layout__panel" *ngFor="let photo of photos" #el>
     <md-card *ngIf="getImageUrl(photo, el)">
       <img [alt]="photo.name" [src]="getImageUrl(photo, el)" />
     </md-card>

@@ -1,15 +1,11 @@
+import { Component, HostBinding, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
+import { join } from 'lodash';
+
 import { Address } from '../shared/models/address';
 import { RouterTransition } from '../shared/router-animation';
-import {
-    UpdateDescriptionAction,
-    UpdateHeaderAction,
-    UpdateKeywordsAction,
-    UpdateTitleAction
-} from '../shared/store/actions/seo-actions';
-import { ApplicationState } from '../shared/store/application-state';
-import { Component, HostBinding, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs/Observable';
+import { ToolbarService } from '../shared/services/toolbar.service';
+import { INITIAL_STORE_DATA } from '../shared/store/store-data';
 
 @Component({
   animations: [RouterTransition()],
@@ -19,23 +15,32 @@ import { Observable } from 'rxjs/Observable';
 })
 export class ImprintComponent implements OnInit {
   @HostBinding('@routerTransition') routerTransition = '';
-  address$: Observable<Address>;
-  phone$: Observable<string>;
-  mail$: Observable<string>;
+  address: Address;
+  phone: string;
+  mail: string;
 
-  constructor(private store: Store<ApplicationState>) { }
+  constructor(
+    private metaService: Meta,
+    private toolbarService: ToolbarService,
+    private titleService: Title) {
+    this.setSeoData();
+    this.setData();
+  }
 
   ngOnInit() {
-    this.store.dispatch(new UpdateHeaderAction('Impressum'));
-    this.store.dispatch(new UpdateTitleAction('Impressum'));
-    this.store.dispatch(new UpdateKeywordsAction([]));
-    this.store.dispatch(new UpdateDescriptionAction(''));
-
-    this.address$ = this.store.select(state => state.storeData.address);
-    this.phone$ = this.store.select(state => state.storeData.phone);
-    this.mail$ = this.store.select(state => state.storeData.mail);
-
     (window as any).prerenderReady = true;
   }
 
+  private setData() {
+    this.address = INITIAL_STORE_DATA.address;
+    this.phone = INITIAL_STORE_DATA.phone;
+    this.mail = INITIAL_STORE_DATA.mail;
+  }
+
+  private setSeoData() {
+    this.toolbarService.title$.next('Impressum');
+    this.titleService.setTitle('Impressum');
+    this.metaService.updateTag({ name: 'description', content: '' })
+    this.metaService.updateTag({ name: 'keywords', content: join([], ',') })
+  }
 }

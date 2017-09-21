@@ -1,18 +1,13 @@
-import { Photo } from '../shared/models/photo';
-import { RouterTransition } from '../shared/router-animation';
-import {
-    UpdateDescriptionAction,
-    UpdateHeaderAction,
-    UpdateKeywordsAction,
-    UpdateTitleAction
-} from '../shared/store/actions/seo-actions';
-import { ApplicationState } from '../shared/store/application-state';
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { ObservableMedia } from '@angular/flex-layout';
-import { DomSanitizer } from '@angular/platform-browser';
-import { Store } from '@ngrx/store';
-import { filter, first, orderBy } from 'lodash';
-import { Observable } from 'rxjs/Observable';
+import { DomSanitizer, Meta, Title } from '@angular/platform-browser';
+import { environment } from 'environments/environment';
+import { filter, first, join, orderBy } from 'lodash';
+
+import { Photo } from '../shared/models/photo';
+import { RouterTransition } from '../shared/router-animation';
+import { FacebookService } from '../shared/services/facebook.service';
+import { ToolbarService } from '../shared/services/toolbar.service';
 
 @Component({
   animations: [RouterTransition()],
@@ -22,28 +17,41 @@ import { Observable } from 'rxjs/Observable';
 })
 export class ImagesComponent implements OnInit {
   @HostBinding('@routerTransition') routerTransition = '';
-  photos$: Observable<Photo[]>;
+  photos: Photo[] = [];
 
   constructor(
-    private sanitizer: DomSanitizer,
+    private facebookService: FacebookService,
     private media: ObservableMedia,
-    private store: Store<ApplicationState>) { }
+    private metaService: Meta,
+    private sanitizer: DomSanitizer,
+    private toolbarService: ToolbarService,
+    private titleService: Title) {
+    this.setSeoData();
+  }
 
-  ngOnInit() {
-    this.photos$ = this.store.select(state => state.storeData.photos);
-
-    this.store.dispatch(new UpdateHeaderAction('Bilder'));
-    this.store.dispatch(new UpdateTitleAction('Bilder und Impresionen von modernem Nageldesign und Modellagen'));
-    this.store.dispatch(new UpdateKeywordsAction(['nagelstudio', 'nageldesign', 'sulzbach', 'bilder', 'eindrücke', 'gallerie', 'impressionen']));
-    this.store.dispatch(new UpdateDescriptionAction('Aktuelle Bilder und Impressionen meiner Nagelmodellagen und anderer Arbeiten aus meinem Nagelstudio in Sulzbach (Taunus)'));
+  async ngOnInit() {
+    await this.setData();
 
     (window as any).prerenderReady = true;
   }
 
+  private async setData() {
+    const accessToken = await this.facebookService.getAccessToken(environment.facebook.appId, environment.facebook.appSecret).toPromise();
+    const photos = await this.facebookService.getPhotos(accessToken, environment.facebook.albumId).toPromise();
+
+    for (const photo of photos) {
+      const image = await this.facebookService.getImages(accessToken, photo.id)
+        .map(result => photo.images = result)
+        .mapTo(photo).toPromise();
+
+      this.photos.push(image);
+    }
+  }
+
   getImageUrl(photo: Photo, el: HTMLElement) {
     let images = photo.images;
-    images = filter(images, image => image.width >= el.clientWidth - 16);
-    images = orderBy(images, image => image.width);
+    images = filter(images, i => i.width >= el.clientWidth - 16);
+    images = orderBy(images, i => i.width);
 
     const image = first(images);
     if (!image) {
@@ -51,5 +59,12 @@ export class ImagesComponent implements OnInit {
     }
 
     return this.sanitizer.bypassSecurityTrustResourceUrl(image.source);
+  }
+
+  private setSeoData() {
+    this.toolbarService.title$.next('Bilder');
+    this.titleService.setTitle('Bilder und Impresionen von modernem Nageldesign und Modellagen');
+    this.metaService.updateTag({ name: 'description', content: 'Aktuelle Bilder und Impressionen meiner Nagelmodellagen und anderer Arbeiten aus meinem Nagelstudio in Sulzbach (Taunus)' })
+    this.metaService.updateTag({ name: 'keywords', content: join(['nagelstudio', 'nageldesign', 'sulzbach', 'bilder', 'eindrücke', 'gallerie', 'impressionen'], ',') })
   }
 }

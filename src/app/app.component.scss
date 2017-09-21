@@ -1,7 +1,7 @@
 // Import theming functions
+@import 'src/my-happy-nails-theme.scss';
 @import '~@angular/material/_theming.scss';
 // Import your custom theme
-@import 'src/my-happy-nails-theme.scss';
 $accent: mat-color($my-happy-nails-primary);
 footer {
     background: #bf74cc;
@@ -21,6 +21,10 @@ footer {
             margin-top: 8px;
         }
     }
+}
+
+:host ::ng-deep .mat-drawer-content {
+    overflow-x: hidden;
 }
 
 md-toolbar {

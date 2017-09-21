@@ -1,18 +1,24 @@
 <div class="wrapper" fxLayout.gt-md="row" fxLayout="column" fxLayoutWrap>
   <md-card fxFlex="none" fxFlex.lg="70%" fxFlex.xl="50%" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
     <div class="card-header">
-      <iframe height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" [src]="iFrameUrl$ | async"></iframe>
+      <iframe height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" [src]="iFrameUrl"></iframe>
     </div>
-    <md-card-title><h2>Wo findest du mich?</h2></md-card-title>    
-    <span itemprop="streetAddress">{{ (address$ | async)?.street }} {{ (address$ | async)?.houseNumber }}</span><br />
-    <span><span itemprop="postalCode">{{ (address$ | async)?.zip }}</span> <span itemprop="addressLocality">{{ (address$ | async)?.city }}</span></span><br /><br />
+    <md-card-title>
+      <h2>Wo findest du mich?</h2>
+    </md-card-title>
+    <span itemprop="streetAddress">{{ address?.street }} {{ address?.houseNumber }}</span><br />
+    <span><span itemprop="postalCode">{{ address?.zip }}</span> <span itemprop="addressLocality">{{ address?.city }}</span></span><br
+    /><br />
     <span>Bitte klingel bei "Kollers & Hauschild".</span>
   </md-card>
   <md-card fxFlex="none" fxFlex.lg="70%" fxFlex.xl="50%">
     <div class="card-header">
       <div id="map"></div>
     </div>
-    <md-card-title><h2>Parkplätze</h2></md-card-title>
-    <p>Kostenlose öffentliche Parkplätze findest du bei den eingezeichneten Flächen. Der Hauseingang ist sowohl vom Falkensteiner Weg, als auch von der Eschborner Straße aus zugänglich.</p>
+    <md-card-title>
+      <h2>Parkplätze</h2>
+    </md-card-title>
+    <p>Kostenlose öffentliche Parkplätze findest du bei den eingezeichneten Flächen. Der Hauseingang ist sowohl vom Falkensteiner
+      Weg, als auch von der Eschborner Straße aus zugänglich.</p>
   </md-card>
 </div>

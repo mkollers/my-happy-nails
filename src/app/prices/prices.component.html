@@ -1,5 +1,5 @@
 <div class="masonry-layout">
-  <div class="masonry-layout__panel" *ngFor="let category of (services$ | async)">
+  <div class="masonry-layout__panel" *ngFor="let category of services">
     <md-card>
       <md-card-title>
         <h2>{{ category.name }}</h2>

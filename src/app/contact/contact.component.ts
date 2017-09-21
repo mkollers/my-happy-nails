@@ -1,17 +1,12 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MdSnackBar } from '@angular/material';
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs/Observable';
+import { Meta, Title } from '@angular/platform-browser';
+import { join } from 'lodash';
 
 import { RouterTransition } from '../shared/router-animation';
-import {
-  UpdateDescriptionAction,
-  UpdateHeaderAction,
-  UpdateKeywordsAction,
-  UpdateTitleAction,
-} from '../shared/store/actions/seo-actions';
-import { ApplicationState } from '../shared/store/application-state';
+import { ToolbarService } from '../shared/services/toolbar.service';
+import { INITIAL_STORE_DATA } from '../shared/store/store-data';
 import { ContactService } from './contact.service';
 import { Message } from './message';
 
@@ -24,38 +19,32 @@ import { Message } from './message';
 export class ContactComponent implements OnInit {
   @HostBinding('@routerTransition') routerTransition = '';
   formGroup: FormGroup;
-  phone$: Observable<string>;
-  mail$: Observable<string>;
+  phone: string;
+  mail: string;
 
   constructor(
     private contactService: ContactService,
+    private metaService: Meta,
     private snack: MdSnackBar,
-    private store: Store<ApplicationState>) { }
+    private toolbarService: ToolbarService,
+    private titleService: Title) {
+    this.setSeoData();
+    this.setData();
+    this.createFormGroup();
+  }
 
   ngOnInit() {
-    this.store.dispatch(new UpdateHeaderAction('Kontakt'));
-    this.store.dispatch(new UpdateTitleAction('Wie kannst du mich erreichen? Telefonnumer und Email-Adresse findest du hier'));
-    this.store.dispatch(new UpdateKeywordsAction(['nagelstudio', 'kontakt', 'sulzbach', 'telefon', 'email', 'nachricht']));
-    this.store.dispatch(new UpdateDescriptionAction('50 Prozent Neukunden-Rabatt - Auffüllen mit UV-Gel 40€ - Neumodellage mit UV-Gel ab 50€ - Maniküre ab 12€ - Gutes, preiswertes Nagelstudio in Sulzbach (Taunus)'));
-
-    this.phone$ = this.store.select(state => state.storeData.phone);
-    this.mail$ = this.store.select(state => state.storeData.mail);
-
-    this.createFormGroup();
-
     (window as any).prerenderReady = true;
   }
 
-  send(message: Message) {
-    this.contactService.sendMail(message)
-      .subscribe(
-      () => {
-        this.snack.open('Nachricht erfolgreich versendet', '', {
-          duration: 5000
-        });
-      },
-      err => this.snack.open('Hoppla, da ist etwas schief gelaufen...')
-      );
+  async send(message: Message) {
+    try {
+      await this.contactService.sendMail(message).toPromise();
+
+      this.snack.open('Nachricht erfolgreich versendet', '', { duration: 5000 });
+    } catch (err) {
+      this.snack.open('Hoppla, da ist wohl etwas schief gelaufen...');
+    };
   }
 
   private createFormGroup() {
@@ -66,5 +55,17 @@ export class ContactComponent implements OnInit {
       phone: new FormControl('', Validators.required),
       text: new FormControl('', Validators.required)
     });
+  }
+
+  private setData() {
+    this.phone = INITIAL_STORE_DATA.phone;
+    this.mail = INITIAL_STORE_DATA.mail;
+  }
+
+  private setSeoData() {
+    this.titleService.setTitle('Wie kannst du mich erreichen? Telefonnumer und Email-Adresse findest du hier');
+    this.toolbarService.title$.next('Kontakt');
+    this.metaService.updateTag({ name: 'description', content: '50 Prozent Neukunden-Rabatt - Auffüllen mit UV-Gel 40€ - Neumodellage mit UV-Gel ab 50€ - Maniküre ab 12€ - Gutes, preiswertes Nagelstudio in Sulzbach (Taunus)' })
+    this.metaService.updateTag({ name: 'keywords', content: join(['nagelstudio', 'kontakt', 'sulzbach', 'telefon', 'email', 'nachricht'], ',') })
   }
 }
