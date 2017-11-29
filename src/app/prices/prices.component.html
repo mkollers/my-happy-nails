@@ -1,23 +1,23 @@
 <div class="masonry-layout">
   <div class="masonry-layout__panel" *ngFor="let category of services">
-    <md-card>
-      <md-card-title>
+    <mat-card>
+      <mat-card-title>
         <h2>{{ category.name }}</h2>
-      </md-card-title>
-      <md-list>
-        <md-list-item *ngFor="let service of category.services" itemscope itemprop="makesOffer" itemtype="http://schema.org/Offer">
-          <h3 md-line itemprop="name">{{ service.name }}</h3>
-          <p md-line itemprop="description">{{ service.description }}</p>
+      </mat-card-title>
+      <mat-list>
+        <mat-list-item *ngFor="let service of category.services" itemscope itemprop="makesOffer" itemtype="http://schema.org/Offer">
+          <h3 mat-line itemprop="name">{{ service.name }}</h3>
+          <p mat-line itemprop="description">{{ service.description }}</p>
           <p class="cost" fxFlexOrder="999" itemprop="price">{{ service.cost }}</p>
-        </md-list-item>
-      </md-list>
-    </md-card>
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
   </div>
   <div class="masonry-layout__panel">
-    <md-card>
-      <md-card-title>
+    <mat-card>
+      <mat-card-title>
         <h2>Hinweis zu Haltbarkeit und Gesundheit</h2>
-      </md-card-title>
+      </mat-card-title>
       <article>
         <p>Bitte setzen Sie Ihren Nägeln mindestens drei Stunden vor einem Nagelstudiotermin keinem Wasser oder Handcremes mehr
           aus. Beides kann die Haltbarkeit erheblich negativ beeinflussen.<br/><br/> Das Auffüllen der Nagelmodellage sollte
@@ -28,13 +28,13 @@
           haben möchten, feilen Sie diese bitte ab oder vereinbaren Sie einen Termin mit mir. Das Abreissen der Nägel kann
           zu einer Verletzung der eigenen Nagelplatte führen.</p>
       </article>
-    </md-card>
+    </mat-card>
   </div>
   <div class="masonry-layout__panel">
-    <md-card>
-      <md-card-title>
+    <mat-card>
+      <mat-card-title>
         <h2>Produkte & Hersteller</h2>
-      </md-card-title>
+      </mat-card-title>
       <article>
         <p>Ich verwende fast ausschließlich die Qualitätsprodukte der Firma <a title="Shop von LCN" href="http://www.lcn-shop.de/">LCN (Light Concept Nails) Wilde Cosmetics</a>.<br/><br/>          Nagelmodellage Gele von LCN bieten höchstmögliche Bioverträglichkeit und sind frei von Tierversuchen. LCN-Gele
           sind gemäß den neuesten Regularien der Europäischen Kosmetikverordnung ausgerichtet und werden in der hauseigenen
@@ -43,18 +43,18 @@
           mit höchstem Anspruch an Qualität und exklusiven Inhaltsstoffen. Das Angebot ist vielseitig und modisch immer ganz
           up to date.</p>
       </article>
-    </md-card>
+    </mat-card>
   </div>
   <div class="masonry-layout__panel">
-    <md-card>
-      <md-card-title>
+    <mat-card>
+      <mat-card-title>
         <h2>Hinweis bei Fremdmaterial</h2>
-      </md-card-title>
+      </mat-card-title>
       <article>
         <p>Da ich bei Kunden, welche vorher in einem anderen Nagelstudio waren nicht weiß, welche Produkte verwendet wurden,
           oder wie diese mit meinen Materialien reagieren, kann ich keine Garantie für die Haftung der Nägel übernehmen.<br/><br/>Selbstverständlich
           ist es allerdings auch in meinem Interesse für die bestmögliche Qualität Ihrer Nägel zu sorgen.</p>
       </article>
-    </md-card>
+    </mat-card>
   </div>
 </div>

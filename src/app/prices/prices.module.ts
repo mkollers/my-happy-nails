@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MdCardModule, MdListModule } from '@angular/material';
+import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
 
 import { SharedModule } from '../shared/shared.module';
 import { PricesComponent } from './prices.component';
@@ -15,8 +16,8 @@ import { Routing } from './routes';
         CommonModule,
         Routing,
         FlexLayoutModule,
-        MdCardModule,
-        MdListModule,
+        MatCardModule,
+        MatListModule,
         SharedModule
     ],
     providers: [

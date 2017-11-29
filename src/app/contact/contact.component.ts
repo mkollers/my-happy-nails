@@ -1,6 +1,6 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MdSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Meta, Title } from '@angular/platform-browser';
 import { join } from 'lodash';
 
@@ -25,7 +25,7 @@ export class ContactComponent implements OnInit {
   constructor(
     private contactService: ContactService,
     private metaService: Meta,
-    private snack: MdSnackBar,
+    private snack: MatSnackBar,
     private toolbarService: ToolbarService,
     private titleService: Title) {
     this.setSeoData();

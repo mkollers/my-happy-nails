@@ -17,7 +17,7 @@ footer {
         &.active {
             text-decoration: underline;
         }
-        md-icon {
+        mat-icon {
             margin-top: 8px;
         }
     }
@@ -27,7 +27,7 @@ footer {
     overflow-x: hidden;
 }
 
-md-toolbar {
+mat-toolbar {
     &#header {
         background: transparent;
         #title {
@@ -35,7 +35,7 @@ md-toolbar {
             display: inline;
             margin-left: 5px;
         }
-        /* ISSUE: md-icon-button does not center icon. try again in a newer version of angular-material */
+        /* ISSUE: mat-icon-button does not center icon. try again in a newer version of angular-material */
         .toolbar-icon-button {
             min-width: 0;
             padding: 0 6px;
@@ -55,7 +55,7 @@ md-toolbar {
         min-width: 0;
         padding: 0;
     }
-    md-list-item {
+    mat-list-item {
         padding: 0 16px;
         h3 {
             font-size: 14px;
@@ -87,7 +87,7 @@ md-toolbar {
         position: relative;
         outline: none;
         letter-spacing: 1px;
-        md-icon {
+        mat-icon {
             vertical-align: middle;
             line-height: 20px;
             margin-right: 8px;

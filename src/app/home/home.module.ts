@@ -1,7 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MdCardModule, MdCoreModule, MdIconModule, MdListModule } from '@angular/material';
+import { MatCardModule } from '@angular/material/card';
+import { MatCommonModule } from '@angular/material/core';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from './home.component';
@@ -15,10 +18,10 @@ import { Routing } from './routes';
         CommonModule,
         Routing,
         FlexLayoutModule,
-        MdCoreModule,
-        MdCardModule,
-        MdListModule,
-        MdIconModule,
+        MatCommonModule,
+        MatCardModule,
+        MatListModule,
+        MatIconModule,
         SharedModule
     ]
 })

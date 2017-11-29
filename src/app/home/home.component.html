@@ -1,58 +1,58 @@
 <div class="wrapper" fxLayout.gt-sm="row" fxLayout="column" fxLayoutWrap>
   <div fxFlex="none" fxFlex.gt-sm="40%" fxFlex.gt-lg="30%">
-    <md-card itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+    <mat-card itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
       <div class="card-header">
         <div id="map"></div>
       </div>
-      <md-card-title>
+      <mat-card-title>
         <h2>Adresse</h2>
-      </md-card-title>
+      </mat-card-title>
       <span itemprop="streetAddress">{{ address?.street }} {{ address?.houseNumber }}</span><br />
       <span itemprop="postalCode">{{ address?.zip }}</span> <span itemprop="addressLocality">{{ address?.city }}</span>
-    </md-card>
-    <md-card>
-      <md-card-title>
+    </mat-card>
+    <mat-card>
+      <mat-card-title>
         <h2>Kontakt</h2>
-      </md-card-title>
-      <md-list>
-        <md-list-item>
-          <md-icon svgIcon="phone"></md-icon>
+      </mat-card-title>
+      <mat-list>
+        <mat-list-item>
+          <mat-icon svgIcon="phone"></mat-icon>
           <a itemprop="telephone" [href]="'tel:' + phone">{{ phone }}</a>
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-list-item>
-          <md-icon svgIcon="mail"></md-icon>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <mat-icon svgIcon="mail"></mat-icon>
           <a itemprop="email" [href]="'mailto:' + mail">{{ mail }}</a>
-        </md-list-item>
-      </md-list>
-    </md-card>
-    <md-card id="contact-card">
-      <md-card-title>
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
+    <mat-card id="contact-card">
+      <mat-card-title>
         <h2>Öffnungszeiten</h2>
-      </md-card-title>
-      <md-list itemprop="openingHoursSpecification" itemscope itemtype="http://schema.org/OpeningHoursSpecification">
-        <md-list-item>
-          <h3 md-line><span itemprop="opens" content="09:00:00">9:00</span> - <span itemprop="closes" content="19:00:00">19:00</span></h3>
-          <p md-line itemprop="dayOfWeek" content="Monday Tuesday Wednesday Thursday Friday">Montag - Freitag</p>
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-list-item>
-          <h3 md-line><span itemprop="opens" content="09:00:00">9:00</span> - <span itemprop="closes" content="17:00:00">17:00</span></h3>
-          <p md-line itemprop="dayOfWeek">Samstag</p>
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-list-item>
-          <h3 md-line>Geschlossen</h3>
-          <p md-line itemprop="dayOfWeek">Sonntag</p>
-        </md-list-item>
-      </md-list>
-    </md-card>
+      </mat-card-title>
+      <mat-list itemprop="openingHoursSpecification" itemscope itemtype="http://schema.org/OpeningHoursSpecification">
+        <mat-list-item>
+          <h3 mat-line><span itemprop="opens" content="09:00:00">9:00</span> - <span itemprop="closes" content="19:00:00">19:00</span></h3>
+          <p mat-line itemprop="dayOfWeek" content="Monday Tuesday Wednesday Thursday Friday">Montag - Freitag</p>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <h3 mat-line><span itemprop="opens" content="09:00:00">9:00</span> - <span itemprop="closes" content="17:00:00">17:00</span></h3>
+          <p mat-line itemprop="dayOfWeek">Samstag</p>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <h3 mat-line>Geschlossen</h3>
+          <p mat-line itemprop="dayOfWeek">Sonntag</p>
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
   </div>
   <div fxFlex="none" fxFlex.gt-sm="55%" fxFlexOrder.gt-sm="-1">
-    <md-card>
-      <md-card-title>
+    <mat-card>
+      <mat-card-title>
         <h2>Meine Arbeit in Sulzbach</h2>
-      </md-card-title>
+      </mat-card-title>
       <article>
         <p>
           In meinem Nagelstudio in Sulzbach kümmere ich mich engagiert und mit großer Liebe zum Beruf darum, meinen Kundinnen zu einem
@@ -66,11 +66,11 @@
           vom Gegenteil überzeugen. Ich zeige dir gerne, wie wunderbar natürlich zeitgemäßes Nageldesign aussieht.
         </p>
       </article>
-    </md-card>
-    <md-card>
-      <md-card-title>
+    </mat-card>
+    <mat-card>
+      <mat-card-title>
         <h2>Nageldesign – ein kleiner Rückblick</h2>
-      </md-card-title>
+      </mat-card-title>
       <article>
         <p>
           Gerade in der heutigen Zeit ist gutes und vor allem gepflegtes Aussehen wichtig – beruflich wie privat.<br><br>Aber
@@ -82,11 +82,11 @@
           Ambiente sorge ich dafür, dass du stolz auf deine Hände sein kannst.
         </p>
       </article>
-    </md-card>
-    <md-card>
-      <md-card-title>
+    </mat-card>
+    <mat-card>
+      <mat-card-title>
         <h2>Künstliche Fingernägel – viele Varianten möglich</h2>
-      </md-card-title>
+      </mat-card-title>
       <article>
         <p>
           Ob du schlicht geformte oder auffällig gefeilte Fingernägel wünschst, ob dezent lackiert, üppig mit Steinchen verziert oder
@@ -97,6 +97,6 @@
           dich wohlfühlst und gerne deine gepflegten Hände und schönen Fingernägel zeigst.
         </p>
       </article>
-    </md-card>
+    </mat-card>
   </div>
 </div>

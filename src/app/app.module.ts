@@ -1,11 +1,15 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { HttpModule } from '@angular/http';
-import { MdButtonModule, MdIconModule, MdSidenavModule, MdToolbarModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { Angulartics2GoogleAnalytics, Angulartics2Module } from 'angulartics2';
+import { Angulartics2Module } from 'angulartics2';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 
 import { AppComponent } from './app.component';
 import { AppRoutes } from './routes';
@@ -18,9 +22,12 @@ import { SharedModule } from './shared/shared.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    HttpModule,
+    HttpClientModule,
     FlexLayoutModule,
-    MdSidenavModule, MdToolbarModule, MdButtonModule, MdIconModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
     RouterModule.forRoot(AppRoutes),
     SharedModule.forRoot(),
     Angulartics2Module.forRoot([Angulartics2GoogleAnalytics])

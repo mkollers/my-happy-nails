@@ -5,7 +5,7 @@
 // have to load a single css file for Angular Material in your app.
 @include mat-core();
 
-$md-my-happy-nails-purple: (
+$mat-my-happy-nails-purple: (
     50: #f5e9f7,
     100: #E6C8EB,
     200: #D5A3DE,
@@ -40,7 +40,7 @@ $md-my-happy-nails-purple: (
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue.
-$my-happy-nails-primary: mat-palette($md-my-happy-nails-purple);
+$my-happy-nails-primary: mat-palette($mat-my-happy-nails-purple);
 
 // Create the theme object (a Sass map containing all of the palettes).
 $my-happy-nails-app-theme: mat-light-theme($my-happy-nails-primary, $my-happy-nails-primary);

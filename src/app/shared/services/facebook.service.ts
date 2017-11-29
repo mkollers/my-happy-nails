@@ -1,25 +1,25 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+
 import { Image } from '../models/image';
 import { Photo } from '../models/photo';
-import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class FacebookService {
 
   constructor(
-    private http: Http) { }
+    private httpClient: HttpClient) { }
 
   private getHeaders(accessToken: string) {
-    return new Headers({
+    return new HttpHeaders({
       Authorization: `Bearer ${accessToken}`
     });
   }
 
   getAccessToken(appId: number, appSecret: string): Observable<string> {
     const url = `https://graph.facebook.com/v2.8/oauth/access_token?client_id=${appId}&client_secret=${appSecret}&grant_type=client_credentials`;
-    return this.http.get(url)
-      .map(value => value.json())
+    return this.httpClient.get<any>(url)
       .map(value => value.access_token);
   }
 
@@ -28,15 +28,13 @@ export class FacebookService {
       return Observable.of([]);
     }
     const url = `https://graph.facebook.com/v2.8/${albumId}/photos`;
-    return this.http.get(url, { headers: this.getHeaders(accessToken) })
-      .map(value => value.json())
+    return this.httpClient.get<any>(url, { headers: this.getHeaders(accessToken) })
       .map(value => value.data);
   }
 
   getImages(accessToken: string, photoId: number): Observable<Image[]> {
     const url = `https://graph.facebook.com/v2.8/${photoId}?fields=images`;
-    return this.http.get(url, { headers: this.getHeaders(accessToken) })
-      .map(value => value.json())
+    return this.httpClient.get<any>(url, { headers: this.getHeaders(accessToken) })
       .map(value => value.images);
   }
 }

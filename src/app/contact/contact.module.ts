@@ -3,7 +3,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MdButtonModule, MdCardModule, MdInputModule, MdSnackBarModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { ContactComponent } from './contact.component';
 import { ContactService } from './contact.service';
@@ -19,10 +22,10 @@ import { Routing } from './routes';
         ReactiveFormsModule,
         HttpClientModule,
         FlexLayoutModule,
-        MdInputModule,
-        MdSnackBarModule,
-        MdButtonModule,
-        MdCardModule
+        MatInputModule,
+        MatSnackBarModule,
+        MatButtonModule,
+        MatCardModule
     ],
     providers: [
         ContactService
