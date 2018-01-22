@@ -1,5 +1,6 @@
 .mat-card {
     padding: 16px;
+    width: 100%;
 }
 
 .masonry-layout {
@@ -17,6 +18,10 @@
 .masonry-layout__panel {
     break-inside: avoid;
     padding: 8px;
+}
+
+.masonry-layout__panel-content {
+    display: flex;
 }
 
 .mat-list .mat-list-item.mat-2-line {
