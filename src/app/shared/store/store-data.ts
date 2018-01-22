@@ -68,11 +68,11 @@ export const INITIAL_STORE_DATA: StoreData = {
         services: [{
             name: 'Neukunde',
             description: 'auf alle Nagelmodellagen',
-            cost: '50%'
+            cost: '30%'
         }, {
             name: 'Kunden anwerben',
             description: 'für den Werbenden',
-            cost: '50%'
+            cost: '30%'
         }]
     }]
 };

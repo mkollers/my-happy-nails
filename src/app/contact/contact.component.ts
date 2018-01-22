@@ -65,7 +65,7 @@ export class ContactComponent implements OnInit {
   private setSeoData() {
     this.titleService.setTitle('Wie kannst du mich erreichen? Telefonnumer und Email-Adresse findest du hier');
     this.toolbarService.title$.next('Kontakt');
-    this.metaService.updateTag({ name: 'description', content: '50 Prozent Neukunden-Rabatt - Auffüllen mit UV-Gel 40€ - Neumodellage mit UV-Gel ab 50€ - Maniküre ab 12€ - Gutes, preiswertes Nagelstudio in Sulzbach (Taunus)' })
+    this.metaService.updateTag({ name: 'description', content: '30 Prozent Neukunden-Rabatt - Auffüllen mit UV-Gel 40€ - Neumodellage mit UV-Gel ab 50€ - Maniküre ab 12€ - Gutes, preiswertes Nagelstudio in Sulzbach (Taunus)' })
     this.metaService.updateTag({ name: 'keywords', content: join(['nagelstudio', 'kontakt', 'sulzbach', 'telefon', 'email', 'nachricht'], ',') })
   }
 }

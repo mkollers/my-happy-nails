@@ -36,8 +36,8 @@ export class PricesComponent implements OnInit {
 
   private setSeoData() {
     this.toolbarService.title$.next('Preise und Hinweise');
-    this.titleService.setTitle('Spare 50 Prozent als Neukunde in deinem Nagelstudio in Sulzbach');
-    this.metaService.updateTag({ name: 'description', content: '50 Prozent Neukunden-Rabatt - Auffüllen mit UV-Gel 40€ - Neumodellage mit UV-Gel ab 50€ - Maniküre ab 12€ - Gutes, preiswertes Nagelstudio in Sulzbach' })
+    this.titleService.setTitle('Spare 30 Prozent als Neukunde in deinem Nagelstudio in Sulzbach');
+    this.metaService.updateTag({ name: 'description', content: '30 Prozent Neukunden-Rabatt - Auffüllen mit UV-Gel 40€ - Neumodellage mit UV-Gel ab 50€ - Maniküre ab 12€ - Gutes, preiswertes Nagelstudio in Sulzbach' })
     this.metaService.updateTag({ name: 'keywords', content: join(['nagelstudio', 'preise', 'leistungen', 'rabatte', 'kunstnägel', 'maniküre', 'gelnägel'], ',') })
   }
 }
