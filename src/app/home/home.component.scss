@@ -18,8 +18,9 @@
     }
 }
 
-mat-divider {
-    margin: 16px 0;
+:host .mat-divider {
+    margin: 8px 0;
+    position: initial;
 }
 
 #map {
