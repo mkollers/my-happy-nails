@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   address: Address;
   phone: string;
   mail: string;
+  showHolidays = false;
 
   constructor(
     private metaService: Meta,
@@ -25,6 +26,12 @@ export class HomeComponent implements OnInit {
     private titleService: Title) {
     this.setData();
     this.setSeoData();
+
+    const end = new Date(2018, 3, 26);
+    const now = new Date();
+    if (now < end) {
+      this.showHolidays = true;
+    }
   }
 
   ngOnInit() {
