@@ -52,11 +52,11 @@ export const INITIAL_STORE_DATA: StoreData = {
         name: 'Weitere Leistungen',
         services: [{
             name: 'Basic Maniküre',
-            description: 'Nagelhaut entfernen, kürzen + formen, Nägel polieren',
+            description: 'Nagelhaut entfernen, kürzen + formen, polieren',
             cost: '12,00€'
         }, {
             name: 'Klassische Maniküre',
-            description: 'Basic + Pflegehandbad, Handpeeling + Handmassage',
+            description: 'Basic + Handbad, Peeling + Massage',
             cost: '20,00€'
         }, {
             name: 'Handbad/Peeling',
