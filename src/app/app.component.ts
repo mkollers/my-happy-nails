@@ -10,6 +10,7 @@ import { distinctUntilChanged, filter, map, tap } from 'rxjs/operators';
 import { NavigationItem } from './shared/models/navigation-item';
 import { ToolbarService } from './shared/services/toolbar.service';
 import { INITIAL_UI_STATE } from './shared/store/ui-state';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga/ga';
 
 @Component({
   selector: 'app-root',
@@ -30,6 +31,7 @@ export class AppComponent implements OnDestroy {
     private _changeDetectorRef: ChangeDetectorRef,
     private _iconRegistry: MatIconRegistry,
     private _sanitizer: DomSanitizer,
+    angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
     breakpointObserver: BreakpointObserver,
     router: Router,
     public toolbarService: ToolbarService

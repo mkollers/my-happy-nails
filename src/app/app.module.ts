@@ -32,7 +32,7 @@ import { SharedModule } from './shared/shared.module';
     MatIconModule,
     RouterModule.forRoot(AppRoutes),
     SharedModule.forRoot(),
-    Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
+    Angulartics2Module.forRoot([Angulartics2GoogleAnalytics], { ga: { anonymizeIp: true } }),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
   ],
   bootstrap: [AppComponent]
