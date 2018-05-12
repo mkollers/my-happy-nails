@@ -20,10 +20,10 @@ export class LocationComponent implements OnInit, AfterViewChecked {
   iFrameUrl: SafeResourceUrl;
 
   constructor(
-    private metaService: Meta,
-    private sanitizer: DomSanitizer,
-    private toolbarService: ToolbarService,
-    private titleService: Title
+    private _meta: Meta,
+    private _sanitizer: DomSanitizer,
+    private _toolbar: ToolbarService,
+    private _title: Title
   ) {
     this.setSeoData();
     this.setData();
@@ -81,13 +81,13 @@ export class LocationComponent implements OnInit, AfterViewChecked {
 
   private setData() {
     this.address = INITIAL_STORE_DATA.address;
-    this.iFrameUrl = this.sanitizer.bypassSecurityTrustResourceUrl(INITIAL_UI_STATE.location.iFrameUrl);
+    this.iFrameUrl = this._sanitizer.bypassSecurityTrustResourceUrl(INITIAL_UI_STATE.location.iFrameUrl);
   }
 
   private setSeoData() {
-    this.toolbarService.title$.next('Anfahrt');
-    this.titleService.setTitle('Wo findest du mich? Addresse meines Studios, Parkplätze und Wegbeschreibung');
-    this.metaService.updateTag({ name: 'description', content: 'Mein Nagelstudio findest du im Falkensteiner Weg 10 in 65843 Sulzbach (Taunus). Kostenlose öffentliche Parkplätze findest du in den eingezeichneten Flächen.' })
-    this.metaService.updateTag({ name: 'keywords', content: join(['nagelstudio', 'sulzbach', 'taunus', 'frankfurt', 'anfahrt', 'parken', 'main-taunus-kreis'], ',') })
+    this._toolbar.title$.next('Anfahrt');
+    this._title.setTitle('Wo findest du mich? Addresse meines Studios, Parkplätze und Wegbeschreibung');
+    this._meta.updateTag({ name: 'description', content: 'Mein Nagelstudio findest du im Falkensteiner Weg 10 in 65843 Sulzbach (Taunus). Kostenlose öffentliche Parkplätze findest du in den eingezeichneten Flächen.' })
+    this._meta.updateTag({ name: 'keywords', content: join(['nagelstudio', 'sulzbach', 'taunus', 'frankfurt', 'anfahrt', 'parken', 'main-taunus-kreis'], ',') })
   }
 }

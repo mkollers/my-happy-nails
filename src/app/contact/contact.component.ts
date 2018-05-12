@@ -23,11 +23,12 @@ export class ContactComponent implements AfterViewChecked {
   mail: string;
 
   constructor(
-    private contactService: ContactService,
-    private metaService: Meta,
-    private snack: MatSnackBar,
-    private toolbarService: ToolbarService,
-    private titleService: Title) {
+    private _contactService: ContactService,
+    private _meta: Meta,
+    private _snack: MatSnackBar,
+    private _toolbar: ToolbarService,
+    private _title: Title
+  ) {
     this.setSeoData();
     this.setData();
     this.createFormGroup();
@@ -39,11 +40,11 @@ export class ContactComponent implements AfterViewChecked {
 
   async send(message: Message) {
     try {
-      await this.contactService.sendMail(message).toPromise();
+      await this._contactService.sendMail(message).toPromise();
 
-      this.snack.open('Nachricht erfolgreich versendet', '', { duration: 5000 });
+      this._snack.open('Nachricht erfolgreich versendet', '', { duration: 5000 });
     } catch (err) {
-      this.snack.open('Hoppla, da ist wohl etwas schief gelaufen...');
+      this._snack.open('Hoppla, da ist wohl etwas schief gelaufen...');
     };
   }
 
@@ -63,9 +64,9 @@ export class ContactComponent implements AfterViewChecked {
   }
 
   private setSeoData() {
-    this.titleService.setTitle('Wie kannst du mich erreichen? Telefonnumer und Email-Adresse findest du hier');
-    this.toolbarService.title$.next('Kontakt');
-    this.metaService.updateTag({ name: 'description', content: '30 Prozent Neukunden-Rabatt - Auffüllen mit UV-Gel 40€ - Neumodellage mit UV-Gel ab 50€ - Maniküre ab 12€ - Gutes, preiswertes Nagelstudio in Sulzbach (Taunus)' })
-    this.metaService.updateTag({ name: 'keywords', content: join(['nagelstudio', 'kontakt', 'sulzbach', 'telefon', 'email', 'nachricht'], ',') })
+    this._title.setTitle('Wie kannst du mich erreichen? Telefonnumer und Email-Adresse findest du hier');
+    this._toolbar.title$.next('Kontakt');
+    this._meta.updateTag({ name: 'description', content: '30 Prozent Neukunden-Rabatt - Auffüllen mit UV-Gel 40€ - Neumodellage mit UV-Gel ab 50€ - Maniküre ab 12€ - Gutes, preiswertes Nagelstudio in Sulzbach (Taunus)' })
+    this._meta.updateTag({ name: 'keywords', content: join(['nagelstudio', 'kontakt', 'sulzbach', 'telefon', 'email', 'nachricht'], ',') })
   }
 }

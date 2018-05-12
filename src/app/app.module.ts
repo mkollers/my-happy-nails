@@ -11,8 +11,8 @@ import { RouterModule } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { Angulartics2Module } from 'angulartics2';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
-import { environment } from 'environments/environment';
 
+import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { AppRoutes } from './routes';
 import { SharedModule } from './shared/shared.module';
@@ -33,9 +33,7 @@ import { SharedModule } from './shared/shared.module';
     RouterModule.forRoot(AppRoutes),
     SharedModule.forRoot(),
     Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
-    ServiceWorkerModule.register('/ngsw-worker.js', {
-      enabled: environment.production
-    }),
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
   ],
   bootstrap: [AppComponent]
 })

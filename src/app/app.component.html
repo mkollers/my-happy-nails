@@ -1,5 +1,5 @@
 <mat-sidenav-container (swiperight)="sidenav.open()">
-  <mat-sidenav #sidenav (swipeleft)="sidenav.close()" [mode]="(sidenavOpened$ | async) ? 'side' : 'over'" [opened]="sidenavOpened$ | async">
+  <mat-sidenav #sidenav [mode]="mode" [opened]="opened">
     <aside>
       <object itemscope itemtype="http://schema.org/Brand" id="logo" data="assets/logo.svg" type="image/svg+xml" height="100"></object>
       <nav>
@@ -16,7 +16,7 @@
   <main>
     <header>
       <mat-toolbar id="header">
-        <button class="toolbar-icon-button" mat-button (click)="sidenav.toggle()"><mat-icon svgIcon="menu"></mat-icon></button>
+        <button class="toolbar-icon-button" mat-button (click)="sidenav.toggle()"><mat-icon svgIcon="material:menu"></mat-icon></button>
         <h1 id="title">{{ toolbarService.title$ | async }}</h1>
       </mat-toolbar>
     </header>
@@ -32,13 +32,13 @@
         <div fxLayout.xs="column" fxLayout="row" fxFlex="none" fxFlex.xs="40%" fxLayoutAlign.xs="center end" fxLayoutAlign="center center">
           <a href="https://www.facebook.com/MyHappyNailsNagelstudio" title="Zur Facebook-Seite" target="_blank" rel="noopener noreferrer"
             aria-label="Facebook">
-            <mat-icon svgIcon="facebook"></mat-icon>
+            <mat-icon svgIcon="social:facebook"></mat-icon>
           </a>
           <a href="https://plus.google.com/+MyHappyNailsEschborn" title="Zu Google+" target="_blank" rel="noopener noreferrer" aria-label="Google+">
-            <mat-icon svgIcon="google-plus"></mat-icon>
+            <mat-icon svgIcon="social:google-plus"></mat-icon>
           </a>
           <a href="https://github.com/mkollers/my-happy-nails" title="Zu Github" target="_blank" rel="noopener noreferrer" aria-label="Github">
-            <mat-icon svgIcon="github"></mat-icon>
+            <mat-icon svgIcon="social:github"></mat-icon>
           </a>
         </div>
       </nav>

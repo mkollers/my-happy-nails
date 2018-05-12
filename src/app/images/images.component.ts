@@ -1,8 +1,7 @@
-import { Component, HostBinding, OnInit, AfterViewChecked } from '@angular/core';
-import { ObservableMedia } from '@angular/flex-layout';
+import { AfterViewChecked, Component, HostBinding, OnInit } from '@angular/core';
 import { DomSanitizer, Meta, Title } from '@angular/platform-browser';
 import { filter, first, join, orderBy } from 'lodash';
-import { map, mapTo } from 'rxjs/operators';
+import { map, mapTo, tap } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
 import { Photo } from '../shared/models/photo';
@@ -21,12 +20,11 @@ export class ImagesComponent implements OnInit, AfterViewChecked {
   photos: Photo[] = [];
 
   constructor(
-    private facebookService: FacebookService,
-    private media: ObservableMedia,
-    private metaService: Meta,
-    private sanitizer: DomSanitizer,
-    private toolbarService: ToolbarService,
-    private titleService: Title) {
+    private _facebookService: FacebookService,
+    private _meta: Meta,
+    private _sanitizer: DomSanitizer,
+    private _toolbar: ToolbarService,
+    private _title: Title) {
     this.setSeoData();
   }
 
@@ -39,17 +37,21 @@ export class ImagesComponent implements OnInit, AfterViewChecked {
   }
 
   private async setData() {
-    const accessToken = await this.facebookService.getAccessToken(environment.facebook.appId, environment.facebook.appSecret).toPromise();
-    const photos = await this.facebookService.getPhotos(accessToken, environment.facebook.albumId).toPromise();
+    const accessToken = await this._facebookService.getAccessToken(environment.facebook.appId, environment.facebook.appSecret).toPromise();
+    const photos = await this._facebookService.getPhotos(accessToken, environment.facebook.albumId).toPromise();
 
+    const promises: Promise<Photo>[] = [];
     for (const photo of photos) {
-      const image = await this.facebookService.getImages(accessToken, photo.id).pipe(
+      const p = this._facebookService.getImages(accessToken, photo.id).pipe(
         map(result => photo.images = result),
-        mapTo(photo)
+        mapTo(photo),
+        tap(image => this.photos.push(image))
       ).toPromise();
 
-      this.photos.push(image);
+      promises.push(p);
     }
+
+    this.photos = await Promise.all(promises);
   }
 
   getImageUrl(photo: Photo, el: HTMLElement) {
@@ -62,13 +64,13 @@ export class ImagesComponent implements OnInit, AfterViewChecked {
       return undefined;
     }
 
-    return this.sanitizer.bypassSecurityTrustResourceUrl(image.source);
+    return this._sanitizer.bypassSecurityTrustResourceUrl(image.source);
   }
 
   private setSeoData() {
-    this.toolbarService.title$.next('Bilder');
-    this.titleService.setTitle('Bilder und Impresionen von modernem Nageldesign und Modellagen');
-    this.metaService.updateTag({ name: 'description', content: 'Aktuelle Bilder und Impressionen meiner Nagelmodellagen und anderer Arbeiten aus meinem Nagelstudio in Sulzbach (Taunus)' })
-    this.metaService.updateTag({ name: 'keywords', content: join(['nagelstudio', 'nageldesign', 'sulzbach', 'bilder', 'eindrücke', 'gallerie', 'impressionen'], ',') })
+    this._toolbar.title$.next('Bilder');
+    this._title.setTitle('Bilder und Impresionen von modernem Nageldesign und Modellagen');
+    this._meta.updateTag({ name: 'description', content: 'Aktuelle Bilder und Impressionen meiner Nagelmodellagen und anderer Arbeiten aus meinem Nagelstudio in Sulzbach (Taunus)' })
+    this._meta.updateTag({ name: 'keywords', content: join(['nagelstudio', 'nageldesign', 'sulzbach', 'bilder', 'eindrücke', 'gallerie', 'impressionen'], ',') })
   }
 }

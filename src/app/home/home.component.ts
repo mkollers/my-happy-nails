@@ -21,9 +21,9 @@ export class HomeComponent implements OnInit, AfterViewChecked {
   showHolidays = false;
 
   constructor(
-    private metaService: Meta,
-    private toolbarService: ToolbarService,
-    private titleService: Title
+    private _meta: Meta,
+    private _toolbar: ToolbarService,
+    private _title: Title
   ) {
     this.setData();
     this.setSeoData();
@@ -65,9 +65,9 @@ export class HomeComponent implements OnInit, AfterViewChecked {
   }
 
   private setSeoData() {
-    this.toolbarService.title$.next('Home');
-    this.titleService.setTitle('Günstiges Nagelstudio für schöne Fingernägel in Sulzbach');
-    this.metaService.updateTag({ name: 'description', content: 'Professionelles Nagelstudio zu fairen Preisen in Sulzbach. Du suchst einen Profi für deine Nägel zu günstigen Preisen? Kunstnägel, Gelnägel, Maniküre, Nailart' })
-    this.metaService.updateTag({ name: 'keywords', content: join(['nagelstudio', 'nageldesign', 'sulzbach', 'öffnungszeiten', 'maniküre', 'kontakt', 'adresse'], ',') })
+    this._toolbar.title$.next('Home');
+    this._title.setTitle('Günstiges Nagelstudio für schöne Fingernägel in Sulzbach');
+    this._meta.updateTag({ name: 'description', content: 'Professionelles Nagelstudio zu fairen Preisen in Sulzbach. Du suchst einen Profi für deine Nägel zu günstigen Preisen? Kunstnägel, Gelnägel, Maniküre, Nailart' })
+    this._meta.updateTag({ name: 'keywords', content: join(['nagelstudio', 'nageldesign', 'sulzbach', 'öffnungszeiten', 'maniküre', 'kontakt', 'adresse'], ',') })
   }
 }

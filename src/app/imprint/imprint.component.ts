@@ -1,4 +1,4 @@
-import { Component, HostBinding, OnInit, AfterViewChecked } from '@angular/core';
+import { AfterViewChecked, Component, HostBinding } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { join } from 'lodash';
 
@@ -20,9 +20,9 @@ export class ImprintComponent implements AfterViewChecked {
   mail: string;
 
   constructor(
-    private metaService: Meta,
-    private toolbarService: ToolbarService,
-    private titleService: Title) {
+    private _meta: Meta,
+    private _toolbar: ToolbarService,
+    private _title: Title) {
     this.setSeoData();
     this.setData();
   }
@@ -38,9 +38,9 @@ export class ImprintComponent implements AfterViewChecked {
   }
 
   private setSeoData() {
-    this.toolbarService.title$.next('Impressum');
-    this.titleService.setTitle('Impressum');
-    this.metaService.updateTag({ name: 'description', content: '' })
-    this.metaService.updateTag({ name: 'keywords', content: join([], ',') })
+    this._toolbar.title$.next('Impressum');
+    this._title.setTitle('Impressum');
+    this._meta.updateTag({ name: 'description', content: '' })
+    this._meta.updateTag({ name: 'keywords', content: join([], ',') })
   }
 }
