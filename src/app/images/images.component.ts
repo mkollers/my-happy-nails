@@ -1,9 +1,10 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { ObservableMedia } from '@angular/flex-layout';
 import { DomSanitizer, Meta, Title } from '@angular/platform-browser';
-import { environment } from 'environments/environment';
 import { filter, first, join, orderBy } from 'lodash';
+import { map, mapTo } from 'rxjs/operators';
 
+import { environment } from '../../environments/environment';
 import { Photo } from '../shared/models/photo';
 import { RouterTransition } from '../shared/router-animation';
 import { FacebookService } from '../shared/services/facebook.service';
@@ -40,9 +41,10 @@ export class ImagesComponent implements OnInit {
     const photos = await this.facebookService.getPhotos(accessToken, environment.facebook.albumId).toPromise();
 
     for (const photo of photos) {
-      const image = await this.facebookService.getImages(accessToken, photo.id)
-        .map(result => photo.images = result)
-        .mapTo(photo).toPromise();
+      const image = await this.facebookService.getImages(accessToken, photo.id).pipe(
+        map(result => photo.images = result),
+        mapTo(photo)
+      ).toPromise();
 
       this.photos.push(image);
     }

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { retry, share } from 'rxjs/operators';
 
 import { Message } from './message';
 
@@ -11,9 +12,10 @@ export class ContactService {
   sendMail(message: Message) {
     const baseUrl = 'https://hooks.zapier.com/hooks/catch/2205841/9nkw13';
     const url = `${baseUrl}?firstname=${message.firstname}&lastname=${message.lastname}&mail=${message.mail}&phone=${message.phone}&text=${message.text}`;
-    return this.httpClient.get(url)
-      .retry(2)
-      .share();
+    return this.httpClient.get(url).pipe(
+      retry(2),
+      share()
+    );
   }
 
 }

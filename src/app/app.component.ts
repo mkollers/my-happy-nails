@@ -4,8 +4,8 @@ import { MatIconRegistry } from '@angular/material/icon';
 import { MatSidenav } from '@angular/material/sidenav';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NavigationEnd, Router } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
-import { Subscription } from 'rxjs/Subscription';
+import { Observable, Subscription } from 'rxjs';
+import { filter, map, startWith, tap, withLatestFrom } from 'rxjs/operators';
 
 import { NavigationItem } from './shared/models/navigation-item';
 import { ToolbarService } from './shared/services/toolbar.service';
@@ -46,8 +46,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
     this.sidenavItems = INITIAL_UI_STATE.sidenavItems;
     this.footerItems = INITIAL_UI_STATE.footerItems;
-    this.sidenavOpened$ = this.media.asObservable()
-      .map(value => {
+    this.sidenavOpened$ = this.media.asObservable().pipe(
+      map(value => {
         switch (value.mqAlias) {
           case 'xs':
           case 'sm':
@@ -55,14 +55,17 @@ export class AppComponent implements OnInit, OnDestroy {
           default:
             return true;
         }
-      }).startWith(false);
+      }),
+      startWith(false)
+    );
 
-    const closeSidenav$ = this.router.events
-      .filter(e => e instanceof NavigationEnd) // only on routing
-      .withLatestFrom(this.sidenavOpened$) // only on mobile screens
-      .map(([outer, inner]) => !inner) // for clearer next step...avoid tuple
-      .filter(close => close) // trigger only if nav should be closed
-      .do(() => this.sidenav.close());
+    const closeSidenav$ = this.router.events.pipe(
+      filter(e => e instanceof NavigationEnd), // only on routing
+      withLatestFrom(this.sidenavOpened$), // only on mobile screens
+      map(([outer, inner]) => !inner), // for clearer next step...avoid tuple
+      filter(close => close), // trigger only if nav should be closed
+      tap(() => this.sidenav.close())
+    );
 
     this.susbcriptions.push(closeSidenav$.subscribe());
   }
