@@ -1,4 +1,4 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { AfterViewChecked, Component, HostBinding } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Meta, Title } from '@angular/platform-browser';
@@ -16,7 +16,7 @@ import { Message } from './message';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent implements AfterViewChecked {
   @HostBinding('@routerTransition') routerTransition = '';
   formGroup: FormGroup;
   phone: string;
@@ -33,7 +33,7 @@ export class ContactComponent implements OnInit {
     this.createFormGroup();
   }
 
-  ngOnInit() {
+  ngAfterViewChecked() {
     (window as any).prerenderReady = true;
   }
 

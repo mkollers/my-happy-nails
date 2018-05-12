@@ -1,11 +1,11 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { AfterViewChecked, Component, HostBinding } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { INITIAL_STORE_DATA } from 'app/shared/store/store-data';
 import { join } from 'lodash';
 
 import { ServiceCategory } from '../shared/models/service-category';
 import { RouterTransition } from '../shared/router-animation';
 import { ToolbarService } from '../shared/services/toolbar.service';
+import { INITIAL_STORE_DATA } from '../shared/store/store-data';
 
 @Component({
   animations: [RouterTransition()],
@@ -13,7 +13,7 @@ import { ToolbarService } from '../shared/services/toolbar.service';
   templateUrl: './prices.component.html',
   styleUrls: ['./prices.component.scss']
 })
-export class PricesComponent implements OnInit {
+export class PricesComponent implements AfterViewChecked {
   @HostBinding('@routerTransition') routerTransition = '';
   services: ServiceCategory[];
 
@@ -26,7 +26,7 @@ export class PricesComponent implements OnInit {
     this.setData();
   }
 
-  ngOnInit() {
+  ngAfterViewChecked() {
     (window as any).prerenderReady = true;
   }
 

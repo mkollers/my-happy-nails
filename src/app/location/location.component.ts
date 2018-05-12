@@ -1,12 +1,12 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { AfterViewChecked, Component, HostBinding, OnInit } from '@angular/core';
 import { DomSanitizer, Meta, SafeResourceUrl, Title } from '@angular/platform-browser';
-import { INITIAL_STORE_DATA } from 'app/shared/store/store-data';
-import { INITIAL_UI_STATE } from 'app/shared/store/ui-state';
 import { join } from 'lodash';
 
 import { Address } from '../shared/models/address';
 import { RouterTransition } from '../shared/router-animation';
 import { ToolbarService } from '../shared/services/toolbar.service';
+import { INITIAL_STORE_DATA } from '../shared/store/store-data';
+import { INITIAL_UI_STATE } from '../shared/store/ui-state';
 
 @Component({
   animations: [RouterTransition()],
@@ -14,7 +14,7 @@ import { ToolbarService } from '../shared/services/toolbar.service';
   templateUrl: './location.component.html',
   styleUrls: ['./location.component.scss']
 })
-export class LocationComponent implements OnInit {
+export class LocationComponent implements OnInit, AfterViewChecked {
   @HostBinding('@routerTransition') routerTransition = '';
   address: Address;
   iFrameUrl: SafeResourceUrl;
@@ -31,7 +31,9 @@ export class LocationComponent implements OnInit {
 
   ngOnInit() {
     this.createMap();
+  }
 
+  ngAfterViewChecked() {
     (window as any).prerenderReady = true;
   }
 

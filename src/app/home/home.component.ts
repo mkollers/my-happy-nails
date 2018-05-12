@@ -1,4 +1,4 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { AfterViewChecked, Component, HostBinding, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { join } from 'lodash';
 
@@ -13,7 +13,7 @@ import { INITIAL_STORE_DATA } from '../shared/store/store-data';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewChecked {
   @HostBinding('@routerTransition') routerTransition = '';
   address: Address;
   phone: string;
@@ -23,7 +23,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private metaService: Meta,
     private toolbarService: ToolbarService,
-    private titleService: Title) {
+    private titleService: Title
+  ) {
     this.setData();
     this.setSeoData();
 
@@ -36,6 +37,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.createMap();
+  }
+
+  ngAfterViewChecked() {
     (window as any).prerenderReady = true;
   }
 

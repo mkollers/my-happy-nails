@@ -1,4 +1,4 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit, AfterViewChecked } from '@angular/core';
 import { ObservableMedia } from '@angular/flex-layout';
 import { DomSanitizer, Meta, Title } from '@angular/platform-browser';
 import { filter, first, join, orderBy } from 'lodash';
@@ -16,7 +16,7 @@ import { ToolbarService } from '../shared/services/toolbar.service';
   templateUrl: './images.component.html',
   styleUrls: ['./images.component.scss']
 })
-export class ImagesComponent implements OnInit {
+export class ImagesComponent implements OnInit, AfterViewChecked {
   @HostBinding('@routerTransition') routerTransition = '';
   photos: Photo[] = [];
 
@@ -32,7 +32,9 @@ export class ImagesComponent implements OnInit {
 
   async ngOnInit() {
     await this.setData();
+  }
 
+  ngAfterViewChecked() {
     (window as any).prerenderReady = true;
   }
 

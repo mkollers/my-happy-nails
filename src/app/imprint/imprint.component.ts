@@ -1,4 +1,4 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit, AfterViewChecked } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { join } from 'lodash';
 
@@ -13,7 +13,7 @@ import { INITIAL_STORE_DATA } from '../shared/store/store-data';
   templateUrl: './imprint.component.html',
   styleUrls: ['./imprint.component.scss']
 })
-export class ImprintComponent implements OnInit {
+export class ImprintComponent implements AfterViewChecked {
   @HostBinding('@routerTransition') routerTransition = '';
   address: Address;
   phone: string;
@@ -27,7 +27,7 @@ export class ImprintComponent implements OnInit {
     this.setData();
   }
 
-  ngOnInit() {
+  ngAfterViewChecked() {
     (window as any).prerenderReady = true;
   }
 
