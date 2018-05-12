@@ -4,13 +4,13 @@ import { MatIconRegistry } from '@angular/material/icon';
 import { MatSidenav } from '@angular/material/sidenav';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NavigationEnd, Router } from '@angular/router';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import { Subscription } from 'rxjs';
 import { distinctUntilChanged, filter, map, tap } from 'rxjs/operators';
 
 import { NavigationItem } from './shared/models/navigation-item';
 import { ToolbarService } from './shared/services/toolbar.service';
 import { INITIAL_UI_STATE } from './shared/store/ui-state';
-import { Angulartics2GoogleAnalytics } from 'angulartics2/ga/ga';
 
 @Component({
   selector: 'app-root',
