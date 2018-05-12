@@ -4,20 +4,17 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Meta, Title } from '@angular/platform-browser';
 import { join } from 'lodash';
 
-import { RouterTransition } from '../shared/router-animation';
 import { ToolbarService } from '../shared/services/toolbar.service';
 import { INITIAL_STORE_DATA } from '../shared/store/store-data';
 import { ContactService } from './contact.service';
 import { Message } from './message';
 
 @Component({
-  animations: [RouterTransition()],
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements AfterViewChecked {
-  @HostBinding('@routerTransition') routerTransition = '';
   formGroup: FormGroup;
   phone: string;
   mail: string;

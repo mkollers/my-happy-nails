@@ -9,10 +9,12 @@ import { Subscription } from 'rxjs';
 import { distinctUntilChanged, filter, map, tap } from 'rxjs/operators';
 
 import { NavigationItem } from './shared/models/navigation-item';
+import { RouterTransition } from './shared/router-animation';
 import { ToolbarService } from './shared/services/toolbar.service';
 import { INITIAL_UI_STATE } from './shared/store/ui-state';
 
 @Component({
+  animations: [RouterTransition],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
@@ -62,6 +64,10 @@ export class AppComponent implements OnDestroy {
 
   ngOnDestroy() {
     this._subscriptions.forEach(s => s.unsubscribe());
+  }
+
+  getState(outlet) {
+    return outlet.activatedRouteData.state;
   }
 
   private registerIcons() {

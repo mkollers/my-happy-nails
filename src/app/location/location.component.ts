@@ -3,19 +3,16 @@ import { DomSanitizer, Meta, SafeResourceUrl, Title } from '@angular/platform-br
 import { join } from 'lodash';
 
 import { Address } from '../shared/models/address';
-import { RouterTransition } from '../shared/router-animation';
 import { ToolbarService } from '../shared/services/toolbar.service';
 import { INITIAL_STORE_DATA } from '../shared/store/store-data';
 import { INITIAL_UI_STATE } from '../shared/store/ui-state';
 
 @Component({
-  animations: [RouterTransition()],
   selector: 'app-location',
   templateUrl: './location.component.html',
   styleUrls: ['./location.component.scss']
 })
 export class LocationComponent implements OnInit, AfterViewChecked {
-  @HostBinding('@routerTransition') routerTransition = '';
   address: Address;
   iFrameUrl: SafeResourceUrl;
 

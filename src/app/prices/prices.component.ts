@@ -3,18 +3,15 @@ import { Meta, Title } from '@angular/platform-browser';
 import { join } from 'lodash';
 
 import { ServiceCategory } from '../shared/models/service-category';
-import { RouterTransition } from '../shared/router-animation';
 import { ToolbarService } from '../shared/services/toolbar.service';
 import { INITIAL_STORE_DATA } from '../shared/store/store-data';
 
 @Component({
-  animations: [RouterTransition()],
   selector: 'app-prices',
   templateUrl: './prices.component.html',
   styleUrls: ['./prices.component.scss']
 })
 export class PricesComponent implements AfterViewChecked {
-  @HostBinding('@routerTransition') routerTransition = '';
   services: ServiceCategory[];
 
   constructor(

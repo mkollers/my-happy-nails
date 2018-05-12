@@ -5,18 +5,15 @@ import { map, mapTo, tap } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
 import { Photo } from '../shared/models/photo';
-import { RouterTransition } from '../shared/router-animation';
 import { FacebookService } from '../shared/services/facebook.service';
 import { ToolbarService } from '../shared/services/toolbar.service';
 
 @Component({
-  animations: [RouterTransition()],
   selector: 'app-images',
   templateUrl: './images.component.html',
   styleUrls: ['./images.component.scss']
 })
 export class ImagesComponent implements OnInit, AfterViewChecked {
-  @HostBinding('@routerTransition') routerTransition = '';
   photos: Photo[] = [];
 
   constructor(
