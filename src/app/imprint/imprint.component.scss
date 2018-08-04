@@ -1,6 +1,12 @@
 .wrapper {
-    padding: 8px;
-    .mat-card {
-        margin: 8px;
-    }
+  padding: 8px;
+  .mat-card {
+    margin: 8px;
+  }
+}
+
+.mat-card-subtitle {
+  font-weight: 600;
+  color: #000;
+  margin: 0;
 }
