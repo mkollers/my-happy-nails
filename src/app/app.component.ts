@@ -74,7 +74,7 @@ export class AppComponent implements OnDestroy {
     this.registerIcon('material', 'euro_symbol');
     this.registerIcon('material', 'menu');
     this.registerIcon('material', 'home');
-    this.registerIcon('material', 'mail');
+    this.registerIcon('material', 'email');
     this.registerIcon('material', 'image');
     this.registerIcon('material', 'location_on');
     this.registerIcon('material', 'phone');
