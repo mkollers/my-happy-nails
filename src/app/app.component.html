@@ -24,12 +24,12 @@
       <router-outlet #o="outlet"></router-outlet>
     </section>
     <footer>
-      <nav fxLayout.gt-sm="column" fxLayout="row">
-        <div fxLayout="row" fxLayout.xs="column" fxFlex="none" fxFlex.xs="60%" fxLayoutAlign="center center" fxLayoutAlign.xs="center start">
+      <nav fxLayout.gt-md="column" fxLayout="row">
+        <div fxLayout="row" fxLayout.lt-lg="column" fxFlex="none" fxFlex.lt-lg="60%" fxLayoutAlign="center center" fxLayoutAlign.lt-lg="center start">
           <a *ngFor="let item of footerItems" [routerLink]="item.url" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}"
             [title]="item.title">{{ item.text }}</a>
         </div>
-        <div fxLayout.xs="column" fxLayout="row" fxFlex="none" fxFlex.xs="40%" fxLayoutAlign.xs="center end" fxLayoutAlign="center center">
+        <div fxLayout.lt-lg="column" fxLayout="row" fxFlex="none" fxFlex.lt-lg="40%" fxLayoutAlign.lt-lg="center end" fxLayoutAlign="center center">
           <a href="https://www.facebook.com/MyHappyNailsNagelstudio" title="Zur Facebook-Seite" target="_blank" rel="noopener noreferrer"
             aria-label="Facebook">
             <mat-icon svgIcon="social:facebook"></mat-icon>

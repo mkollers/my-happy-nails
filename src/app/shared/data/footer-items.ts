@@ -5,7 +5,10 @@ export const FooterItems: NavigationItem[] = [
     ...SidenavItems, {
         text: 'Impressum',
         url: ['/impressum'],
-        icon: undefined,
         title: 'Gesetzlich vorgeschriebene Herkunftsangabe'
+    }, {
+        text: 'Datenschutzerklärung',
+        url: ['/privacy'],
+        title: 'Datenschutzerklärung nach DSGVO'
     }
 ];

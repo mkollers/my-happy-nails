@@ -12,5 +12,6 @@ export const AppRoutes: Routes = [
     { path: 'kontakt', loadChildren: './contact/contact.module#ContactModule', data: { state: 'contact' } },
     { path: 'anfahrt', loadChildren: './location/location.module#LocationModule', data: { state: 'location' } },
     { path: 'impressum', loadChildren: './imprint/imprint.module#ImprintModule', data: { state: 'imprint' } },
+    { path: 'privacy', loadChildren: './privacy/privacy.module#PrivacyModule', data: { state: 'privacy' } },
     defaultRoute
 ];
