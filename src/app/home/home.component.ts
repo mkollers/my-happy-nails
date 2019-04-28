@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit, AfterViewChecked {
     this.setData();
     this.setSeoData();
 
-    const end = new Date(2018, 3, 26);
+    const end = new Date(2019, 5, 13);
     const now = new Date();
     if (now < end) {
       this.showHolidays = true;
