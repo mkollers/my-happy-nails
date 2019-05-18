@@ -1,13 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
-import { MatCommonModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 
+import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
-import { Routing } from './routes';
 
 @NgModule({
     declarations: [
@@ -15,12 +13,12 @@ import { Routing } from './routes';
     ],
     imports: [
         CommonModule,
-        Routing,
-        FlexLayoutModule,
-        MatCommonModule,
+        HomeRoutingModule,
+
+        // Material
         MatCardModule,
-        MatListModule,
-        MatIconModule
+        MatIconModule,
+        MatListModule
     ]
 })
 export class HomeModule { }
