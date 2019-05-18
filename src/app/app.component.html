@@ -1,7 +1,5 @@
 <app-sidenav #sidenav>
-  <header app-header>
-    
-  </header>
+  <header app-header (app-toggle)="sidenav.toggle()"></header>
   <section [@routerTransition]="getState(o)" style="min-height: 100%;">
     <router-outlet #o="outlet"></router-outlet>
   </section>
