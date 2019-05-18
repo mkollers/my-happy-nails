@@ -1,34 +1,30 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Meta, Title } from '@angular/platform-browser';
-import { join } from 'lodash';
 
 import { HeaderService } from '../shared/layout/services/header.service';
-import { INITIAL_STORE_DATA } from '../shared/store/store-data';
 import { ContactService } from './contact.service';
 import { Message } from './message';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+  styleUrls: ['./contact.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContactComponent {
   formGroup: FormGroup;
-  phone: string;
-  mail: string;
 
   constructor(
     private _contactService: ContactService,
+    private _header: HeaderService,
     private _meta: Meta,
     private _snack: MatSnackBar,
-    private _header: HeaderService,
     private _title: Title
   ) {
-    this.setSeoData();
-    this.setData();
-    this.createFormGroup();
+    this._setSeoData();
+    this._createFormGroup();
   }
 
   async send(message: Message) {
@@ -41,7 +37,7 @@ export class ContactComponent {
     };
   }
 
-  private createFormGroup() {
+  private _createFormGroup() {
     this.formGroup = new FormGroup({
       firstname: new FormControl('', Validators.required),
       lastname: new FormControl('', Validators.required),
@@ -51,15 +47,10 @@ export class ContactComponent {
     });
   }
 
-  private setData() {
-    this.phone = INITIAL_STORE_DATA.phone;
-    this.mail = INITIAL_STORE_DATA.mail;
-  }
-
-  private setSeoData() {
+  private _setSeoData() {
     this._title.setTitle('Wie kannst du mich erreichen? Telefonnumer und Email-Adresse findest du hier');
     this._header.title = 'Kontakt';
-    this._meta.updateTag({ name: 'description', content: '30 Prozent Neukunden-Rabatt - Auffüllen mit UV-Gel 40€ - Neumodellage mit UV-Gel ab 50€ - Maniküre ab 12€ - Gutes, preiswertes Nagelstudio in Sulzbach (Taunus)' })
-    this._meta.updateTag({ name: 'keywords', content: join(['nagelstudio', 'kontakt', 'sulzbach', 'telefon', 'email', 'nachricht'], ',') })
+    this._meta.updateTag({ name: 'description', content: '30 Prozent Neukunden-Rabatt - Auffüllen mit UV-Gel 40€ - Neumodellage mit UV-Gel ab 50€ - Maniküre ab 12€ - Gutes, preiswertes Nagelstudio in Sulzbach (Taunus)' });
+    this._meta.updateTag({ name: 'keywords', content: 'nagelstudio,kontakt,sulzbach,telefon,email,nachricht' });
   }
 }

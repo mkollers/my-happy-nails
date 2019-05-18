@@ -1,38 +1,39 @@
-<div class="wrapper" fxLayout="row">
-  <div fxFlex.lg="60%" fxFlex.xl="30%" fxLayout="column">
-    <mat-card>
-      <mat-card-title>Wie kannst du mich erreichen?</mat-card-title>
-      <p>
-        Du willst einen Termin vereinbaren oder hast Fragen?<br/><br/> Telefonisch bin ich unter <a itemprop="telephone"
-          [href]="'tel:'+ phone">{{ phone }}</a> zu erreichen. Selbstverständlich kannst du mir auch per
-        SMS oder WhatsApp schreiben ;-)<br/><br/> Alternativ kannst du mir auch eine E-Mail an <a itemprop="email" [href]="'mailto:' + mail">{{ mail }}</a> schicken.
-      </p>
-    </mat-card>
-    <mat-card>
-      <mat-card-title>Nachricht senden</mat-card-title>
-      <p>Alternativ kannst du mir direkt hier eine Nachricht schicken. Deine E-Mail-Adresse und Handynummer benötige ich um dir zu antworten. Selbstverständlich werde ich deine Kontaktdaten nicht an Dritte weiter geben, oder zu einem anderen Zweck verwenden.</p>
-      <form [formGroup]="formGroup" #form (ngSubmit)="formGroup.valid && send(formGroup.value) && form.reset();">
-        <mat-card-content fxLayout="column">
-          <mat-form-field fxFlex="100%">
-            <input matInput formControlName="firstname" class="form-control" placeholder="Vorname" type="text" required>
-          </mat-form-field>
-          <mat-form-field fxFlex>
-            <input matInput formControlName="lastname" class="form-control" placeholder="Nachname" type="text" required>
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput formControlName="mail" class="form-control" placeholder="E-Mail" type="email" required>
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput formControlName="phone" class="form-control" placeholder="Handynummer" type="phone" required>
-          </mat-form-field>
-          <mat-form-field fxFlex="100%">
-            <textarea rows="8" matInput formControlName="text" class="form-control" placeholder="Nachricht" required></textarea>
-          </mat-form-field>
-        </mat-card-content>
-        <mat-card-actions [style.margin.px]="0">
-          <button mat-raised-button color="primary">Absenden</button>
-        </mat-card-actions>
-      </form>
-    </mat-card>
-  </div>
-</div>
+<section>
+  <mat-card>
+    <h2 mat-card-title>Wie kannst du mich erreichen?</h2>
+    <p mat-card-content>
+      Du willst einen Termin vereinbaren oder hast Fragen?<br /><br /> Telefonisch bin ich unter <a itemprop="telephone"
+        href="tel:+49 177 6342 915">+49 177 6342 915</a> zu erreichen. Selbstverständlich kannst du mir
+      auch per SMS oder WhatsApp schreiben ;-)<br /><br /> Alternativ kannst du mir auch eine E-Mail an <a itemprop="email"
+        href="mailto:kontakt@my-happy-nails.de">kontakt@my-happy-nails.de</a> schicken.
+    </p>
+  </mat-card>
+  <mat-card>
+    <h2 mat-card-title>Nachricht senden</h2>
+    <form mat-card-content [formGroup]="formGroup" #form
+      (ngSubmit)="formGroup.valid && send(formGroup.value) && form.reset();">
+      <p>Alternativ kannst du mir direkt hier eine Nachricht schicken. Deine E-Mail-Adresse und Handynummer benötige ich
+        um dir zu antworten. Selbstverständlich werde ich deine Kontaktdaten nicht an Dritte weiter geben, oder zu einem
+        anderen Zweck verwenden.</p>
+      <mat-form-field>
+        <input matInput formControlName="firstname" class="form-control" placeholder="Vorname" type="text" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput formControlName="lastname" class="form-control" placeholder="Nachname" type="text" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput formControlName="mail" class="form-control" placeholder="E-Mail" type="email" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput formControlName="phone" class="form-control" placeholder="Handynummer" type="phone" required>
+      </mat-form-field>
+      <mat-form-field>
+        <textarea rows="8" matInput formControlName="text" class="form-control" placeholder="Nachricht"
+          required></textarea>
+      </mat-form-field>
+      <footer mat-card-actions>
+        <button mat-raised-button color="primary">Absenden</button>
+      </footer>
+    </form>
+  </mat-card>
+</section>
