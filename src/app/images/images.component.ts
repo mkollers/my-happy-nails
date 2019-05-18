@@ -1,65 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { DomSanitizer, Meta, Title } from '@angular/platform-browser';
-import { filter, first, join, orderBy } from 'lodash';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 
 import { HeaderService } from '../shared/layout/services/header.service';
-import { Photo } from '../shared/models/photo';
 
 @Component({
   selector: 'app-images',
   templateUrl: './images.component.html',
-  styleUrls: ['./images.component.scss']
+  styleUrls: ['./images.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ImagesComponent implements OnInit {
-  photos: Photo[] = [];
+export class ImagesComponent {
 
   constructor(
     private _meta: Meta,
-    private _sanitizer: DomSanitizer,
     private _header: HeaderService,
-    private _title: Title) {
-    this.setSeoData();
+    private _title: Title
+  ) {
+    this._setSeoData();
   }
 
-  async ngOnInit() {
-    await this.setData();
-  }
-
-  private async setData() {
-    // const accessToken = await this._facebookService.getAccessToken(environment.facebook.appId, environment.facebook.appSecret).toPromise();
-    // const photos = await this._facebookService.getPhotos(accessToken, environment.facebook.albumId).toPromise();
-
-    // const promises: Promise<Photo>[] = [];
-    // for (const photo of photos) {
-    //   const p = this._facebookService.getImages(accessToken, photo.id).pipe(
-    //     map(result => photo.images = result),
-    //     mapTo(photo),
-    //     tap(image => this.photos.push(image))
-    //   ).toPromise();
-
-    //   promises.push(p);
-    // }
-
-    // this.photos = await Promise.all(promises);
-  }
-
-  getImageUrl(photo: Photo, el: HTMLElement) {
-    let images = photo.images;
-    images = filter(images, i => i.width >= el.clientWidth - 16);
-    images = orderBy(images, i => i.width);
-
-    const image = first(images);
-    if (!image) {
-      return undefined;
-    }
-
-    return this._sanitizer.bypassSecurityTrustResourceUrl(image.source);
-  }
-
-  private setSeoData() {
+  private _setSeoData() {
     this._header.title = 'Bilder';
     this._title.setTitle('Bilder und Impresionen von modernem Nageldesign und Modellagen');
-    this._meta.updateTag({ name: 'description', content: 'Aktuelle Bilder und Impressionen meiner Nagelmodellagen und anderer Arbeiten aus meinem Nagelstudio in Sulzbach (Taunus)' })
-    this._meta.updateTag({ name: 'keywords', content: join(['nagelstudio', 'nageldesign', 'sulzbach', 'bilder', 'eindrücke', 'gallerie', 'impressionen'], ',') })
+    this._meta.updateTag({ name: 'description', content: 'Aktuelle Bilder und Impressionen meiner Nagelmodellagen und anderer Arbeiten aus meinem Nagelstudio in Sulzbach (Taunus)' });
+    this._meta.updateTag({ name: 'keywords', content: 'nagelstudio,nageldesign,sulzbach,bilder,eindrücke,gallerie,impressionen' });
   }
 }
