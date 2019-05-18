@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
 
-import { SharedModule } from '../shared/shared.module';
 import { ImprintComponent } from './imprint.component';
 import { Routing } from './routes';
 
@@ -15,8 +14,7 @@ import { Routing } from './routes';
         CommonModule,
         Routing,
         FlexLayoutModule,
-        MatCardModule,
-        SharedModule
+        MatCardModule
     ]
 })
 export class ImprintModule { }

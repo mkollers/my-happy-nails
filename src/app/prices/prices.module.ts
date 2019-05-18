@@ -4,7 +4,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 
-import { SharedModule } from '../shared/shared.module';
 import { PricesComponent } from './prices.component';
 import { Routing } from './routes';
 
@@ -17,11 +16,7 @@ import { Routing } from './routes';
         Routing,
         FlexLayoutModule,
         MatCardModule,
-        MatListModule,
-        SharedModule
-    ],
-    providers: [
-    ],
-    bootstrap: []
+        MatListModule
+    ]
 })
 export class PricesModule { }

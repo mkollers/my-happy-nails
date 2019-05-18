@@ -6,7 +6,6 @@ import { MatCommonModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 
-import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from './home.component';
 import { Routing } from './routes';
 
@@ -21,8 +20,7 @@ import { Routing } from './routes';
         MatCommonModule,
         MatCardModule,
         MatListModule,
-        MatIconModule,
-        SharedModule
+        MatIconModule
     ]
 })
 export class HomeModule { }

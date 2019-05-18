@@ -1,9 +1,8 @@
-import { AfterViewChecked, Component, HostBinding } from '@angular/core';
+import { Component } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { join } from 'lodash';
 
+import { HeaderService } from '../shared/layout/services/header.service';
 import { Address } from '../shared/models/address';
-import { ToolbarService } from '../shared/services/toolbar.service';
 import { INITIAL_STORE_DATA } from '../shared/store/store-data';
 
 @Component({
@@ -18,7 +17,7 @@ export class ImprintComponent {
 
   constructor(
     private _meta: Meta,
-    private _toolbar: ToolbarService,
+    private _header: HeaderService,
     private _title: Title) {
     this.setSeoData();
     this.setData();
@@ -31,9 +30,9 @@ export class ImprintComponent {
   }
 
   private setSeoData() {
-    this._toolbar.title$.next('Impressum');
+    this._header.title = 'Impressum';
     this._title.setTitle('Impressum');
     this._meta.updateTag({ name: 'description', content: '' })
-    this._meta.updateTag({ name: 'keywords', content: join([], ',') })
+    this._meta.updateTag({ name: 'keywords', content: '' })
   }
 }

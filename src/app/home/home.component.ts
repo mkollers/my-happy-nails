@@ -1,9 +1,9 @@
-import { AfterViewChecked, Component, HostBinding, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { join } from 'lodash';
 
+import { HeaderService } from '../shared/layout/services/header.service';
 import { Address } from '../shared/models/address';
-import { ToolbarService } from '../shared/services/toolbar.service';
 import { INITIAL_STORE_DATA } from '../shared/store/store-data';
 
 @Component({
@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private _meta: Meta,
-    private _toolbar: ToolbarService,
+    private _header: HeaderService,
     private _title: Title
   ) {
     this.setData();
@@ -58,7 +58,7 @@ export class HomeComponent implements OnInit {
   }
 
   private setSeoData() {
-    this._toolbar.title$.next('Home');
+    this._header.title = 'Home';
     this._title.setTitle('Günstiges Nagelstudio für schöne Fingernägel in Sulzbach');
     this._meta.updateTag({ name: 'description', content: 'Professionelles Nagelstudio zu fairen Preisen in Sulzbach. Du suchst einen Profi für deine Nägel zu günstigen Preisen? Kunstnägel, Gelnägel, Maniküre, Nailart' })
     this._meta.updateTag({ name: 'keywords', content: join(['nagelstudio', 'nageldesign', 'sulzbach', 'öffnungszeiten', 'maniküre', 'kontakt', 'adresse'], ',') })

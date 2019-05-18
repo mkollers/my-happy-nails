@@ -1,12 +1,9 @@
-import { AfterViewChecked, Component, HostBinding, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, Meta, Title } from '@angular/platform-browser';
 import { filter, first, join, orderBy } from 'lodash';
-import { map, mapTo, tap } from 'rxjs/operators';
 
-import { environment } from '../../environments/environment';
+import { HeaderService } from '../shared/layout/services/header.service';
 import { Photo } from '../shared/models/photo';
-import { FacebookService } from '../shared/services/facebook.service';
-import { ToolbarService } from '../shared/services/toolbar.service';
 
 @Component({
   selector: 'app-images',
@@ -17,10 +14,9 @@ export class ImagesComponent implements OnInit {
   photos: Photo[] = [];
 
   constructor(
-    private _facebookService: FacebookService,
     private _meta: Meta,
     private _sanitizer: DomSanitizer,
-    private _toolbar: ToolbarService,
+    private _header: HeaderService,
     private _title: Title) {
     this.setSeoData();
   }
@@ -61,7 +57,7 @@ export class ImagesComponent implements OnInit {
   }
 
   private setSeoData() {
-    this._toolbar.title$.next('Bilder');
+    this._header.title = 'Bilder';
     this._title.setTitle('Bilder und Impresionen von modernem Nageldesign und Modellagen');
     this._meta.updateTag({ name: 'description', content: 'Aktuelle Bilder und Impressionen meiner Nagelmodellagen und anderer Arbeiten aus meinem Nagelstudio in Sulzbach (Taunus)' })
     this._meta.updateTag({ name: 'keywords', content: join(['nagelstudio', 'nageldesign', 'sulzbach', 'bilder', 'eindrücke', 'gallerie', 'impressionen'], ',') })

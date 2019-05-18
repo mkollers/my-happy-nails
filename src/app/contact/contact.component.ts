@@ -1,10 +1,10 @@
-import { AfterViewChecked, Component, HostBinding } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Meta, Title } from '@angular/platform-browser';
 import { join } from 'lodash';
 
-import { ToolbarService } from '../shared/services/toolbar.service';
+import { HeaderService } from '../shared/layout/services/header.service';
 import { INITIAL_STORE_DATA } from '../shared/store/store-data';
 import { ContactService } from './contact.service';
 import { Message } from './message';
@@ -23,7 +23,7 @@ export class ContactComponent {
     private _contactService: ContactService,
     private _meta: Meta,
     private _snack: MatSnackBar,
-    private _toolbar: ToolbarService,
+    private _header: HeaderService,
     private _title: Title
   ) {
     this.setSeoData();
@@ -58,7 +58,7 @@ export class ContactComponent {
 
   private setSeoData() {
     this._title.setTitle('Wie kannst du mich erreichen? Telefonnumer und Email-Adresse findest du hier');
-    this._toolbar.title$.next('Kontakt');
+    this._header.title = 'Kontakt';
     this._meta.updateTag({ name: 'description', content: '30 Prozent Neukunden-Rabatt - Auffüllen mit UV-Gel 40€ - Neumodellage mit UV-Gel ab 50€ - Maniküre ab 12€ - Gutes, preiswertes Nagelstudio in Sulzbach (Taunus)' })
     this._meta.updateTag({ name: 'keywords', content: join(['nagelstudio', 'kontakt', 'sulzbach', 'telefon', 'email', 'nachricht'], ',') })
   }

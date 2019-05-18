@@ -1,13 +1,9 @@
-import { Component, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
-import { NavigationEnd, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 
-import { NavigationItem } from './shared/models/navigation-item';
 import { RouterTransition } from './shared/router-animation';
-import { ToolbarService } from './shared/services/toolbar.service';
-import { INITIAL_UI_STATE } from './shared/store/ui-state';
 
 // declare ga as a function to set and sent the events
 declare let ga: Function;
@@ -16,32 +12,21 @@ declare let ga: Function;
   animations: [RouterTransition],
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent implements OnDestroy {
-  private _subscriptions: Subscription[] = [];
-  footerItems: NavigationItem[];
+export class AppComponent {
 
   constructor(
     private _iconRegistry: MatIconRegistry,
     private _sanitizer: DomSanitizer,
-    private _router: Router,
-    public toolbarService: ToolbarService
+    private _router: Router
   ) {
-    this.registerIcons();
+    this._registerIcons();
     this._configureAnalytics();
-
-
-    this.footerItems = INITIAL_UI_STATE.footerItems;
   }
 
-  ngOnDestroy() {
-    this._subscriptions.forEach(s => s.unsubscribe());
-  }
-
-  getState(outlet) {
-    return outlet.activatedRouteData.state;
-  }
+  getState = (outlet: RouterOutlet) => outlet.activatedRouteData.state;
 
   private _configureAnalytics() {
     // subscribe to router events and send page views to Google Analytics
@@ -53,21 +38,20 @@ export class AppComponent implements OnDestroy {
     });
   }
 
-  private registerIcons() {
-    this.registerIcon('material', 'euro_symbol');
-    this.registerIcon('material', 'menu');
-    this.registerIcon('material', 'home');
-    this.registerIcon('material', 'email');
-    this.registerIcon('material', 'image');
-    this.registerIcon('material', 'location_on');
-    this.registerIcon('material', 'phone');
+  private _registerIcons() {
+    this._registerIcon('material', 'euro_symbol');
+    this._registerIcon('material', 'menu');
+    this._registerIcon('material', 'home');
+    this._registerIcon('material', 'email');
+    this._registerIcon('material', 'image');
+    this._registerIcon('material', 'location_on');
+    this._registerIcon('material', 'phone');
 
-    this.registerIcon('social', 'facebook');
-    this.registerIcon('social', 'github');
-    this.registerIcon('social', 'google-plus');
+    this._registerIcon('social', 'facebook');
+    this._registerIcon('social', 'github');
   }
 
-  private registerIcon(namespace: string, name: string) {
+  private _registerIcon(namespace: string, name: string) {
     const url = `assets/icons/${namespace}/${name}.svg`;
     this._iconRegistry.addSvgIconInNamespace(namespace, name, this._sanitizer.bypassSecurityTrustResourceUrl(url));
   }
