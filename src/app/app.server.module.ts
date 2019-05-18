@@ -13,6 +13,6 @@ import { AppModule } from './app.module';
         ModuleMapLoaderModule,
         FlexLayoutServerModule
     ],
-    bootstrap: [AppComponent],
+    bootstrap: [AppComponent]
 })
 export class AppServerModule { }
