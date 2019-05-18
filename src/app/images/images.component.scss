@@ -1,30 +1,31 @@
-.mat-card {
-    padding: 16px;
-    img {
-        width: 100%;
-    }
+img {
+  border-radius: 6px;
+  display: flex;
+  max-width: 100%;
 }
 
 .masonry-layout {
-    column-count: 1;
-    @media (min-width: 600px) {
-        column-count: 2;
-    }
-    @media (min-width: 960px) {
-        column-count: 3;
-    }
-    @media (min-width: 1920px) {
-        column-count: 4;
-    }
-    column-gap: 0;
-    padding: 8px;
+  column-count: 1;
+
+  @media (min-width: 600px) {
+    column-count: 2;
+  }
+
+  @media (min-width: 960px) {
+    column-count: 3;
+  }
+
+  @media (min-width: 1920px) {
+    column-count: 4;
+  }
+
+  column-gap: 0;
+  padding: 8px;
 }
 
 .masonry-layout__panel {
+  position: relative;
   display: inline-block;
-  width: 100%;
   break-inside: avoid;
-  mat-card {
-    margin: 8px;
-  }
+  padding: 8px;
 }
