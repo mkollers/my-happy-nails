@@ -26,19 +26,3 @@ footer {
 :host ::ng-deep .mat-drawer-content {
     overflow-x: hidden;
 }
-
-mat-toolbar {
-    &#header {
-        background: transparent;
-        #title {
-            font-weight: 400;
-            display: inline;
-            margin-left: 5px;
-        }
-        /* ISSUE: mat-icon-button does not center icon. try again in a newer version of angular-material */
-        .toolbar-icon-button {
-            min-width: 0;
-            padding: 0 6px;
-        }
-    }
-}

@@ -1,11 +1,6 @@
 <app-sidenav #sidenav>
-  <header>
-    <mat-toolbar id="header">
-      <button class="toolbar-icon-button" mat-button (click)="sidenav.toggle()">
-        <mat-icon svgIcon="material:menu"></mat-icon>
-      </button>
-      <h1 id="title">{{ toolbarService?.title$ | async }}</h1>
-    </mat-toolbar>
+  <header app-header>
+    
   </header>
   <section [@routerTransition]="getState(o)" style="min-height: 100%;">
     <router-outlet #o="outlet"></router-outlet>
