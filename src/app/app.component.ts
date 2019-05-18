@@ -4,7 +4,6 @@ import { MatIconRegistry } from '@angular/material/icon';
 import { MatSidenav } from '@angular/material/sidenav';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NavigationEnd, Router } from '@angular/router';
-import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import { Subscription } from 'rxjs';
 import { distinctUntilChanged, filter, map, tap } from 'rxjs/operators';
 
@@ -12,6 +11,9 @@ import { NavigationItem } from './shared/models/navigation-item';
 import { RouterTransition } from './shared/router-animation';
 import { ToolbarService } from './shared/services/toolbar.service';
 import { INITIAL_UI_STATE } from './shared/store/ui-state';
+
+// declare ga as a function to set and sent the events
+declare let ga: Function;
 
 @Component({
   animations: [RouterTransition],
@@ -33,12 +35,12 @@ export class AppComponent implements OnDestroy {
     private _changeDetectorRef: ChangeDetectorRef,
     private _iconRegistry: MatIconRegistry,
     private _sanitizer: DomSanitizer,
-    angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
     breakpointObserver: BreakpointObserver,
-    router: Router,
+    private _router: Router,
     public toolbarService: ToolbarService
   ) {
     this.registerIcons();
+    this._configureAnalytics();
 
     // subscribe event which will be triggered every time, the screen-size switches between small and large
     this._subscriptions.push(
@@ -50,7 +52,7 @@ export class AppComponent implements OnDestroy {
     );
 
     this._subscriptions.push(
-      router.events.pipe(
+      _router.events.pipe(
         filter(e => e instanceof NavigationEnd), // only on routing
         filter(e => this.mode === 'over'), // only on smalls screens
         tap(() => this.sidenav.close()),
@@ -68,6 +70,17 @@ export class AppComponent implements OnDestroy {
 
   getState(outlet) {
     return outlet.activatedRouteData.state;
+  }
+
+  private _configureAnalytics() {
+    // subscribe to router events and send page views to Google Analytics
+    this._router.events.subscribe(event => {
+
+      if (event instanceof NavigationEnd) {
+        ga('set', 'page', event.urlAfterRedirects);
+        ga('send', 'pageview');
+      }
+    });
   }
 
   private registerIcons() {
