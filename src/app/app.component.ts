@@ -1,9 +1,10 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, AfterViewInit, PLATFORM_ID, Inject } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 
 import { RouterTransition } from './shared/router-animation';
+import { isPlatformBrowser } from '@angular/common';
 
 // declare ga as a function to set and sent the events
 declare let ga: Function;
@@ -15,23 +16,24 @@ declare let ga: Function;
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
 
   constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
     private _iconRegistry: MatIconRegistry,
     private _sanitizer: DomSanitizer,
     private _router: Router
   ) {
     this._registerIcons();
-    this._configureAnalytics();
   }
 
   getState = (outlet: RouterOutlet) => outlet.activatedRouteData.state;
+  ngAfterViewInit = () => this._configureAnalytics();
 
   private _configureAnalytics() {
     // subscribe to router events and send page views to Google Analytics
     this._router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
+      if (event instanceof NavigationEnd && isPlatformBrowser(this.platformId)) {
         ga('set', 'page', event.urlAfterRedirects);
         ga('send', 'pageview');
       }
