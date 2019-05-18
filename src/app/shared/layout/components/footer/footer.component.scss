@@ -1,6 +1,7 @@
 @import '../../../../../styles/breakpoints.scss';
 
 :host {
+  background: #AB47BC;
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -26,7 +27,7 @@ nav {
 }
 
 a {
-  color: #000;
+  color: #fff;
   line-height: 24px;
   font-size: 1rem;
   font-weight: 500;
