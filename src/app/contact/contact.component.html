@@ -10,7 +10,7 @@
     </mat-card>
     <mat-card>
       <mat-card-title>Nachricht senden</mat-card-title>
-      <p>Alternativ kannst du mir direkt hier eine Nachricht schicken. Deine E-Mail-Adresse und Handnummer benötige ich um dir zu antworten. Selbstverständlich werde ich deine Kontaktdaten nicht an Dritte weiter geben, oder zu einem anderen Zweck verwenden.</p>
+      <p>Alternativ kannst du mir direkt hier eine Nachricht schicken. Deine E-Mail-Adresse und Handynummer benötige ich um dir zu antworten. Selbstverständlich werde ich deine Kontaktdaten nicht an Dritte weiter geben, oder zu einem anderen Zweck verwenden.</p>
       <form [formGroup]="formGroup" #form (ngSubmit)="formGroup.valid && send(formGroup.value) && form.reset();">
         <mat-card-content fxLayout="column">
           <mat-form-field fxFlex="100%">

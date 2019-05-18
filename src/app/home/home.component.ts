@@ -11,7 +11,7 @@ import { INITIAL_STORE_DATA } from '../shared/store/store-data';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, AfterViewChecked {
+export class HomeComponent implements OnInit {
   address: Address;
   phone: string;
   mail: string;
@@ -34,10 +34,6 @@ export class HomeComponent implements OnInit, AfterViewChecked {
 
   ngOnInit() {
     this.createMap();
-  }
-
-  ngAfterViewChecked() {
-    (window as any).prerenderReady = true;
   }
 
   createMap() {

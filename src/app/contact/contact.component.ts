@@ -14,7 +14,7 @@ import { Message } from './message';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
-export class ContactComponent implements AfterViewChecked {
+export class ContactComponent {
   formGroup: FormGroup;
   phone: string;
   mail: string;
@@ -29,10 +29,6 @@ export class ContactComponent implements AfterViewChecked {
     this.setSeoData();
     this.setData();
     this.createFormGroup();
-  }
-
-  ngAfterViewChecked() {
-    (window as any).prerenderReady = true;
   }
 
   async send(message: Message) {

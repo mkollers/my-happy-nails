@@ -11,7 +11,7 @@ import { INITIAL_STORE_DATA } from '../shared/store/store-data';
   templateUrl: './imprint.component.html',
   styleUrls: ['./imprint.component.scss']
 })
-export class ImprintComponent implements AfterViewChecked {
+export class ImprintComponent {
   address: Address;
   phone: string;
   mail: string;
@@ -22,10 +22,6 @@ export class ImprintComponent implements AfterViewChecked {
     private _title: Title) {
     this.setSeoData();
     this.setData();
-  }
-
-  ngAfterViewChecked() {
-    (window as any).prerenderReady = true;
   }
 
   private setData() {

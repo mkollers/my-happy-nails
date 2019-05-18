@@ -7,14 +7,12 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { Angulartics2Module } from 'angulartics2';
-import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 
 import { environment } from '../environments/environment';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AppRoutes } from './routes';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
@@ -22,18 +20,24 @@ import { SharedModule } from './shared/shared.module';
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     HttpClientModule,
     FlexLayoutModule,
-    MatSidenavModule,
-    MatToolbarModule,
+    AppRoutingModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
+
+    // Material
     MatButtonModule,
     MatIconModule,
-    RouterModule.forRoot(AppRoutes),
+    MatSidenavModule,
+    MatToolbarModule,
+
+    // Custom
     SharedModule.forRoot(),
-    Angulartics2Module.forRoot([Angulartics2GoogleAnalytics], { ga: { anonymizeIp: true } }),
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
+
+    // 3rd Party
+    Angulartics2Module.forRoot({ ga: { anonymizeIp: true } })
   ],
   bootstrap: [AppComponent]
 })

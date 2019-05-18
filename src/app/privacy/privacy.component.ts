@@ -1,4 +1,4 @@
-import { AfterViewChecked, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import * as _ from 'lodash';
 
@@ -9,7 +9,7 @@ import { ToolbarService } from '../shared/services/toolbar.service';
   templateUrl: './privacy.component.html',
   styleUrls: ['./privacy.component.scss']
 })
-export class PrivacyComponent implements AfterViewChecked {
+export class PrivacyComponent {
 
   constructor(
     private _meta: Meta,
@@ -17,10 +17,6 @@ export class PrivacyComponent implements AfterViewChecked {
     private _title: Title
   ) {
     this.setSeoData();
-  }
-
-  ngAfterViewChecked() {
-    (window as any).prerenderReady = true;
   }
 
   private setSeoData() {

@@ -13,7 +13,7 @@ import { ToolbarService } from '../shared/services/toolbar.service';
   templateUrl: './images.component.html',
   styleUrls: ['./images.component.scss']
 })
-export class ImagesComponent implements OnInit, AfterViewChecked {
+export class ImagesComponent implements OnInit {
   photos: Photo[] = [];
 
   constructor(
@@ -29,26 +29,22 @@ export class ImagesComponent implements OnInit, AfterViewChecked {
     await this.setData();
   }
 
-  ngAfterViewChecked() {
-    (window as any).prerenderReady = true;
-  }
-
   private async setData() {
-    const accessToken = await this._facebookService.getAccessToken(environment.facebook.appId, environment.facebook.appSecret).toPromise();
-    const photos = await this._facebookService.getPhotos(accessToken, environment.facebook.albumId).toPromise();
+    // const accessToken = await this._facebookService.getAccessToken(environment.facebook.appId, environment.facebook.appSecret).toPromise();
+    // const photos = await this._facebookService.getPhotos(accessToken, environment.facebook.albumId).toPromise();
 
-    const promises: Promise<Photo>[] = [];
-    for (const photo of photos) {
-      const p = this._facebookService.getImages(accessToken, photo.id).pipe(
-        map(result => photo.images = result),
-        mapTo(photo),
-        tap(image => this.photos.push(image))
-      ).toPromise();
+    // const promises: Promise<Photo>[] = [];
+    // for (const photo of photos) {
+    //   const p = this._facebookService.getImages(accessToken, photo.id).pipe(
+    //     map(result => photo.images = result),
+    //     mapTo(photo),
+    //     tap(image => this.photos.push(image))
+    //   ).toPromise();
 
-      promises.push(p);
-    }
+    //   promises.push(p);
+    // }
 
-    this.photos = await Promise.all(promises);
+    // this.photos = await Promise.all(promises);
   }
 
   getImageUrl(photo: Photo, el: HTMLElement) {

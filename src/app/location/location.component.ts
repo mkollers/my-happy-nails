@@ -12,7 +12,7 @@ import { INITIAL_UI_STATE } from '../shared/store/ui-state';
   templateUrl: './location.component.html',
   styleUrls: ['./location.component.scss']
 })
-export class LocationComponent implements OnInit, AfterViewChecked {
+export class LocationComponent implements OnInit {
   address: Address;
   iFrameUrl: SafeResourceUrl;
 
@@ -28,10 +28,6 @@ export class LocationComponent implements OnInit, AfterViewChecked {
 
   ngOnInit() {
     this.createMap();
-  }
-
-  ngAfterViewChecked() {
-    (window as any).prerenderReady = true;
   }
 
   private createMap() {

@@ -11,7 +11,7 @@ import { INITIAL_STORE_DATA } from '../shared/store/store-data';
   templateUrl: './prices.component.html',
   styleUrls: ['./prices.component.scss']
 })
-export class PricesComponent implements AfterViewChecked {
+export class PricesComponent {
   services: ServiceCategory[];
 
   constructor(
@@ -21,10 +21,6 @@ export class PricesComponent implements AfterViewChecked {
   ) {
     this.setSeoData();
     this.setData();
-  }
-
-  ngAfterViewChecked() {
-    (window as any).prerenderReady = true;
   }
 
   private setData() {
