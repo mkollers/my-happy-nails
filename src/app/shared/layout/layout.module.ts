@@ -8,13 +8,16 @@ import { RouterModule } from '@angular/router';
 
 import { HeaderComponent } from './components/header/header.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
-    SidenavComponent,
-    HeaderComponent
+    FooterComponent,
+    HeaderComponent,
+    SidenavComponent
   ],
   exports: [
+    FooterComponent,
     HeaderComponent,
     SidenavComponent
   ],

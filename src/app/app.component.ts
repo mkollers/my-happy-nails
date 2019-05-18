@@ -1,11 +1,8 @@
-import { BreakpointObserver } from '@angular/cdk/layout';
-import { ChangeDetectorRef, Component, OnDestroy, ViewChild } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
-import { MatSidenav } from '@angular/material/sidenav';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { distinctUntilChanged, filter, map, tap } from 'rxjs/operators';
 
 import { NavigationItem } from './shared/models/navigation-item';
 import { RouterTransition } from './shared/router-animation';
@@ -34,7 +31,7 @@ export class AppComponent implements OnDestroy {
     this.registerIcons();
     this._configureAnalytics();
 
-    
+
     this.footerItems = INITIAL_UI_STATE.footerItems;
   }
 
@@ -49,7 +46,6 @@ export class AppComponent implements OnDestroy {
   private _configureAnalytics() {
     // subscribe to router events and send page views to Google Analytics
     this._router.events.subscribe(event => {
-
       if (event instanceof NavigationEnd) {
         ga('set', 'page', event.urlAfterRedirects);
         ga('send', 'pageview');

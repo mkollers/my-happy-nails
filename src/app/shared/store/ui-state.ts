@@ -10,7 +10,6 @@ export interface UiState {
     location: {
         iFrameUrl: string;
     };
-    sidenavItems: NavigationItem[];
     title: string;
 };
 
@@ -23,5 +22,4 @@ export const INITIAL_UI_STATE: UiState = {
         iFrameUrl: 'https://maps.google.de/maps/embed/v1/place?key=AIzaSyCNAFjhmK9AMKYH6ovmAtoE_8CjsnbLuqY&q=My+Happy+Nails'
     },
     title: 'Home',
-    sidenavItems: SidenavItems
 };
