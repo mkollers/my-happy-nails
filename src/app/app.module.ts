@@ -8,11 +8,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { Angulartics2Module } from 'angulartics2';
 
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LayoutModule } from './shared/layout/layout.module';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
@@ -35,9 +35,7 @@ import { SharedModule } from './shared/shared.module';
 
     // Custom
     SharedModule.forRoot(),
-
-    // 3rd Party
-    Angulartics2Module.forRoot({ ga: { anonymizeIp: true } })
+    LayoutModule
   ],
   bootstrap: [AppComponent]
 })

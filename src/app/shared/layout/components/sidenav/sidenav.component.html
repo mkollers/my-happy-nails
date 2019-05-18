@@ -1,0 +1,43 @@
+<mat-sidenav-container fullscreen autosize>
+  <mat-sidenav #sidenav [mode]="mode" [opened]="opened">
+    <aside>
+      <img src="assets/logo.png" alt="Logo von My Happy Nails" itemscope itemtype="http://schema.org/Brand" id="logo"
+        width="220">
+      <nav>
+        <ul>
+          <li>
+            <a mat-button routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+              title="Aktuelle Informationen über mein Nagelstudio in Sulzbach">
+              <mat-icon svgIcon="material:home"></mat-icon>Home
+            </a>
+          </li>
+          <li>
+            <a mat-button routerLink="/preise" routerLinkActive="active"
+              title="Übersicht aller aktuellen Leistungen, Preise und Rabatte">
+              <mat-icon svgIcon="material:euro_symbol"></mat-icon>Preise
+            </a>
+          </li>
+          <li>
+            <a mat-button routerLink="/bilder" routerLinkActive="active" title="Bilder und Impressionen meiner Arbeiten">
+              <mat-icon svgIcon="material:image"></mat-icon>Bilder
+            </a>
+          </li>
+          <li>
+            <a mat-button routerLink="/kontakt" routerLinkActive="active" title="Wie könnt Ihr mich erreichen?">
+              <mat-icon svgIcon="material:phone"></mat-icon>Kontakt
+            </a>
+          </li>
+          <li>
+            <a mat-button routerLink="/anfahrt" routerLinkActive="active"
+              title="Informationen darüber wo sich mein Studio befindet, wie ihr zu mir gelangt und wo ihr Parken könnt">
+              <mat-icon svgIcon="material:location_on"></mat-icon>Anfahrt
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </mat-sidenav>
+  <main>
+    <ng-content></ng-content>
+  </main>
+</mat-sidenav-container>

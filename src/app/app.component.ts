@@ -23,44 +23,18 @@ declare let ga: Function;
 })
 export class AppComponent implements OnDestroy {
   private _subscriptions: Subscription[] = [];
-  sidenavItems: NavigationItem[];
   footerItems: NavigationItem[];
-  mode: 'over' | 'push' | 'side' = 'side';
-  opened = true;
-
-  @ViewChild('sidenav')
-  sidenav: MatSidenav;
 
   constructor(
-    private _changeDetectorRef: ChangeDetectorRef,
     private _iconRegistry: MatIconRegistry,
     private _sanitizer: DomSanitizer,
-    breakpointObserver: BreakpointObserver,
     private _router: Router,
     public toolbarService: ToolbarService
   ) {
     this.registerIcons();
     this._configureAnalytics();
 
-    // subscribe event which will be triggered every time, the screen-size switches between small and large
-    this._subscriptions.push(
-      breakpointObserver.observe('(max-width: 959px)').pipe(
-        map(state => state.matches),
-        distinctUntilChanged(),
-        tap(isSmall => this.screenSizeChanged(isSmall))
-      ).subscribe()
-    );
-
-    this._subscriptions.push(
-      _router.events.pipe(
-        filter(e => e instanceof NavigationEnd), // only on routing
-        filter(e => this.mode === 'over'), // only on smalls screens
-        tap(() => this.sidenav.close()),
-        tap(() => _changeDetectorRef.markForCheck())
-      ).subscribe()
-    );
-
-    this.sidenavItems = INITIAL_UI_STATE.sidenavItems;
+    
     this.footerItems = INITIAL_UI_STATE.footerItems;
   }
 
@@ -100,16 +74,5 @@ export class AppComponent implements OnDestroy {
   private registerIcon(namespace: string, name: string) {
     const url = `assets/icons/${namespace}/${name}.svg`;
     this._iconRegistry.addSvgIconInNamespace(namespace, name, this._sanitizer.bypassSecurityTrustResourceUrl(url));
-  }
-
-  private screenSizeChanged(isSmall: boolean) {
-    if (isSmall) {
-      this.opened = false;
-      this.mode = 'over';
-    } else {
-      this.opened = true;
-      this.mode = 'side';
-    }
-    this._changeDetectorRef.markForCheck();
   }
 }

@@ -3,6 +3,7 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 
 import { FacebookService } from './services/facebook.service';
 import { ToolbarService } from './services/toolbar.service';
+import { SidenavComponent } from './layout/components/sidenav/sidenav.component';
 
 @NgModule({
   imports: [
