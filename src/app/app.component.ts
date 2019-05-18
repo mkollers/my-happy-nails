@@ -1,10 +1,10 @@
-import { ChangeDetectionStrategy, Component, AfterViewInit, PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { AfterViewInit, ChangeDetectionStrategy, Component, Inject, PLATFORM_ID } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 
 import { RouterTransition } from './shared/router-animation';
-import { isPlatformBrowser } from '@angular/common';
 
 // declare ga as a function to set and sent the events
 declare let ga: Function;
@@ -17,6 +17,7 @@ declare let ga: Function;
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements AfterViewInit {
+  private _domain = '';
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
@@ -24,6 +25,9 @@ export class AppComponent implements AfterViewInit {
     private _sanitizer: DomSanitizer,
     private _router: Router
   ) {
+    if (isPlatformServer(this.platformId)) {
+      this._domain = 'http://localhost:4200/';
+    }
     this._registerIcons();
   }
 
@@ -54,7 +58,7 @@ export class AppComponent implements AfterViewInit {
   }
 
   private _registerIcon(namespace: string, name: string) {
-    const url = `assets/icons/${namespace}/${name}.svg`;
+    const url = `${this._domain}assets/icons/${namespace}/${name}.svg`;
     this._iconRegistry.addSvgIconInNamespace(namespace, name, this._sanitizer.bypassSecurityTrustResourceUrl(url));
   }
 }

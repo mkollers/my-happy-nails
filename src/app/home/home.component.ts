@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { ChangeDetectionStrategy, Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 
 import { HeaderService } from '../shared/layout/services/header.service';
@@ -13,6 +14,7 @@ export class HomeComponent implements OnInit {
   showHolidays = false;
 
   constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
     private _meta: Meta,
     private _header: HeaderService,
     private _title: Title
@@ -31,24 +33,26 @@ export class HomeComponent implements OnInit {
   }
 
   createMap() {
-    const map = new google.maps.Map(document.getElementById('map'), {
-      center: {
-        lat: 50.133442,
-        lng: 8.5351918
-      },
-      zoom: 17,
-      zoomControl: false,
-      disableDefaultUI: true
-    });
+    if (isPlatformBrowser(this.platformId)) {
+      const map = new google.maps.Map(document.getElementById('map'), {
+        center: {
+          lat: 50.133442,
+          lng: 8.5351918
+        },
+        zoom: 17,
+        zoomControl: false,
+        disableDefaultUI: true
+      });
 
-    new google.maps.Marker({
-      animation: google.maps.Animation.BOUNCE,
-      position: {
-        lat: 50.133442,
-        lng: 8.5351918
-      },
-      map: map
-    });
+      new google.maps.Marker({
+        animation: google.maps.Animation.BOUNCE,
+        position: {
+          lat: 50.133442,
+          lng: 8.5351918
+        },
+        map: map
+      });
+    }
   }
 
   private _setSeoData() {
