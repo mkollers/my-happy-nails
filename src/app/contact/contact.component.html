@@ -1,5 +1,5 @@
 <section>
-  <mat-card>
+  <mat-card class="mat-elevation-z8">
     <h2 mat-card-title>Wie kannst du mich erreichen?</h2>
     <p mat-card-content>
       Du willst einen Termin vereinbaren oder hast Fragen?<br /><br /> Telefonisch bin ich unter <a itemprop="telephone"
@@ -8,7 +8,7 @@
         href="mailto:kontakt@my-happy-nails.de">kontakt@my-happy-nails.de</a> schicken.
     </p>
   </mat-card>
-  <mat-card>
+  <mat-card class="mat-elevation-z8">
     <h2 mat-card-title>Nachricht senden</h2>
     <form mat-card-content [formGroup]="formGroup" #form
       (ngSubmit)="formGroup.valid && send(formGroup.value) && form.reset();">
