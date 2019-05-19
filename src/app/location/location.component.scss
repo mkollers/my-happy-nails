@@ -1,9 +1,7 @@
 @import '../../styles/breakpoints';
 
 :host {
-  display: flex;
   flex-direction: row;
-  padding: 8px;
 }
 
 @media #{$mat-lt-xl} {
@@ -13,7 +11,7 @@
 }
 
 .mat-card {
-  margin: 8px;
+  margin-bottom: 6px;
   flex: 1 1 100%;
   box-sizing: border-box;
 }
@@ -21,6 +19,7 @@
 @media #{$mat-gt-md} {
   .mat-card {
     max-width: 70%;
+    margin-right: 16px;
   }
 }
 

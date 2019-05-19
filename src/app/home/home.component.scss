@@ -1,9 +1,7 @@
 @import '../../styles/breakpoints';
 
 :host {
-  display: flex;
   flex-direction: row;
-  padding: 8px;
 }
 
 @media #{$mat-lt-md} {
@@ -12,7 +10,7 @@
   }
 }
 
-.column-left {
+.column-left, .column-right {
   flex: 1 1 100%;
   box-sizing: border-box;
   max-width: 100%;
@@ -21,6 +19,7 @@
 @media #{$mat-gt-sm} {
   .column-left {
     max-width: 40%;
+    margin-left: 16px;
   }
 }
 
@@ -28,12 +27,6 @@
   .column-left {
     max-width: 30%;
   }
-}
-
-.column-right {
-  flex: 1 1 100%;
-  box-sizing: border-box;
-  max-width: 100%;
 }
 
 @media #{$mat-gt-sm} {
@@ -44,29 +37,25 @@
 }
 
 .mat-card {
-  margin: 8px;
+  margin-bottom: 16px;
+}
 
-  mat-icon {
-    color: #bf74cc;
-    margin-right: 16px;
+.mat-icon {
+  color: #bf74cc;
+  margin-right: 16px;
+}
+
+#contact-card {
+  h3 {
+    font-size: 20px;
+    font-weight: 400;
   }
 
-  &#contact-card {
-    h3 {
-      font-size: 20px;
-      font-weight: 400;
-    }
-
-    p {
-      color: rgba(0, 0, 0, 0.54);
-    }
+  p {
+    color: rgba(0, 0, 0, 0.54);
   }
 }
 
 #map {
   height: 300px;
-}
-
-:host .mat-card-image {
-  border-radius: 20px 20px 0 0;
 }

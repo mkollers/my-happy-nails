@@ -1,10 +1,7 @@
 @import '../../styles/breakpoints';
 
 :host {
-  padding: 8px;
-  display: flex;
   flex-direction: row;
-  box-sizing: border-box;
 }
 
 @media #{$mat-lt-md} {
@@ -32,7 +29,13 @@
 }
 
 .mat-card {
-  margin: 8px;
+  margin-bottom: 16px;
+}
+
+@media #{$mat-gt-md} {
+  .right-column {
+    margin-left: 16px;
+  }
 }
 
 .mat-card-subtitle {

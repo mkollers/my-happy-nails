@@ -1,3 +1,5 @@
+@import '../../styles/breakpoints';
+
 img {
   border-radius: 6px;
   display: flex;
@@ -7,25 +9,36 @@ img {
 .masonry-layout {
   column-count: 1;
 
-  @media (min-width: 600px) {
+  @media #{$mat-gt-xs} {
     column-count: 2;
+    margin: -8px;
   }
 
-  @media (min-width: 960px) {
+  @media #{$mat-gt-sm} {
     column-count: 3;
   }
 
-  @media (min-width: 1920px) {
+  @media #{$mat-gt-lg} {
     column-count: 4;
   }
 
   column-gap: 0;
-  padding: 8px;
 }
 
 .masonry-layout__panel {
   position: relative;
   display: inline-block;
   break-inside: avoid;
-  padding: 8px;
+  padding-bottom: 16px;
+  overflow: visible;
+}
+
+@media #{$mat-gt-xs} {
+  .masonry-layout__panel {
+    padding: 8px;
+  }
+}
+
+.masonry-layout__panel-content {
+  display: flex;
 }

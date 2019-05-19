@@ -1,9 +1,7 @@
 @import '../../styles/breakpoints';
 
 :host {
-  display: flex;
   flex-direction: row;
-  padding: 8px;
 }
 
 section {
@@ -11,16 +9,17 @@ section {
   display: flex;
   box-sizing: border-box;
   flex: 1 1 100%;
+  max-width: 100%;
 }
 
-@media #{$mat-lg} {
+@media #{$mat-gt-md} {
   section {
     flex: 1 1 60%;
     max-width: 60%;
   }
 }
 
-@media #{$mat-xl} {
+@media #{$mat-gt-lg} {
   section {
     flex: 1 1 30%;
     max-width: 30%;
@@ -28,7 +27,7 @@ section {
 }
 
 .mat-card {
-  margin: 8px;
+  margin-bottom: 16px;
 }
 
 .mat-form-field {

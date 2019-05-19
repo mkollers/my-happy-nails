@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 
+import { ImprintRoutingModule } from './imprint-routing.module';
 import { ImprintComponent } from './imprint.component';
-import { Routing } from './routes';
 
 @NgModule({
     declarations: [
@@ -11,7 +11,7 @@ import { Routing } from './routes';
     ],
     imports: [
         CommonModule,
-        Routing,
+        ImprintRoutingModule,
 
         // Material
         MatCardModule

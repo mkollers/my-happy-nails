@@ -7,12 +7,13 @@
 :host ::ng-deep router-outlet+* {
   display: flex;
   overflow: auto;
+  box-sizing: border-box;
   flex: 1 0 auto;
-  padding: 0 8px 8px 8px;
+  padding: 0 16px 16px 16px;
 }
 
 @media #{$mat-gt-md} {
   :host ::ng-deep router-outlet+* {
-    padding: 0 42px 16px 42px;
+    padding: 0 50px 16px 50px;
   }
 }
