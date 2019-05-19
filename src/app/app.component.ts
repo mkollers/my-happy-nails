@@ -32,9 +32,13 @@ export class AppComponent implements AfterViewInit {
   }
 
   getState = (outlet: RouterOutlet) => outlet.activatedRouteData.state;
-  ngAfterViewInit = () => this._configureAnalytics();
+  
+  ngAfterViewInit() {
+    this._configureAnalytics();
+  }
 
   private _configureAnalytics() {
+    console.log(42);
     // subscribe to router events and send page views to Google Analytics
     this._router.events.subscribe(event => {
       if (event instanceof NavigationEnd && isPlatformBrowser(this.platformId)) {
