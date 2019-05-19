@@ -1,8 +1,38 @@
-.wrapper {
+@import '../../styles/breakpoints';
+
+:host {
   padding: 8px;
-  .mat-card {
-    margin: 8px;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+
+@media #{$mat-lt-md} {
+  :host {
+    flex-direction: column;
   }
+}
+
+@media #{$mat-gt-sm} {
+  :host {
+    flex-direction: row;
+  }
+}
+
+.left-column, .right-column {
+  display: flex;
+  flex: 1 1 100%;
+  flex-direction: column;
+}
+
+@media #{$mat-gt-md} {
+  .left-column {
+    max-width: 45%;
+  }
+}
+
+.mat-card {
+  margin: 8px;
 }
 
 .mat-card-subtitle {
