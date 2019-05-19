@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+
+import { PreloadOnDesktopStrategy } from './shared/preload-on-desktop-strategy';
 
 const routes: Routes = [
     { path: '', loadChildren: './home/home.module#HomeModule', pathMatch: 'full', data: { state: 'home' } },
@@ -13,7 +15,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadOnDesktopStrategy })],
     exports: [RouterModule]
 })
 export class AppRoutingModule { }
