@@ -3,6 +3,7 @@ import { AfterViewInit, ChangeDetectionStrategy, Component, Inject, PLATFORM_ID 
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { filter, tap } from 'rxjs/operators';
 
 import { RouterTransition } from './shared/router-animation';
 
@@ -32,20 +33,19 @@ export class AppComponent implements AfterViewInit {
   }
 
   getState = (outlet: RouterOutlet) => outlet.activatedRouteData.state;
-  
+
   ngAfterViewInit() {
     this._configureAnalytics();
   }
 
   private _configureAnalytics() {
-    console.log(42);
     // subscribe to router events and send page views to Google Analytics
-    this._router.events.subscribe(event => {
-      if (event instanceof NavigationEnd && isPlatformBrowser(this.platformId)) {
-        ga('set', 'page', event.urlAfterRedirects);
-        ga('send', 'pageview');
-      }
-    });
+    this._router.events.pipe(
+      filter(event => event instanceof NavigationEnd),
+      filter(() => isPlatformBrowser(this.platformId)),
+      tap((event: NavigationEnd) => ga('set', 'page', event.urlAfterRedirects)),
+      tap(() => ga('send', 'pageview'))
+    ).subscribe();
   }
 
   private _registerIcons() {
