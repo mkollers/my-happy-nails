@@ -7,10 +7,7 @@
 
 $accent: mat-color($my-happy-nails-primary);
 html,
-body,
-app-root,
-.mat-sidenav-container,
-main {
+body {
     font-family: 'Open Sans', sans-serif;
     margin: 0;
     width: 100%;
@@ -54,11 +51,8 @@ a {
     color: $accent;
     text-decoration: none;
     font-weight: 600;
-    &:hover {
-        text-decoration: underline;
-    }
 }
 
-.mat-sidenav-content {
-    overflow-x: hidden!important;
+a:hover {
+    text-decoration: underline;
 }
