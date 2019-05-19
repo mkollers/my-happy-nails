@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
-import { Observable } from 'rxjs';
 
 import { HeaderService } from '../../services/header.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: '[app-header]',
