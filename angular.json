@@ -38,7 +38,6 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/my-happy-nails-theme.scss"
             ],
             "scripts": [
               "node_modules/hammerjs/hammer.js"
@@ -98,8 +97,7 @@
               "node_modules/hammerjs/hammer.js"
             ],
             "styles": [
-              "src/styles.scss",
-              "src/my-happy-nails-theme.scss"
+              "src/styles.scss"
             ],
             "assets": [
               "src/assets",

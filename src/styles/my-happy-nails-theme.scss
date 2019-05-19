@@ -44,7 +44,27 @@ $my-happy-nails-primary: mat-palette($mat-my-happy-nails-purple);
 // Create the theme object (a Sass map containing all of the palettes).
 $my-happy-nails-app-theme: mat-light-theme($my-happy-nails-primary, $my-happy-nails-primary);
 
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include angular-material-theme($my-happy-nails-app-theme);
+// Define a custom typography config that overrides the font-family as well as the
+// `headlines` and `body-1` levels.
+$my-happy-nails-typography: mat-typography-config(
+  $font-family: 'Open Sans, Arial, Helvetica, sans-serif'
+);
+
+// Override typography CSS classes (e.g., mat-h1, mat-display-1, mat-typography, etc.).
+@include mat-base-typography($my-happy-nails-typography);
+
+// Override typography for all Angular Material, including mat-base-typography and all components.
+@include angular-material-typography($my-happy-nails-typography);
+
+// ------------- General styles ---------------
+$accent: mat-color($my-happy-nails-primary);
+
+a {
+  color: $accent;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
+  text-decoration: underline;
+}

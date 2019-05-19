@@ -1,10 +1,5 @@
-// Import theming functions
-@import 'src/my-happy-nails-theme.scss';
 @import '~@angular/material/_theming.scss';
-// Import your custom theme
-$accent: mat-color($my-happy-nails-primary);
-
 
 :host ::ng-deep .mat-drawer-content {
-    overflow-x: hidden;
+  overflow-x: hidden;
 }

@@ -1,58 +1,44 @@
 // Import theming functions
-@import '~@angular/material/_theming.scss';
+@import '~@angular/material/_theming';
 // Import your custom theme
-@import 'src/my-happy-nails-theme.scss';
-
+@import './styles/my-happy-nails-theme';
 @import './styles/card';
 
-$accent: mat-color($my-happy-nails-primary);
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($my-happy-nails-app-theme);
+
 html,
 body {
-    font-family: 'Open Sans', sans-serif;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-}
-
-* {
-    font-family: 'Open Sans', sans-serif!important;
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  margin: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .mat-sidenav-container {
-    background: url(/assets/bg_xl.jpg) no-repeat center center fixed;
-    @media (max-width: 1919px) {
-        background: url(/assets/bg_lg.jpg) no-repeat center center fixed;
-    }
-    @media (max-width: 1279px) {
-        background: url(/assets/bg_md.jpg) no-repeat center center fixed;
-    }
-    @media (max-width: 959px) {
-        background: url(/assets/bg_sm.jpg) no-repeat center center fixed;
-    }
-    @media (max-width: 599px) {
-        background: url(/assets/bg_xs.jpg) no-repeat center center fixed;
-    }
-    background-size: cover!important;
+  background: url(/assets/bg_xl.jpg) no-repeat center center fixed;
+
+  @media (max-width: 1919px) {
+    background: url(/assets/bg_lg.jpg) no-repeat center center fixed;
+  }
+
+  @media (max-width: 1279px) {
+    background: url(/assets/bg_md.jpg) no-repeat center center fixed;
+  }
+
+  @media (max-width: 959px) {
+    background: url(/assets/bg_sm.jpg) no-repeat center center fixed;
+  }
+
+  @media (max-width: 599px) {
+    background: url(/assets/bg_xs.jpg) no-repeat center center fixed;
+  }
+
+  background-size: cover !important;
 }
 
-app-root {
-    mat-list.mat-list {
-        .mat-list-item,
-        .mat-list-item.mat-2-line {
-            .mat-list-item-content {
-                padding: 0;
-                height: inherit;
-            }
-        }
-    }
-}
-
-a {
-    color: $accent;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-a:hover {
-    text-decoration: underline;
+.mat-list-item .mat-list-item-content {
+  padding: 0!important;
 }
