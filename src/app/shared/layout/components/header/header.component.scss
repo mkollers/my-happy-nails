@@ -1,0 +1,33 @@
+@import '../../../../../styles/breakpoints';
+
+:host {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 64px;
+  padding: 0 16px;
+  white-space: nowrap;
+}
+
+
+@media #{$mat-gt-md} {
+  :host {
+    padding: 0 50px;
+  }
+}
+
+h1 {
+  display: inline;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+button {
+  margin-right: 8px;
+}
+
+@media #{$mat-gt-md} {
+  button {
+    display: none;
+  }
+}
