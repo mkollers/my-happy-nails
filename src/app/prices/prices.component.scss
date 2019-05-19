@@ -1,32 +1,37 @@
 .mat-card {
-    padding: 16px;
-    width: 100%;
+  padding: 16px;
+  width: 100%;
 }
 
 .masonry-layout {
-    column-count: 1;
-    @media (min-width: 600px) {
-        column-count: 2;
-    }
-    @media (min-width: 1280px) {
-        column-count: 3;
-    }
-    column-gap: 0;
-    padding: 8px;
+  column-count: 1;
+
+  @media (min-width: 600px) {
+    column-count: 2;
+  }
+
+  @media (min-width: 1280px) {
+    column-count: 3;
+  }
+
+  column-gap: 0;
+  padding: 8px;
 }
 
 .masonry-layout__panel {
-    break-inside: avoid;
-    padding: 8px;
+  break-inside: avoid;
+  padding: 8px;
 }
 
 .masonry-layout__panel-content {
-    display: flex;
+  display: flex;
 }
 
 .mat-list .mat-list-item.mat-2-line {
-    height: 48px;
-    .cost {
-        white-space: nowrap;
-    }
+  height: 48px;
+}
+
+.cost {
+  white-space: nowrap;
+  order: 999;
 }

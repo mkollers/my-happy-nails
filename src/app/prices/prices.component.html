@@ -1,15 +1,33 @@
 <div class="masonry-layout">
-  <div class="masonry-layout__panel" *ngFor="let category of services">
+  <div class="masonry-layout__panel">
     <div class="masonry-layout__panel-content">
-      <mat-card>
-        <mat-card-title>
-          <h2>{{ category.name }}</h2>
-        </mat-card-title>
+      <mat-card class="mat-elevation-z8">
+        <h2 mat-card-title>Kunstnägel</h2>
         <mat-list>
-          <mat-list-item *ngFor="let service of category.services" itemscope itemprop="makesOffer" itemtype="http://schema.org/Offer">
-            <h3 mat-line itemprop="name">{{ service.name }}</h3>
-            <p mat-line itemprop="description">{{ service.description }}</p>
-            <p class="cost" fxFlexOrder="999" itemprop="price">{{ service.cost }}</p>
+          <mat-list-item itemscope itemprop="makesOffer" itemtype="http://schema.org/Offer">
+            <h3 mat-line itemprop="name">Naturnagelverstärkung</h3>
+            <p mat-line itemprop="description">über die Fingerkuppe</p>
+            <p class="cost" itemprop="price">40,00€</p>
+          </mat-list-item>
+          <mat-list-item itemscope itemprop="makesOffer" itemtype="http://schema.org/Offer">
+            <h3 mat-line itemprop="name">Neumodellage</h3>
+            <p mat-line itemprop="description">mit Tips oder Schablone</p>
+            <p class="cost" itemprop="price">ab 50,00€</p>
+          </mat-list-item>
+          <mat-list-item itemscope itemprop="makesOffer" itemtype="http://schema.org/Offer">
+            <h3 mat-line itemprop="name">Auffüllen</h3>
+            <p mat-line itemprop="description">bis 6 Wochen</p>
+            <p class="cost" itemprop="price">40,00€</p>
+          </mat-list-item>
+          <mat-list-item itemscope itemprop="makesOffer" itemtype="http://schema.org/Offer">
+            <h3 mat-line itemprop="name">Modellage entfernen</h3>
+            <p mat-line itemprop="description"></p>
+            <p class="cost" itemprop="price">25,00€</p>
+          </mat-list-item>
+          <mat-list-item itemscope itemprop="makesOffer" itemtype="http://schema.org/Offer">
+            <h3 mat-line itemprop="name">Reparatur</h3>
+            <p mat-line itemprop="description">pro Nagel</p>
+            <p class="cost" itemprop="price">8,00€</p>
           </mat-list-item>
         </mat-list>
       </mat-card>
@@ -17,21 +35,66 @@
   </div>
   <div class="masonry-layout__panel">
     <div class="masonry-layout__panel-content">
-      <mat-card>
-        <mat-card-title>
-          <h2>Hinweis zu Haltbarkeit und Gesundheit</h2>
-        </mat-card-title>
+      <mat-card class="mat-elevation-z8">
+        <h2 mat-card-title>Weitere Leistungen</h2>
+        <mat-list>
+          <mat-list-item itemscope itemprop="makesOffer" itemtype="http://schema.org/Offer">
+            <h3 mat-line itemprop="name">Basic Maniküre</h3>
+            <p mat-line itemprop="description">Nagelhaut entfernen, kürzen + formen, polieren</p>
+            <p class="cost" itemprop="price">12,00€</p>
+          </mat-list-item>
+          <mat-list-item itemscope itemprop="makesOffer" itemtype="http://schema.org/Offer">
+            <h3 mat-line itemprop="name">Klassische Maniküre</h3>
+            <p mat-line itemprop="description">Basic + Handbad, Peeling + Massage</p>
+            <p class="cost" itemprop="price">20,00€</p>
+          </mat-list-item>
+          <mat-list-item itemscope itemprop="makesOffer" itemtype="http://schema.org/Offer">
+            <h3 mat-line itemprop="name">Handbad/Peeling</h3>
+            <p mat-line itemprop="description">+ Handmassage</p>
+            <p class="cost" itemprop="price">15,00€</p>
+          </mat-list-item>
+        </mat-list>
+      </mat-card>
+    </div>
+  </div>
+  <div class="masonry-layout__panel">
+    <div class="masonry-layout__panel-content">
+      <mat-card class="mat-elevation-z8">
+        <h2 mat-card-title>Rabatte</h2>
+        <mat-list>
+          <mat-list-item itemscope itemprop="makesOffer" itemtype="http://schema.org/Offer">
+            <h3 mat-line itemprop="name">Neukunde</h3>
+            <p mat-line itemprop="description">auf alle Nagelmodellagen</p>
+            <p class="cost" itemprop="price">30%</p>
+          </mat-list-item>
+          <mat-list-item itemscope itemprop="makesOffer" itemtype="http://schema.org/Offer">
+            <h3 mat-line itemprop="name">Kunden anwerben</h3>
+            <p mat-line itemprop="description">für den Werbenden</p>
+            <p class="cost" itemprop="price">30%</p>
+          </mat-list-item>
+        </mat-list>
+      </mat-card>
+    </div>
+  </div>
+  <div class="masonry-layout__panel">
+    <div class="masonry-layout__panel-content">
+      <mat-card class="mat-elevation-z8">
+        <h2 mat-card-title>Hinweis zu Haltbarkeit und Gesundheit</h2>
         <article>
-          <p>Bitte setzen Sie Ihren Nägeln mindestens drei Stunden vor einem Nagelstudiotermin keinem Wasser oder Handcremes
+          <p>Bitte setzt eure Nägeln mindestens drei Stunden vor einem Nagelstudiotermin keinem Wasser oder
+            Handcremes
             mehr aus. Beides kann die Haltbarkeit erheblich negativ beeinflussen.
-            <br/>
-            <br/> Das Auffüllen der Nagelmodellage sollte je nach Wachstum nach drei bis vier Wochen erfolgen. Ein abgebrochener
+            <br />
+            <br /> Das Auffüllen der Nagelmodellage sollte je nach Wachstum nach drei bis vier Wochen erfolgen. Ein
+            abgebrochener
             Nagel sollte nicht wieder aufgeklebt werden, da es zu einer Pilzinfektion kommen kann.
-            <br/>
-            <br/> Die Gelnägel können selbstverständlich auch lackiert werden, bitte beachten Sie nur beim ablackieren einen acetonfreien
-            Nagellackentferner zu benutzen. Falls Sie mit scharfen Reinigungsmitteln arbeiten, benutzen Sie bitte Handschuhe.
-            <br/>
-            <br/> Falls Sie Ihre Gelnägel einmal nicht mehr haben möchten, feilen Sie diese bitte ab oder vereinbaren Sie einen
+            <br />
+            <br /> Die Gelnägel können selbstverständlich auch lackiert werden, bitte beachtet nur beim ablackieren
+            einen acetonfreien
+            Nagellackentferner zu benutzen. Falls ihr mit scharfen Reinigungsmitteln arbeitet, benutzt bitte
+            Handschuhe.
+            <br />
+            <br /> Falls ihr Gelnägel einmal nicht mehr haben möchten, feilt diese bitte ab oder vereinbart einen
             Termin mit mir. Das Abreissen der Nägel kann zu einer Verletzung der eigenen Nagelplatte führen.</p>
         </article>
       </mat-card>
@@ -39,20 +102,22 @@
   </div>
   <div class="masonry-layout__panel">
     <div class="masonry-layout__panel-content">
-      <mat-card>
-        <mat-card-title>
-          <h2>Produkte & Hersteller</h2>
-        </mat-card-title>
+      <mat-card class="mat-elevation-z8">
+        <h2 mat-card-title>Produkte & Hersteller</h2>
         <article>
           <p>Ich verwende fast ausschließlich die Qualitätsprodukte der Firma
             <a title="Shop von LCN" href="http://www.lcn-shop.de/">LCN (Light Concept Nails) Wilde Cosmetics</a>.
-            <br/>
-            <br/> Nagelmodellage Gele von LCN bieten höchstmögliche Bioverträglichkeit und sind frei von Tierversuchen. LCN-Gele
-            sind gemäß den neuesten Regularien der Europäischen Kosmetikverordnung ausgerichtet und werden in der hauseigenen
+            <br />
+            <br /> Nagelmodellage Gele von LCN bieten höchstmögliche Bioverträglichkeit und sind frei von Tierversuchen.
+            LCN-Gele
+            sind gemäß den neuesten Regularien der Europäischen Kosmetikverordnung ausgerichtet und werden in der
+            hauseigenen
             Qualitätssicherung ständig überprüft.
-            <br/>
-            <br/>Seit 30 Jahren entwickelt LCN Gele für die Nagelmodellage und Pflegeprodukte von ausgewählter Qualität. Das Unternehmen
-            vertreibt weltweit Produkte aus den Bereichen Hand-, Nagel- und Fußpflege mit höchstem Anspruch an Qualität und
+            <br />
+            <br />Seit 30 Jahren entwickelt LCN Gele für die Nagelmodellage und Pflegeprodukte von ausgewählter
+            Qualität. Das Unternehmen
+            vertreibt weltweit Produkte aus den Bereichen Hand-, Nagel- und Fußpflege mit höchstem Anspruch an Qualität
+            und
             exklusiven Inhaltsstoffen. Das Angebot ist vielseitig und modisch immer ganz up to date.</p>
         </article>
       </mat-card>
@@ -60,15 +125,16 @@
   </div>
   <div class="masonry-layout__panel">
     <div class="masonry-layout__panel-content">
-      <mat-card>
-        <mat-card-title>
-          <h2>Hinweis bei Fremdmaterial</h2>
-        </mat-card-title>
+      <mat-card class="mat-elevation-z8">
+        <h2 mat-card-title>Hinweis bei Fremdmaterial</h2>
         <article>
-          <p>Da ich bei Kunden, welche vorher in einem anderen Nagelstudio waren nicht weiß, welche Produkte verwendet wurden,
-            oder wie diese mit meinen Materialien reagieren, kann ich keine Garantie für die Haftung der Nägel übernehmen.
-            <br/>
-            <br/>Selbstverständlich ist es allerdings auch in meinem Interesse für die bestmögliche Qualität Ihrer Nägel zu sorgen.</p>
+          <p>Da ich bei Kunden, welche vorher in einem anderen Nagelstudio waren nicht weiß, welche Produkte verwendet
+            wurden,
+            oder wie diese mit meinen Materialien reagieren, kann ich keine Garantie für die Haftung der Nägel
+            übernehmen.
+            <br />
+            <br />Selbstverständlich ist es allerdings auch in meinem Interesse für die bestmögliche Qualität eurer
+            Nägel zu sorgen.</p>
         </article>
       </mat-card>
     </div>
