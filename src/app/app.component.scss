@@ -1,5 +1,3 @@
-@import '~@angular/material/_theming.scss';
-
-:host ::ng-deep .mat-drawer-content {
-  overflow-x: hidden;
+#content {
+  min-height: calc(100% - 64px - 94px);
 }
