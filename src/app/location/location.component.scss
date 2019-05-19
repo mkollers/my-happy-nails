@@ -1,13 +1,39 @@
-.wrapper {
-    padding: 8px;
-    .mat-card {
-        margin: 8px;
-        iframe {
-            width: 100%;
-        }
-    }
+@import '../../styles/breakpoints';
+
+:host {
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+}
+
+@media #{$mat-lt-xl} {
+  :host {
+    flex-direction: column;
+  }
+}
+
+.mat-card {
+  margin: 8px;
+  flex: 1 1 100%;
+  box-sizing: border-box;
+}
+
+@media #{$mat-gt-md} {
+  .mat-card {
+    max-width: 70%;
+  }
+}
+
+@media #{$mat-gt-lg} {
+  .mat-card {
+    max-width: 50%;
+  }
+}
+
+iframe {
+  width: 100%;
 }
 
 #map {
-    height: 400px;
+  height: 400px;
 }

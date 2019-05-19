@@ -1,24 +1,18 @@
-<div class="wrapper" fxLayout.gt-md="row" fxLayout="column" fxLayoutWrap>
-  <mat-card fxFlex="none" fxFlex.lg="70%" fxFlex.xl="50%" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-    <div class="card-header">
-      <iframe height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" [src]="iFrameUrl"></iframe>
-    </div>
-    <mat-card-title>
-      <h2>Wo findest du mich?</h2>
-    </mat-card-title>
-    <span itemprop="streetAddress">{{ address?.street }} {{ address?.houseNumber }}</span><br />
-    <span><span itemprop="postalCode">{{ address?.zip }}</span> <span itemprop="addressLocality">{{ address?.city }}</span></span><br
-    /><br />
-    <span>Bitte klingel bei "Kollers & Hauschild".</span>
-  </mat-card>
-  <mat-card fxFlex="none" fxFlex.lg="70%" fxFlex.xl="50%">
-    <div class="card-header">
-      <div id="map"></div>
-    </div>
-    <mat-card-title>
-      <h2>Parkplätze</h2>
-    </mat-card-title>
-    <p>Kostenlose öffentliche Parkplätze findest du bei den eingezeichneten Flächen. Der Hauseingang ist sowohl vom Falkensteiner
-      Weg, als auch von der Eschborner Straße aus zugänglich.</p>
-  </mat-card>
-</div>
+<mat-card class="mat-elevation-z8" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+  <div mat-card-image>
+    <iframe height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+      src="https://maps.google.de/maps/embed/v1/place?key=AIzaSyBToX1Zbmmm2U9uQyD-ChRl63cMGkZmQY8&q=My+Happy+Nails"></iframe>
+  </div>
+  <h2 mat-card-title>Wo findet ihr mich?</h2>
+  <span itemprop="streetAddress">Falkensteiner Weg 10</span><br />
+  <span><span itemprop="postalCode">65843</span> <span itemprop="addressLocality">Sulzbach</span></span><br /><br />
+  <span>Bitte klingelt bei „Kollers & Hauschild". Ein kleiner „My Happy Nails"-Aufkleber befindet sich unter der
+    Klingel.</span>
+</mat-card>
+<mat-card class="mat-elevation-z8">
+  <div mat-card-image id="map"></div>
+  <h2 mat-card-title>Parkplätze</h2>
+  <p>Kostenlose öffentliche Parkplätze findet ihr bei den eingezeichneten Flächen. Der Hauseingang ist sowohl vom
+    Falkensteiner Weg, als auch von der Eschborner Straße aus zugänglich. Bitte stellt euch nicht auf die
+    Anwohnerparkplätze vor der Tür.</p>
+</mat-card>

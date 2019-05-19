@@ -1,10 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
 
+import { LocationRoutingModule } from './location-routing.module';
 import { LocationComponent } from './location.component';
-import { Routing } from './routes';
 
 @NgModule({
     declarations: [
@@ -12,8 +11,9 @@ import { Routing } from './routes';
     ],
     imports: [
         CommonModule,
-        Routing,
-        FlexLayoutModule,
+        LocationRoutingModule,
+
+        // Material
         MatCardModule
     ]
 })
