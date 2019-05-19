@@ -25,30 +25,7 @@ export const INITIAL_STORE_DATA: StoreData = {
         lng: 8.5351918
     },
     photos: [],
-    services: [{
-        name: 'Kunstnägel',
-        services: [{
-            name: 'Naturnagelverstärkung',
-            description: 'über die Fingerkuppe',
-            cost: '40,00€'
-        }, {
-            name: 'Neumodellage',
-            description: 'mit Tips oder Schablone',
-            cost: 'ab 50,00€'
-        }, {
-            name: 'Auffüllen',
-            description: 'bis 6 Wochen',
-            cost: '40,00€'
-        }, {
-            name: 'Modellage entfernen',
-            description: '',
-            cost: '25,00€'
-        }, {
-            name: 'Reparatur',
-            description: 'pro Nagel',
-            cost: '8,00€'
-        }]
-    }, {
+    services: [ {
         name: 'Weitere Leistungen',
         services: [{
             name: 'Basic Maniküre',

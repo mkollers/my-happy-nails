@@ -15,3 +15,14 @@
 
 # Node.js dependencies:
 node_modules/
+webpack.config.js
+src/
+e2e/
+tsconfig.json
+readme.md
+ssl/
+tslint.json
+LICENSE
+.editorconfig
+.dockerignore
+.gitignore

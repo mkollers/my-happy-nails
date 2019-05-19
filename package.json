@@ -6,7 +6,7 @@
   "scripts": {
     "ng": "ng",
     "build": "ng build -c production",
-    "start": "node dist/server",
+    "start": "node --max_old_space_size=4096 dist/server",
     "test": "ng test --code-coverage --single-run",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -15,7 +15,7 @@
     "serve:ssr": "node dist/server",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
     "build:client-and-server-bundles": "ng build -c production && ng run my-happy-nails:server:production",
-    "deploy": "npm run build && npm run build:ssr && gcloud app deploy ../app.yaml --project my-happy-nails"
+    "deploy": "npm run build:ssr && gcloud app deploy app.yaml --project my-happy-nails"
   },
   "private": true,
   "dependencies": {
