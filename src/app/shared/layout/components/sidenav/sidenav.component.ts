@@ -14,7 +14,7 @@ import { SubSink } from 'subsink';
 export class SidenavComponent implements OnDestroy {
   private _subs = new SubSink();
   mode: 'over' | 'push' | 'side' = 'side';
-  opened = true;
+  opened = false;
 
   @ViewChild(MatSidenav) sidenav: MatSidenav;
 
