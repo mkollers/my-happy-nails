@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 
 import { HeaderService } from '../shared/layout/services/header.service';
@@ -6,7 +6,8 @@ import { HeaderService } from '../shared/layout/services/header.service';
 @Component({
   selector: 'app-privacy',
   templateUrl: './privacy.component.html',
-  styleUrls: ['./privacy.component.scss']
+  styleUrls: ['./privacy.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PrivacyComponent {
 

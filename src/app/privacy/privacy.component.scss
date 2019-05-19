@@ -1,16 +1,44 @@
-.wrapper {
-    padding: 8px;
-    .mat-card {
-      margin: 8px;
-    }
+@import '../../styles/breakpoints';
+
+:host {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+}
+
+.left-column,
+.right-column {
+  box-sizing: border-box;
+  flex: 1 1 100%;
+  max-width: 50%;
+}
+
+@media #{$mat-lt-lg} {
+  :host {
+    flex-direction: column;
   }
-  
-  .mat-card-subtitle {
-    font-weight: 600;
-    color: #000;
-    margin: 0;
+
+  .left-column,
+  .right-column {
+    max-width: 100%;
   }
-  
-  p {
-      margin-top: 0;
-  }
+}
+
+.mat-card {
+  margin: 8px;
+}
+
+.mat-card-subtitle {
+  font-weight: 600;
+  color: #000;
+  margin: 0;
+}
+
+p {
+  margin-top: 0;
+}
+
+a {
+  word-break: break-all;
+}
