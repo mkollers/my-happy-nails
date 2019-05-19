@@ -3,6 +3,10 @@
   opacity: 0.98;
 }
 
+main {
+  height: 100%;
+}
+
 #logo {
   display: block;
   margin: 16px auto;
