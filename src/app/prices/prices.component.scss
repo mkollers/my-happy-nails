@@ -1,16 +1,19 @@
+@import '../../styles/breakpoints.scss';
+
 .mat-card {
   padding: 16px;
-  width: 100%;
+  flex: 0 1 100%;
+  max-width: calc(100% - 32px);
 }
 
 .masonry-layout {
   column-count: 1;
 
-  @media (min-width: 600px) {
+  @media #{$mat-sm} {
     column-count: 2;
   }
 
-  @media (min-width: 1280px) {
+  @media #{$mat-gt-md} {
     column-count: 3;
   }
 
@@ -31,7 +34,11 @@
   height: 48px;
 }
 
+:host ::ng-deep .mat-list-text {
+  width: calc(100% - 73px)!important;
+}
+
 .cost {
-  white-space: nowrap;
   order: 999;
+  text-align: right;
 }
