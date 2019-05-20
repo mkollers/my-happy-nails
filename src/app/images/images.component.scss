@@ -31,6 +31,7 @@ img {
   break-inside: avoid;
   padding-bottom: 16px;
   overflow: visible;
+  transition: all 0.3s;
 }
 
 @media #{$mat-gt-xs} {
@@ -39,6 +40,3 @@ img {
   }
 }
 
-.masonry-layout__panel-content {
-  display: flex;
-}
