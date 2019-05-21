@@ -15,6 +15,7 @@ enableProdMode();
 // Express server
 const app = express();
 app.use(compression());
+app.disable('x-powered-by');
 
 const PORT = process.env.PORT || 4200;
 const DIST_FOLDER = join(process.cwd(), 'dist/browser');
