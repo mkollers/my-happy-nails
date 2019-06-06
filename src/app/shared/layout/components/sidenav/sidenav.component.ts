@@ -16,7 +16,7 @@ export class SidenavComponent implements OnDestroy {
   mode: 'over' | 'push' | 'side' = 'side';
   opened = false;
 
-  @ViewChild(MatSidenav) sidenav: MatSidenav;
+  @ViewChild(MatSidenav, { static: true }) sidenav: MatSidenav;
 
   constructor(
     private _changeDetectorRef: ChangeDetectorRef,
