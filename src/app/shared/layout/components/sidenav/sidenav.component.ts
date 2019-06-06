@@ -3,7 +3,6 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, ViewC
 import { MatSidenav } from '@angular/material/sidenav';
 import { NavigationEnd, Router } from '@angular/router';
 import { distinctUntilChanged, filter, map, tap } from 'rxjs/operators';
-import { SubSink } from 'subsink';
 
 @Component({
   selector: 'app-sidenav',
@@ -12,7 +11,7 @@ import { SubSink } from 'subsink';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SidenavComponent implements OnDestroy {
-  private _subs = new SubSink();
+  private _subs = [];
   mode: 'over' | 'push' | 'side' = 'side';
   opened = false;
 
@@ -24,7 +23,7 @@ export class SidenavComponent implements OnDestroy {
     router: Router
   ) {
     // subscribe event which will be triggered every time, the screen-size switches between small and large
-    this._subs.add(
+    this._subs.push(
       breakpointObserver.observe([Breakpoints.XSmall, Breakpoints.Small]).pipe(
         map(state => state.matches),
         distinctUntilChanged(),
@@ -32,17 +31,17 @@ export class SidenavComponent implements OnDestroy {
       ).subscribe()
     );
 
-    this._subs.add(
+    this._subs.push(
       router.events.pipe(
         filter(e => e instanceof NavigationEnd), // only on routing
-        filter(e => this.mode === 'over'), // only on smalls screens
+        filter(() => this.mode === 'over'), // only on smalls screens
         tap(() => this.sidenav.close()),
         tap(() => _changeDetectorRef.markForCheck())
       ).subscribe()
     );
   }
 
-  ngOnDestroy = () => this._subs.unsubscribe();
+  ngOnDestroy = () => this._subs.forEach(sub => sub.unsubscribe());
 
   toggle() {
     this.sidenav.toggle();
