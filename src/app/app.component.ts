@@ -27,7 +27,7 @@ export class AppComponent implements AfterViewInit {
     private _router: Router
   ) {
     if (isPlatformServer(this.platformId)) {
-      this._domain = `http://localhost:${process.env.PORT}/`;
+      this._domain = `http://localhost:${process.env.PORT || 4200}/`;
     }
     this._registerIcons();
   }
