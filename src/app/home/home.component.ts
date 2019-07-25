@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   ) {
     this._setSeoData();
 
-    const end = new Date(2019, 4, 13);
+    const end = new Date(2019, 8, 8);
     const now = new Date();
     if (now < end) {
       this.showHolidays = true;
