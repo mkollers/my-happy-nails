@@ -15,14 +15,10 @@
  * import for `ngExpressEngine`.
  */
 import 'zone.js/dist/zone-node';
-import {enableProdMode} from '@angular/core';
 
-import * as express from 'express';
-import {join} from 'path';
 import * as compression from 'compression';
-
-// Faster server renders w/ Prod mode (dev mode never needed)
-enableProdMode();
+import * as express from 'express';
+import { join } from 'path';
 
 // Express server
 const app = express();
@@ -63,7 +59,7 @@ app.get('*.*', express.static(DIST_FOLDER, {
 }));
 
 // All regular routes use the Universal engine
-app.get('*', (req, res) => {
+app.get('*', (req: express.Request, res: express.Response) => {
   res.render('index', { req });
 });
 

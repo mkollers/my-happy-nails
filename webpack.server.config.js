@@ -23,6 +23,7 @@ module.exports = {
     filename: '[name].js'
   },
   module: {
+    noParse: /polyfills-.*\.js/,
     rules: [
       { test: /\.ts$/, loader: 'ts-loader' },
       {
